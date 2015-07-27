@@ -284,28 +284,40 @@ function bakeApp(input) {
     });
   };
 
-  var joinCollections = function(sentence) {
-// please join customers to sales with Customer Id
-    var coll1name = getWordBetweenWords(sentence, "join", "to");
+  var lookupCollections = function(sentence) {
+// when editing sales lookup customers using Customer Id
+    var coll1name = getWordBetweenWords(sentence, "editing", "lookup");
     if(!coll1name) return;
 
     var collection1 = getOutputCollection(coll1name);
     if(!collection1) return;
 
-    var coll2name = getWordBetweenWords(sentence, "to", "with");
+    var coll2name = getWordBetweenWords(sentence, "lookup", "using");
     if(!coll2name) return;
 
     var collection2 = getOutputCollection(coll2name);
     if(!collection2) return;
 
-    var field = getRestAfterWord(sentence, "with");
-    if(!field) return;
+    var fieldname = getRestAfterWord(sentence, "using");
+    if(!fieldname) return;
 
-      var colname = field.replace(" ", "_").replace("-", "_");
-      collection1.joins.push({
-        to: coll2name,
-        field: colname.toLowerCase()
-      });
+    var fieldname = fieldname.replace(" ", "_").replace("-", "_").toLowerCase();
+    _.each(collection1.fields, function(field) {
+      if (field.name === fieldname) {
+		field.required = true;
+		field.input = "select";
+		field.lookup_query = {
+			name: coll2name,
+			collection: coll2name,
+			filter: {}
+			};
+		field.lookup_field = "name";
+		field.lookup_key = fieldname;
+		field.show_in_dataview = false;
+		field.show_in_read_only_form = false;
+
+	  }
+	});
   };
 
   var connectCollectionToMosquitto = function(sentence) {
@@ -478,7 +490,7 @@ function bakeApp(input) {
   _.each(sentences, function(sentence) {
     createCollections(sentence);
     addFieldsToCollection(sentence);
-    joinCollections(sentence);
+    lookupCollections(sentence);
     connectCollectionToMosquitto(sentence);
     createPages(sentence);
     addComponentsToPage(sentence);
