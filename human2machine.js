@@ -121,6 +121,16 @@ function bakeApp(input) {
     return index;
   };
 
+  var getRestAfterWord = function(str, word) {
+    var res = "";
+    var index = findSubString(str, word);
+    if(index < 0) {
+    } else {
+      res = str.substring(index + word.length + 1)
+    }
+    return res;
+  };
+
   var getWordAfterWord = function(str, word) {
     var res = "";
     var words = splitStr(str, " ");
@@ -248,6 +258,7 @@ function bakeApp(input) {
 
         output.application.collections.push({
             name: name,
+            joins: [],
             fields: []
         });
     });
@@ -271,6 +282,30 @@ function bakeApp(input) {
         title: title
       });
     });
+  };
+
+  var joinCollections = function(sentence) {
+// please join customers to sales with Customer Id
+    var coll1name = getWordBetweenWords(sentence, "join", "to");
+    if(!coll1name) return;
+
+    var collection1 = getOutputCollection(coll1name);
+    if(!collection1) return;
+
+    var coll2name = getWordBetweenWords(sentence, "to", "with");
+    if(!coll2name) return;
+
+    var collection2 = getOutputCollection(coll2name);
+    if(!collection2) return;
+
+    var field = getRestAfterWord(sentence, "with");
+    if(!field) return;
+
+      var colname = field.replace(" ", "_").replace("-", "_");
+      collection1.joins.push({
+        to: coll2name,
+        field: colname.toLowerCase()
+      });
   };
 
   var connectCollectionToMosquitto = function(sentence) {
@@ -443,6 +478,7 @@ function bakeApp(input) {
   _.each(sentences, function(sentence) {
     createCollections(sentence);
     addFieldsToCollection(sentence);
+    joinCollections(sentence);
     connectCollectionToMosquitto(sentence);
     createPages(sentence);
     addComponentsToPage(sentence);
