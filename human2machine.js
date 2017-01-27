@@ -22,13 +22,13 @@ human2machine = function(input) {
     }
   };
 
-var getOutputPage = function(pageName) {
-  return _.find(output.application.free_zone.pages, function(page) { return page.name == pageName; });
-};
+  var getOutputPage = function(pageName) {
+    return _.find(output.application.free_zone.pages, function(page) { return page.name == pageName; });
+  };
 
-var getOutputCollection = function(collectionName) {
-  return _.find(output.application.collections, function(collection) { return collection.name == collectionName; });
-};
+  var getOutputCollection = function(collectionName) {
+    return _.find(output.application.collections, function(collection) { return collection.name == collectionName; });
+  };
 
   var getOutputQuery = function(queryName) {
     return _.find(output.application.queries, function(query) { return query.name == queryName; });
@@ -519,8 +519,15 @@ var getOutputCollection = function(collectionName) {
       if(!pageName) return;
       var page = getOutputPage(pageName);
       if(!page) {
-        if(pageName == "home") page = getOutputPage("home_page");
-        if(!page) return;
+        if(pageName == "home") {
+          page = getOutputPage("home");
+          if(!page) {
+            page = getOutputPage("home_page");
+          }
+        }
+        if(!page) {
+          return;
+        }
       }
 
       // which component?
