@@ -1,0 +1,14 @@
+#Sub pages
+
+Menu:Top
+	Home
+	Customers
+
+Pages
+	Home: Jumbotron: Welcome to my brave new world!
+	Customers: CRUD
+
+Collections:
+	Customers: Name,Phone,E-mail
+
+

@@ -1,0 +1,53 @@
+New syntax for what was human2ide
+
+Menu:Top
+	Home
+	Products
+	Services
+	Customers(Private)
+	Invoices(Private)
+	
+Menu:Left:Hide
+
+Menu:Right:Hide
+	Settings
+	Chat
+
+Collections
+	Products: SKU,Product Name,Category,Size,Colour,PriceOn Special Flag,Description
+	Services: SKU,Service Name,Type,Rate,Description
+	Customers: Customer Id,Customer Name,Email,Address
+	Invoices: Invoice No,Customer Id,Items Total, Discount,Tax Percentage,Tax Amount, Total Amount
+	InvoiceItem: Invoice No,Item No, SKU, Qty, Price, Total
+	Specials: (Products.On Special Flag=1)
+
+Joins
+	Invoices(Invoice No): InvoiceItem(Invoice No)
+
+Pages
+	Home: Jumbotron: Welcome to my brave new world!
+	Products: CRUD: Products
+	Services: CRUD: 
+	Customers: CRUD
+	Invoices: CRUD 
+	Specials: Specials Wall
+
+Popups
+	Chat
+	Settings
+
+Components
+	Specials Wall: 
+
+Accounts
+	UI
+	Password
+	Facebook
+	Twitter
+
+Packages
+	fortawesome:fontawesome
+
+Templating:
+	React
+	Blaze

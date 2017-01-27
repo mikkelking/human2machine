@@ -1,41 +1,26 @@
-#! /usr/bin/env node
+if(typeof require != "undefined") _ = require("underscore");
 
-/*
-  Human to machine converter - written in rush by Petar Korponaić <petar.korponaic@gmail.com>
+human2machine = function(input) {
+  var output = {
+    application: {
+      collections: [],
+      queries: [],
 
-  Stay tuned: more functionality, docs and code comments will be added soon (4AM here :)
-*/
-
-var _ = require("underscore");
-var util = require('util');
-var fs = require('fs');
-var path = require('path');
-
-var args = process.argv.slice(2);
-
-if(args.length < 1) {
-  console.log("Invalid arguments.");
-  console.log("Please provide at least input file (output file is optional).");
-  process.exit(1);
-}
-
-var output = {
-  application: {
-    collections: [],
-
-    free_zone: {
-      pages: [],
-      menus: [
-        {
-          name: "main_menu",
-          class: "nav navbar-nav",
-					items: [
-          ]
-        }
-      ]
+      free_zone: {
+        pages: [],
+        components: [
+          {
+            name: "main_menu",
+            type: "menu",
+            class: "nav navbar-nav",
+            items: [
+            ]
+          }
+        ]
+      },
+      packages: { meteor: [], npm: [] }
     }
-  }
-};
+  };
 
 var getOutputPage = function(pageName) {
   return _.find(output.application.free_zone.pages, function(page) { return page.name == pageName; });
@@ -45,7 +30,10 @@ var getOutputCollection = function(collectionName) {
   return _.find(output.application.collections, function(collection) { return collection.name == collectionName; });
 };
 
-function bakeApp(input) {
+  var getOutputQuery = function(queryName) {
+    return _.find(output.application.queries, function(query) { return query.name == queryName; });
+  };
+
   var numbers = {
       'one': 1,
       'two': 2,
@@ -236,11 +224,10 @@ function bakeApp(input) {
             name: name,
             title: title,
             pages: [],
-            menus: [],
             components: []
         });
 
-        output.application.free_zone.menus[0].items.push({
+        output.application.free_zone.components[0].items.push({
             title: title,
             route: name
         });
@@ -377,15 +364,23 @@ function bakeApp(input) {
       }
     }
 
-    var dataView = {
-      name: "list",
-      type: "dataview",
-      query: {
-        name: collectionName,
+    var queryName = collectionName;
+    var query = getOutputQuery(queryName);
+    if(!query) {
+      query = {
+        name: queryName,
         collection: collectionName,
         filter: {},
         options: {}
-      }
+      };
+      
+      output.application.queries.push(query);
+    }
+
+    var dataView = {
+      name: "list",
+      type: "dataview",
+      query_name: queryName
     };
 
     page.components.push(dataView);
@@ -395,15 +390,51 @@ function bakeApp(input) {
     var collectionName = getWordBetweenWords(sentence, "for", "collection");
     if(!getOutputCollection(collectionName)) return;
 
-    var dataView = {
-      name: "list",
-      type: "dataview",
-      query: {
-        name: collectionName,
+    var viewQueryName = collectionName;
+    var viewQuery = getOutputQuery(viewQueryName);
+    if(!viewQuery) {
+      viewQuery = {
+        name: viewQueryName,
         collection: collectionName,
         filter: {},
         options: {}
-      },
+      };
+      
+      output.application.queries.push(viewQuery);
+    }
+
+    var insertQueryName = collectionName + "_empty";
+    var insertQuery = getOutputQuery(insertQueryName);
+    if(!insertQuery) {
+      insertQuery = {
+        name: insertQueryName,
+        collection: collectionName,
+        filter: { _id: null },
+        options: {},
+        find_one: true
+      };
+      
+      output.application.queries.push(insertQuery);
+    }
+
+    var editQueryName = collectionName + "_selected";
+    var editQuery = getOutputQuery(editQueryName);
+    if(!editQuery) {
+      editQuery = {
+        name: editQueryName,
+        collection: collectionName,
+        filter: { _id: ":customerId" },
+        options: {},
+        find_one: true
+      };
+      
+      output.application.queries.push(editQuery);
+    }
+
+    var dataView = {
+      name: "list",
+      type: "dataview",
+      query_name: viewQueryName,
       insert_route: page.name + ".insert",
       edit_route: page.name + ".edit",
       edit_route_params: [{ name: "customerId", value: "this._id" }]
@@ -419,13 +450,7 @@ function bakeApp(input) {
       type: "form",
       mode: "insert",
       title: "Insert",
-      query: {
-        name: collectionName + "_empty",
-        collection: collectionName,
-        filter: { _id: null },
-        options: {},
-        find_one: true
-      },
+      query_name: insertQueryName,
       submit_route: page.name,
       cancel_route: page.name
     };
@@ -442,13 +467,7 @@ function bakeApp(input) {
       type: "form",
       mode: "update",
       title: "Edit",
-      query: {
-        name: collectionName + "_selected",
-        collection: collectionName,
-        filter: { _id: ":customerId" },
-        options: {},
-        find_one: true
-      },
+      query_name: editQueryName,
       submit_route: page.name,
       cancel_route: page.name
     };
@@ -457,6 +476,42 @@ function bakeApp(input) {
     page.components.push(dataView);
     page.pages.push(insertPage);
     page.pages.push(editPage);
+  };
+
+  var addPhotoblogToPage = function(sentence, page) {
+    var collectionName = getWordBetweenWords(sentence, "in", "collection");
+    if(!collectionName) {
+      var collectionName = getWordBetweenWords(sentence, "into", "collection");
+    }
+    if(!getOutputCollection(collectionName)) return;
+
+    var viewQueryName = collectionName;
+    var viewQuery = getOutputQuery(viewQueryName);
+    if(!viewQuery) {
+      viewQuery = {
+        name: viewQueryName,
+        collection: collectionName,
+        filter: {},
+        options: { sort: { createdAt: -1 } }
+      };
+      
+      output.application.queries.push(viewQuery);
+    }
+
+    var photoBlog = {
+            name: "photo_blog",
+            type: "custom_component",
+            html: "<template name=\"TEMPLATE_NAME\">\n\t<p style=\"margin: 20px 0;\">\n\t\t<button type=\"button\" id=\"take-photo\" class=\"btn btn-danger\">\n\t\t\t<span class=\"fa fa-camera\"></span>\n\t\t\tTake a photo and share it!\n\t\t</button>\n\t</p>\n\n  \t<form>\n\t\t<div class=\"form-group\">\n\t\t\t<label for=\"text\">Or enter a note</label>\n\t\t\t<textarea class=\"form-control\" name=\"text\" rows=\"3\"></textarea>\n\t\t</div>\n\t\t<button type=\"submit\" class=\"btn btn-success\">Send</button>\n\t</form>\n  \n\t{{#each QUERY_VAR}}\n\t\t<div class=\"panel\" style=\"padding: 0 10px;\">\n\t\t\t{{#if photo}}\n\t\t\t\t<img src=\"{{photo}}\" alt=\"Loading image...\" style=\"margin-top: 10px; width: 100%; height: auto\">\n\t\t\t{{else}}\n\t\t\t\t<p>{{text}}</p>\n\t\t\t{{/if}}\n\t\t\t<p class=\"text-muted\">{{name}}, {{livestamp createdAt}}</p>\n\t\t</div>\n\t{{/each}}\n</template>\n",
+              js: "var cameraOptions = {\n\twidth: 800,\n\theight: 600\n};\n\n\nTemplate.TEMPLATE_NAME.events({\n\t\"submit form\": function(e, t) {\n\t\te.preventDefault();\n\t\tvar textArea = $(e.currentTarget).find(\"textarea\");\n\t\tif(!textArea.val()) {\n\t\t\treturn;\n\t\t}\n\t\tCOLLECTION_VAR.insert({\n\t\t\ttext: textArea.val()\n\t\t}, function(e, r) {\n\t\t\tif(e) {\n\t\t\t\talert(e);\n\t\t\t\treturn;\n\t\t\t}\n\t\t\ttextArea.val(\"\");\n\t\t});\n\t},\n\n\t\"click #take-photo\": function(e, t) {\n\t\tMeteorCamera.getPicture(cameraOptions, function (error, data) {\n\t\t\tif (error) {\n\t\t\t\tconsole.log(error.message);\n\t\t\t} else {\n\t\t\t\tCOLLECTION_VAR.insert({\n\t\t\t\t\tphoto: data\n\t\t\t\t});\n\t\t\t}\n\t\t});\n\t}\n});\n",
+      query_name: viewQueryName
+    }
+
+    page.components.push(photoBlog);
+
+    if(output.application.packages.meteor.indexOf("mdg:camera") < 0) {
+      output.application.packages.meteor.push("mdg:camera");
+    }
+
   };
 
   var addComponentsToPage = function(sentence) {
@@ -478,8 +533,12 @@ function bakeApp(input) {
           if(findSubString(sentence, "crud") >= 0) {
               addCrudToPage(sentence, page);
           } else {
-            if(findSubString(sentence, "text") >= 0) {
-                page.text = getQuotedStringAfterSubString(sentence, "text");
+            if(findSubString(sentence, "photo blog") >= 0) {
+                addPhotoblogToPage(sentence, page);
+            } else {
+              if(findSubString(sentence, "text") >= 0) {
+                  page.text = getQuotedStringAfterSubString(sentence, "text");
+              }
             }
           }
         }
@@ -498,23 +557,5 @@ function bakeApp(input) {
   return output;
 }
 
-fs.readFile(args[0], {encoding: 'utf-8'}, function(err, data) {
-    if(!err) {
-      var output = bakeApp(data);
-
-      if(args.length < 2) {
-        console.log(JSON.stringify(output, null, "\t"));
-      } else {
-        fs.writeFile(args[1], JSON.stringify(output, null, "\t"), function(err) {
-            if(err) {
-              console.log(err);
-              process.exit(1);
-            }
-            console.log("OK");
-        });
-      }
-    } else {
-      console.log(err);
-      process.exit(1);
-    }
-});
+exports = exports || {};
+exports.human2machine = human2machine;

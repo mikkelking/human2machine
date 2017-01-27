@@ -1,0 +1,17 @@
+#Sub pages
+
+Menu:Top
+	Home
+	Cool Page
+
+Pages
+	Home: Jumbotron: Welcome to my brave new world!
+	Cool Page: Side Menu
+	Menu: left
+
+	Sub-Page 1
+	Sub-Page 2
+	Tab 1
+	Tab 2
+
+
