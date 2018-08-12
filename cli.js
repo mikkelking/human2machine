@@ -4,7 +4,7 @@ var util = require('util');
 var fs = require('fs');
 var path = require('path');
 var args = process.argv.slice(2);
-var h2m = require("./human2machine.js");
+var h2m = require("./parser.js");
 
 if(args.length < 1) {
   console.log("Invalid arguments.");
@@ -14,12 +14,12 @@ if(args.length < 1) {
 
 fs.readFile(args[0], {encoding: 'utf-8'}, function(err, data) {
     if(!err) {
-      var output = h2m.human2machine(data);
+      var output = h2m.parse(data);
 
       if(args.length < 2) {
-        console.log(JSON.stringify(output, null, "\t"));
+        console.log(JSON.stringify(output, null, 2));
       } else {
-        fs.writeFile(args[1], JSON.stringify(output, null, "\t"), function(err) {
+        fs.writeFile(args[1], JSON.stringify(output, null, 2), function(err) {
             if(err) {
               console.log(err);
               process.exit(1);

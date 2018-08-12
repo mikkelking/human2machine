@@ -1,4 +1,4 @@
-New syntax for what was human2ide
+#New syntax for what was human2ide
 
 Menu:Top
 	Home

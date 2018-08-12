@@ -15,9 +15,13 @@
   ],
   "preferGlobal": "true",
   "bin": {
-    "human2machine" : "human2machine.js"
+    "human2machine": "human2machine.js"
   },
   "author": "Petar Korponaić <petar.korponaic@gmail.com> (http://perak.github.io/)",
+  "contributors": [
+  "Petar Korponaić <petar.korponaic@gmail.com> (http://perak.github.io/)",
+  "Mike King <mikkelking@hotmail.com> (https://github.com/mikkelking/)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/perak/human2machine/issues"
