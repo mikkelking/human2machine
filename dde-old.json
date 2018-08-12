@@ -1,0 +1,329 @@
+{
+  "application": {
+    "collections": [
+      {
+        "name": "things",
+        "fields": [
+          {
+            "name": "schema",
+            "title": "Schema"
+          },
+          {
+            "name": "table_name",
+            "title": "Table Name"
+          },
+          {
+            "name": "baa",
+            "title": "Baa"
+          }
+        ]
+      },
+      {
+        "name": "tables",
+        "fields": []
+      },
+      {
+        "name": "rows",
+        "fields": [
+          {
+            "name": "schema",
+            "title": "Schema"
+          },
+          {
+            "name": "table_name",
+            "title": "Table Name"
+          },
+          {
+            "name": "column_name",
+            "title": "Column Name"
+          },
+          {
+            "name": "data_type",
+            "title": "Data Type"
+          },
+          {
+            "name": "key",
+            "title": "Key"
+          },
+          {
+            "name": "anon_level",
+            "title": "Anon Level"
+          },
+          {
+            "name": "anon_type",
+            "title": "Anon Type"
+          },
+          {
+            "name": "hash",
+            "title": "Hash"
+          }
+        ]
+      }
+    ],
+    "queries": [
+      {
+        "name": "things",
+        "collection": "things",
+        "filter": {},
+        "options": {}
+      },
+      {
+        "name": "things_empty",
+        "collection": "things",
+        "filter": {
+          "_id": null
+        },
+        "options": {},
+        "find_one": true
+      },
+      {
+        "name": "things_selected",
+        "collection": "things",
+        "filter": {
+          "_id": ":customerId"
+        },
+        "options": {},
+        "find_one": true
+      },
+      {
+        "name": "rows",
+        "collection": "rows",
+        "filter": {},
+        "options": {}
+      },
+      {
+        "name": "rows_empty",
+        "collection": "rows",
+        "filter": {
+          "_id": null
+        },
+        "options": {},
+        "find_one": true
+      },
+      {
+        "name": "rows_selected",
+        "collection": "rows",
+        "filter": {
+          "_id": ":customerId"
+        },
+        "options": {},
+        "find_one": true
+      }
+    ],
+    "free_zone": {
+      "pages": [
+        {
+          "name": "home",
+          "title": "",
+          "pages": [],
+          "components": [
+            {
+              "name": "jumbotron",
+              "type": "jumbotron",
+              "text": "Human to describe app, machine to write code!",
+              "button_route": "",
+              "button_title": "",
+              "title": "This application is written in human language!"
+            }
+          ]
+        },
+        {
+          "name": "things",
+          "title": "Things",
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "Insert",
+                  "query_name": "things_empty",
+                  "submit_route": "things",
+                  "cancel_route": "things"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "customerId"
+              ],
+              "components": [
+                {
+                  "name": "form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit",
+                  "query_name": "things_selected",
+                  "submit_route": "things",
+                  "cancel_route": "things"
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "name": "list",
+              "type": "data_view",
+              "query_name": "things",
+              "insert_route": "things.insert",
+              "edit_route": "things.edit",
+              "edit_route_params": [
+                {
+                  "name": "customerId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "objects",
+          "title": "Objects",
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "Insert",
+                  "query_name": "things_empty",
+                  "submit_route": "objects",
+                  "cancel_route": "objects"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "customerId"
+              ],
+              "components": [
+                {
+                  "name": "form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit",
+                  "query_name": "things_selected",
+                  "submit_route": "objects",
+                  "cancel_route": "objects"
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "name": "list",
+              "type": "data_view",
+              "query_name": "things",
+              "insert_route": "objects.insert",
+              "edit_route": "objects.edit",
+              "edit_route_params": [
+                {
+                  "name": "customerId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "rows",
+          "title": "Rows",
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "Insert",
+                  "query_name": "rows_empty",
+                  "submit_route": "rows",
+                  "cancel_route": "rows"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "customerId"
+              ],
+              "components": [
+                {
+                  "name": "form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit",
+                  "query_name": "rows_selected",
+                  "submit_route": "rows",
+                  "cancel_route": "rows"
+                }
+              ]
+            }
+          ],
+          "components": [
+            {
+              "name": "list",
+              "type": "data_view",
+              "query_name": "rows",
+              "insert_route": "rows.insert",
+              "edit_route": "rows.edit",
+              "edit_route_params": [
+                {
+                  "name": "customerId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "about",
+          "title": "About",
+          "pages": [],
+          "components": [],
+          "text": "Data Dictionary Editor"
+        }
+      ],
+      "components": [
+        {
+          "name": "main_menu",
+          "type": "menu",
+          "class": "nav navbar-nav",
+          "items": [
+            {
+              "title": "Home",
+              "route": "home"
+            },
+            {
+              "title": "Things",
+              "route": "things"
+            },
+            {
+              "title": "Objects",
+              "route": "objects"
+            },
+            {
+              "title": "Rows",
+              "route": "rows"
+            },
+            {
+              "title": "About",
+              "route": "about"
+            }
+          ]
+        }
+      ]
+    },
+    "packages": {
+      "meteor": [],
+      "npm": []
+    }
+  }
+}

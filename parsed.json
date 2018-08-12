@@ -1,0 +1,92 @@
+{
+  "errorData": {
+    "errors": [],
+    "errorCount": 0,
+    "summary": {
+      "Errors": 0,
+      "Warnings": 0,
+      "Information": 0,
+      "Fatal": 0
+    }
+  },
+  "app": {
+    "parts": {
+      "menu": {
+        "items": [
+          {
+            "name": "Home",
+            "private": false
+          },
+          {
+            "name": "Schemas",
+            "private": false
+          },
+          {
+            "name": "Tables",
+            "private": true
+          },
+          {
+            "name": "Rows",
+            "private": true
+          },
+          {
+            "name": "Settings",
+            "private": false
+          },
+          {
+            "name": "Chat",
+            "private": false
+          },
+          {
+            "name": "About",
+            "private": false
+          }
+        ],
+        "top": true
+      },
+      "collections": {
+        "items": [
+          "Schemas: name",
+          "Tables: schema_id, schema, table name, baa.",
+          "Rows: table_id, table name, column name, data type, key, anon level, anon type, hash"
+        ]
+      },
+      "joins": {
+        "items": [
+          "Schemas(_id): Tables(schema_id)",
+          "Tables(_id): Rows(table_id)"
+        ]
+      },
+      "pages": {
+        "items": [
+          "Home: Jumbotron: Welcome to my brave new world!",
+          "Schemas: CRUD: Schemas",
+          "Tables: CRUD: Tables",
+          "Rows: CRUD: Rows"
+        ]
+      },
+      "popups": {
+        "items": [
+          "Chat",
+          "Settings"
+        ]
+      },
+      "accounts": {
+        "items": [
+          "UI",
+          "Password"
+        ]
+      },
+      "packages": {
+        "items": [
+          "fortawesome:fontawesome"
+        ]
+      },
+      "templating": {
+        "items": [],
+        "react": true
+      }
+    },
+    "when": "2018-08-12T07:44:20.520Z"
+  }
+}

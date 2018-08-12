@@ -1,0 +1,28 @@
+{
+  "packages": {
+    "meteor": [],
+    "npm": []
+  },
+  "public_zone": {
+    "pages": [],
+    "components": [
+      {
+        "name": "main_menu",
+        "type": "menu",
+        "class": "nav navbar-nav",
+        "items": []
+      }
+    ]
+  },
+  "private_zone": {
+    "pages": [],
+    "components": [
+      {
+        "name": "main_menu",
+        "type": "menu",
+        "class": "nav navbar-nav",
+        "items": []
+      }
+    ]
+  }
+}
