@@ -2,6 +2,10 @@
 //
 // Parser for Meteor Kitchen
 //
+const template = require('./app-template')
+const fs = require('fs')
+const _ = require('lodash')
+
 const PARSER_SUMMARIES = {
   E: "Errors",
   W: "Warnings",
@@ -25,12 +29,12 @@ var logInfo = logUtil("I")
 
 const when = new Date()
 let errs = []
-let app = {
+let section
+const app = {
   current: {},
   parts: {},
   when,
 }
-let section
 
 const parseMenu = (menuItem) => {
   if (m = menuItem.match(/\s*(\w+)\s*\(private\)/i)) {
@@ -93,6 +97,11 @@ const checkError = (line, err) => {
   if (err) {
     errs.push({line, ...err})
   }
+}
+
+const makeRecipe = (appData, template) => {
+  const recipe = _.cloneDeep(template)
+  return recipe
 }
 
 const parse = (data) => {
@@ -159,7 +168,16 @@ const parse = (data) => {
       errorData.summary[code] = 0
     }
   })
-  return { errorData, app }
+  if (debug.enabled) {
+    fs.writeFile('./parsed.json', JSON.stringify({ errorData, app }, null, 2), function(err) {
+      if (err) {
+        console.log(err)
+        process.exit(1)
+      }
+      console.log("Saved parsed file")
+    })
+  }
+  return makeRecipe(app, template)
 }
 
 exports = exports || {};

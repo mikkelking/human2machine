@@ -13,10 +13,10 @@ if(args.length < 1) {
 }
 
 fs.readFile(args[0], {encoding: 'utf-8'}, function(err, data) {
-    if(!err) {
+    if (!err) {
       var output = h2m.parse(data);
 
-      if(args.length < 2) {
+      if (args.length < 2) {
         console.log(JSON.stringify(output, null, 2));
       } else {
         fs.writeFile(args[1], JSON.stringify(output, null, 2), function(err) {
