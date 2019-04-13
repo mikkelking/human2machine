@@ -1,8 +1,8 @@
 {
   "application": {
     "packages": {
-      "meteor": [],
-      "npm": []
+      "meteor": ["fortawesome:fontawesome"],
+      "npm": ["debug", "xlsx"]
     },
     "collections": [
       {
@@ -21,18 +21,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "Schemas"
       },
       {
@@ -48,11 +39,9 @@
             "lookup_key": "_id",
             "show_in_dataview": false,
             "show_in_read_only_form": false,
-            "join_collection": "tables",
-            "join_fields": [
-              "name"
-            ],
-            "join_container": "tables"
+            "join_collection": "Schemas",
+            "join_fields": ["name"],
+            "join_container": "Schemas"
           },
           {
             "name": "table_name",
@@ -75,18 +64,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "Tables"
       },
       {
@@ -102,11 +82,9 @@
             "lookup_key": "_id",
             "show_in_dataview": false,
             "show_in_read_only_form": false,
-            "join_collection": "rows",
-            "join_fields": [
-              "name"
-            ],
-            "join_container": "rows"
+            "join_collection": "Tables",
+            "join_fields": ["name"],
+            "join_container": "Tables"
           },
           {
             "name": "table_name",
@@ -159,96 +137,71 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "Rows"
       }
     ],
+    "roles": ["admin", "editor", "viewer"],
+    "templating": "react",
     "queries": [
       {
         "name": "schemas_list",
         "collection": "schemas",
-        "filter": {},
-        "options": {
-          "sort": {
-            "name": 1
-          }
-        }
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
       },
       {
         "name": "schemas_empty",
         "collection": "schemas",
-        "filter": {
-          "_id": null
-        },
+        "filter": "{ \"_id\": null }",
         "find_one": true
       },
       {
         "name": "schemas_details",
         "collection": "schemas",
         "find_one": true,
-        "filter": "{ _id: \":schemasId\" }",
-        "options": {}
+        "filter": "{ \"_id\": \":schemaId\" }",
+        "options": "{}"
       },
       {
         "name": "tables_list",
         "collection": "tables",
-        "filter": {},
-        "options": {
-          "sort": {
-            "name": 1
-          }
-        }
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
       },
       {
         "name": "tables_empty",
         "collection": "tables",
-        "filter": {
-          "_id": null
-        },
+        "filter": "{ \"_id\": null }",
         "find_one": true
       },
       {
         "name": "tables_details",
         "collection": "tables",
         "find_one": true,
-        "filter": "{ _id: \":tablesId\" }",
-        "options": {}
+        "filter": "{ \"_id\": \":tableId\" }",
+        "options": "{}"
       },
       {
         "name": "rows_list",
         "collection": "rows",
-        "filter": {},
-        "options": {
-          "sort": {
-            "name": 1
-          }
-        }
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
       },
       {
         "name": "rows_empty",
         "collection": "rows",
-        "filter": {
-          "_id": null
-        },
+        "filter": "{ \"_id\": null }",
         "find_one": true
       },
       {
         "name": "rows_details",
         "collection": "rows",
         "find_one": true,
-        "filter": "{ _id: \":rowsId\" }",
-        "options": {}
+        "filter": "{ \"_id\": \":rowId\" }",
+        "options": "{}"
       }
     ],
     "public_zone": {
@@ -282,9 +235,7 @@
         {
           "name": "reset_password",
           "template": "reset_password",
-          "route_params": [
-            "resetPasswordToken"
-          ]
+          "route_params": ["resetPasswordToken"]
         }
       ],
       "components": [
@@ -339,14 +290,14 @@
               "edit_route": "Schemas.edit",
               "edit_route_params": [
                 {
-                  "name": "SchemasId",
+                  "name": "SchemaId",
                   "value": "this._id"
                 }
               ],
               "details_route": "Schemas.details",
               "details_route_params": [
                 {
-                  "name": "SchemasId",
+                  "name": "SchemaId",
                   "value": "this._id"
                 }
               ]
@@ -369,9 +320,7 @@
             },
             {
               "name": "details",
-              "route_params": [
-                "SchemasId"
-              ],
+              "route_params": ["SchemaId"],
               "components": [
                 {
                   "name": "details_form",
@@ -386,9 +335,7 @@
             },
             {
               "name": "edit",
-              "route_params": [
-                "SchemasId"
-              ],
+              "route_params": ["SchemaId"],
               "components": [
                 {
                   "name": "edit_form",
@@ -417,14 +364,14 @@
               "edit_route": "Tables.edit",
               "edit_route_params": [
                 {
-                  "name": "TablesId",
+                  "name": "TableId",
                   "value": "this._id"
                 }
               ],
               "details_route": "Tables.details",
               "details_route_params": [
                 {
-                  "name": "TablesId",
+                  "name": "TableId",
                   "value": "this._id"
                 }
               ]
@@ -447,9 +394,7 @@
             },
             {
               "name": "details",
-              "route_params": [
-                "TablesId"
-              ],
+              "route_params": ["TableId"],
               "components": [
                 {
                   "name": "details_form",
@@ -464,9 +409,7 @@
             },
             {
               "name": "edit",
-              "route_params": [
-                "TablesId"
-              ],
+              "route_params": ["TableId"],
               "components": [
                 {
                   "name": "edit_form",
@@ -495,14 +438,14 @@
               "edit_route": "Rows.edit",
               "edit_route_params": [
                 {
-                  "name": "RowsId",
+                  "name": "RowId",
                   "value": "this._id"
                 }
               ],
               "details_route": "Rows.details",
               "details_route_params": [
                 {
-                  "name": "RowsId",
+                  "name": "RowId",
                   "value": "this._id"
                 }
               ]
@@ -525,9 +468,7 @@
             },
             {
               "name": "details",
-              "route_params": [
-                "RowsId"
-              ],
+              "route_params": ["RowId"],
               "components": [
                 {
                   "name": "details_form",
@@ -542,9 +483,7 @@
             },
             {
               "name": "edit",
-              "route_params": [
-                "RowsId"
-              ],
+              "route_params": ["RowId"],
               "components": [
                 {
                   "name": "edit_form",
@@ -562,10 +501,49 @@
       ],
       "components": [
         {
-          "name": "main_menu",
+          "name": "left_menu",
           "type": "menu",
           "class": "nav navbar-nav",
-          "items": []
+          "dest_selector": "#menu",
+          "items": [
+            {
+              "title": "Home",
+              "route": "home_private"
+            },
+            {
+              "title": "Schemas",
+              "route": "schemas"
+            },
+            {
+              "title": "Tables",
+              "route": "tables"
+            },
+            {
+              "title": "Rows",
+              "route": "rows"
+            }
+          ]
+        },
+        {
+          "name": "right_menu",
+          "type": "menu",
+          "class": "nav navbar-nav navbar-right",
+          "dest_selector": "#menu",
+          "items": [
+            {
+              "title": "{{userEmail}}",
+              "items": [
+                {
+                  "title": "Settings",
+                  "route": "user_settings"
+                },
+                {
+                  "title": "Logout",
+                  "route": "logout"
+                }
+              ]
+            }
+          ]
         }
       ]
     }

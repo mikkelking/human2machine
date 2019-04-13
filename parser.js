@@ -141,6 +141,11 @@ const makeRecipe = (appData, t) => {
     popups,
     templates
   } = appData.parts;
+  // Packages
+  packages.items.forEach(pkg => {
+    if (pkg.match(":")) recipe.packages.meteor.push(pkg);
+    else recipe.packages.npm.push(pkg);
+  });
   // Public pages
   public.items.forEach(page => {
     recipe.public_zone.pages.forEach(p => {
@@ -166,6 +171,10 @@ const makeRecipe = (appData, t) => {
         pageName
       )
     );
+    recipe.private_zone.components[0].items.push({
+      title: collectionName,
+      route: collectionName.toLowerCase()
+    });
   });
 
   const fkeys = {};
@@ -195,7 +204,7 @@ const makeRecipe = (appData, t) => {
             if (item.fkey === f) {
               const extras = objectReplace(
                 /<COLLECTION>/g,
-                t.fkeys,
+                objectReplace(/<JOINCOLLECTION>/g, t.fkeys, item.target),
                 tableName.toLowerCase()
               );
               field = Object.assign(field, extras);

@@ -12,21 +12,21 @@ const kitchenTemplates = {
     {
       name: "<COLLECTION>_list",
       collection: "<COLLECTION>",
-      filter: {},
-      options: { sort: { name: 1 } }
+      filter: "{}",
+      options: '{  "sort": { "name": 1 } }'
     },
     {
       name: "<COLLECTION>_empty",
       collection: "<COLLECTION>",
-      filter: { _id: null },
+      filter: '{ "_id": null }',
       find_one: true
     },
     {
       name: "<COLLECTION>_details",
       collection: "<COLLECTION>",
       find_one: true,
-      filter: '{ _id: ":<COLLECTION>Id" }',
-      options: {}
+      filter: '{ "_id": ":<COLLECTION>Id" }',
+      options: "{}"
     }
   ],
   fkeys: {
@@ -38,9 +38,9 @@ const kitchenTemplates = {
     show_in_read_only_form: false,
     exportable: false,
 
-    join_collection: "<COLLECTION>",
+    join_collection: "<JOINCOLLECTION>",
     join_fields: ["name"],
-    join_container: "<COLLECTION>"
+    join_container: "<JOINCOLLECTION>"
   },
   fkeyDisplay: {
     name: "<FOREIGNTABLE>.name",
@@ -123,6 +123,9 @@ const kitchenTemplates = {
       npm: []
     },
     collections: [],
+    roles: ["admin", "editor", "viewer"],
+    templating: "react",
+    // frontend: "materialize",
     queries: [],
     public_zone: {
       pages: [
@@ -182,10 +185,26 @@ const kitchenTemplates = {
       // Menu items
       components: [
         {
-          name: "main_menu",
+          name: "left_menu",
           type: "menu",
           class: "nav navbar-nav",
-          items: []
+          dest_selector: "#menu",
+          items: [{ title: "Home", route: "home_private" }]
+        },
+        {
+          name: "right_menu",
+          type: "menu",
+          class: "nav navbar-nav navbar-right",
+          dest_selector: "#menu",
+          items: [
+            {
+              title: "{{userEmail}}",
+              items: [
+                { title: "Settings", route: "user_settings" },
+                { title: "Logout", route: "logout" }
+              ]
+            }
+          ]
         }
       ]
     }
