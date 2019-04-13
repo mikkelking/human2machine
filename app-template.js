@@ -58,14 +58,49 @@ const kitchenTemplates = {
     collections: [],
     queries: [],
     public_zone: {
-      pages: [],
-      // Menu items
+      pages: [
+        {
+          name: "home_public",
+          title: "",
+          components: [
+            {
+              name: "home_jumbotron",
+              title: "<APPTITLE>",
+              type: "jumbotron",
+              text: "<APPDESCRIPTION>",
+              button_title: "Continue &raquo;",
+              button_route: "login"
+            }
+          ]
+        },
+        { name: "login", template: "login" },
+        { name: "register", template: "register" },
+        { name: "forgot_password", template: "forgot_password" },
+        {
+          name: "reset_password",
+          template: "reset_password",
+          route_params: ["resetPasswordToken"]
+        }
+      ],
+
       components: [
         {
-          name: "main_menu",
+          name: "left_menu",
           type: "menu",
           class: "nav navbar-nav",
-          items: []
+          dest_selector: "#menu",
+          items: [{ title: "Home", route: "home_public" }]
+        },
+
+        {
+          name: "right_menu",
+          type: "menu",
+          class: "nav navbar-nav navbar-right",
+          dest_selector: "#menu",
+          items: [
+            { title: "Register", route: "register" },
+            { title: "Login", route: "login" }
+          ]
         }
       ]
     },

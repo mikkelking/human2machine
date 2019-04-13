@@ -37,12 +37,23 @@ const app = {
   when
 };
 
+const objectReplace = (regex, incoming, newValue) => {
+  const newObject = _.clone(incoming);
+  Object.keys(incoming).forEach(element => {
+    if (typeof incoming[element] === "string") {
+      newObject[element] = incoming[element].replace(regex, newValue);
+    }
+  });
+  return newObject;
+};
+
 const parseMenu = menuItem => {
   if ((m = menuItem.match(/\s*(\w+)\s*\(private\)/i))) {
     return { name: m[1], private: true };
   }
   return { name: menuItem, private: false };
 };
+
 const newSection = function(title, directive) {
   debug("newSection", title);
   const words = title.split(/:/);
@@ -138,25 +149,18 @@ const makeRecipe = (appData, t) => {
         if (fkeys[tableName])
           fkeys[tableName].forEach(item => {
             if (item.fkey === f) {
-              const extras = _.clone(t.fkeys);
-              Object.keys(t.fkeys).forEach(element => {
-                if (typeof t.fkeys[element] === "string")
-                  extras[element] = t.fkeys[element].replace(
-                    /<COLLECTION>/g,
-                    tableName.toLowerCase()
-                  );
-              });
+              const extras = objectReplace(
+                /<COLLECTION>/g,
+                t.fkeys,
+                tableName.toLowerCase()
+              );
               field = Object.assign(field, extras);
               // Do we need a display field to match the foreign key?
-              const extraField = _.clone(t.fkeyDisplay);
-              Object.keys(t.fkeyDisplay).forEach(element => {
-                if (typeof t.fkeyDisplay[element] === "string") {
-                  extraField[element] = t.fkeyDisplay[element].replace(
-                    /<FOREIGNTABLE>/g,
-                    item.target
-                  );
-                }
-              });
+              const extraField = objectReplace(
+                /<FOREIGNTABLE>/g,
+                t.fkeyDisplay,
+                item.target
+              );
               extraFields.push(extraField);
             }
           });
@@ -165,15 +169,8 @@ const makeRecipe = (appData, t) => {
     newC.fields = newC.fields.concat(extraFields);
     newC.name = tableName;
     recipe.collections.push(newC);
-    const newQ = _.cloneDeep(t.queries).map(q => {
-      Object.keys(q).forEach(element => {
-        if (typeof q[element] === "string")
-          q[element] = q[element].replace(
-            /<COLLECTION>/g,
-            tableName.toLowerCase()
-          );
-      });
-      return q;
+    const newQ = t.queries.map(q => {
+      return objectReplace(/<COLLECTION>/g, q, tableName.toLowerCase());
     });
     recipe.queries = recipe.queries.concat(newQ);
   });
