@@ -10,13 +10,13 @@ Menu:Top
   About
 
 Collections
-  Schemas: _id, name, description
-  Tables: _id, schema_id, table name, baa
-  Rows: _id,table_id, table name, column name, data type, key, anon level, anon type, hash
+  Schemas:  name, description
+  Tables:  schemaId, table name, baa
+  Rows: tableId, table name, column name, data type, key, anon level, anon type, hash
 
 Joins
-  Schemas(_id): Tables(schema_id)
-  Tables(_id): Rows(table_id)
+  Tables.schemaId: Schemas
+  Rows.tableId: Tables
 
 Pages
   Home: Jumbotron: Welcome to my brave new world!
@@ -34,5 +34,7 @@ Accounts
 
 Packages
   fortawesome:fontawesome
+  debug
+  xlsx
 
 Templating:React

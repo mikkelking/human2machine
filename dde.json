@@ -8,12 +8,6 @@
       {
         "fields": [
           {
-            "name": "_id",
-            "title": "Id",
-            "required": true,
-            "exportable": true
-          },
-          {
             "name": "name",
             "title": "Name",
             "required": true,
@@ -44,28 +38,55 @@
       {
         "fields": [
           {
-            "name": "_id",
-            "title": "Id",
-            "required": true,
-            "exportable": true
-          },
-          {
-            "name": "schema_id",
+            "name": "schemaId",
             "title": "Schema Id",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           },
           {
             "name": "table_name",
             "title": "Table Name",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           },
           {
             "name": "baa",
             "title": "Baa",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           }
         ],
         "owner_field": "ownerId",
@@ -86,58 +107,140 @@
       {
         "fields": [
           {
-            "name": "_id",
-            "title": "Id",
-            "required": true,
-            "exportable": true
-          },
-          {
-            "name": "table_id",
+            "name": "tableId",
             "title": "Table Id",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           },
           {
             "name": "table_name",
             "title": "Table Name",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           },
           {
             "name": "column_name",
             "title": "Column Name",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           },
           {
             "name": "data_type",
             "title": "Data Type",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           },
           {
             "name": "key",
             "title": "Key",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           },
           {
             "name": "anon_level",
             "title": "Anon Level",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           },
           {
             "name": "anon_type",
             "title": "Anon Type",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           },
           {
             "name": "hash",
             "title": "Hash",
             "required": true,
-            "exportable": true
+            "exportable": false,
+            "input": "select",
+            "lookup_query_name": "tables_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_dataview": false,
+            "show_in_read_only_form": false,
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "tables"
           }
         ],
         "owner_field": "ownerId",
@@ -154,6 +257,83 @@
           "admin"
         ],
         "name": "Rows"
+      }
+    ],
+    "queries": [
+      {
+        "name": "schemas_list",
+        "collection": "schemas",
+        "filter": {},
+        "options": {
+          "sort": {
+            "name": 1
+          }
+        }
+      },
+      {
+        "name": "schemas_empty",
+        "collection": "schemas",
+        "filter": {
+          "_id": null
+        },
+        "find_one": true
+      },
+      {
+        "name": "schemas_details",
+        "collection": "schemas",
+        "find_one": true,
+        "filter": "{ _id: \":schemasId\" }",
+        "options": {}
+      },
+      {
+        "name": "tables_list",
+        "collection": "tables",
+        "filter": {},
+        "options": {
+          "sort": {
+            "name": 1
+          }
+        }
+      },
+      {
+        "name": "tables_empty",
+        "collection": "tables",
+        "filter": {
+          "_id": null
+        },
+        "find_one": true
+      },
+      {
+        "name": "tables_details",
+        "collection": "tables",
+        "find_one": true,
+        "filter": "{ _id: \":tablesId\" }",
+        "options": {}
+      },
+      {
+        "name": "rows_list",
+        "collection": "rows",
+        "filter": {},
+        "options": {
+          "sort": {
+            "name": 1
+          }
+        }
+      },
+      {
+        "name": "rows_empty",
+        "collection": "rows",
+        "filter": {
+          "_id": null
+        },
+        "find_one": true
+      },
+      {
+        "name": "rows_details",
+        "collection": "rows",
+        "find_one": true,
+        "filter": "{ _id: \":rowsId\" }",
+        "options": {}
       }
     ],
     "public_zone": {

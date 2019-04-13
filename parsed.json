@@ -46,15 +46,15 @@
       },
       "collections": {
         "items": [
-          "Schemas: _id, name, description",
-          "Tables: _id, schema_id, table name, baa",
-          "Rows: _id,table_id, table name, column name, data type, key, anon level, anon type, hash"
+          "Schemas:  name, description",
+          "Tables:  schemaId, table name, baa",
+          "Rows: tableId, table name, column name, data type, key, anon level, anon type, hash"
         ]
       },
       "joins": {
         "items": [
-          "Schemas(_id): Tables(schema_id)",
-          "Tables(_id): Rows(table_id)"
+          "Tables.schemaId: Schemas",
+          "Rows.tableId: Tables"
         ]
       },
       "pages": {
@@ -79,7 +79,9 @@
       },
       "packages": {
         "items": [
-          "fortawesome:fontawesome"
+          "fortawesome:fontawesome",
+          "debug",
+          "xlsx"
         ]
       },
       "templating": {
@@ -87,6 +89,6 @@
         "react": true
       }
     },
-    "when": "2019-04-13T02:19:23.038Z"
+    "when": "2019-04-13T05:00:53.532Z"
   }
 }

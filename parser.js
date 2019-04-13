@@ -105,7 +105,7 @@ const makeRecipe = (appData, t) => {
   // Collections...
   const {
     collections,
-    joins,
+    joins = [],
     accounts,
     menu,
     packages,
@@ -113,6 +113,13 @@ const makeRecipe = (appData, t) => {
     popups,
     templates
   } = appData.parts;
+  const fkeys = {};
+  debug("Joins", joins);
+  joins.items.forEach(j => {
+    const [original, src, fkey, target] = j.match(/^(\w+)\.(\w+):\s*(.*)$/i);
+    fkeys[src] = fkeys[src] || [];
+    fkeys[src].push({ fkey, target });
+  });
   collections.items.forEach(c => {
     const newC = _.cloneDeep(t.collection);
     const [original, tableName, flist] = c.match(/^(\w+):(.*)$/i);
@@ -121,15 +128,41 @@ const makeRecipe = (appData, t) => {
       .map(f => f.trim())
       .map(f => f.replace(/\s+/, "_"))
       .map(f => {
-        return {
+        let field = {
           name: f,
           title: titleCase(f),
           required: true,
           exportable: true
         };
+        if (fkeys[tableName])
+          fkeys[tableName].forEach(item => {
+            if (item.fkey) {
+              const extras = t.fkeys;
+              Object.keys(t.fkeys).forEach(element => {
+                if (typeof t.fkeys[element] === "string")
+                  t.fkeys[element] = t.fkeys[element].replace(
+                    /<COLLECTION>/g,
+                    tableName.toLowerCase()
+                  );
+              });
+              field = Object.assign(field, extras);
+            }
+          });
+        return field;
       });
     newC.name = tableName;
     recipe.collections.push(newC);
+    const newQ = _.cloneDeep(t.queries).map(q => {
+      Object.keys(q).forEach(element => {
+        if (typeof q[element] === "string")
+          q[element] = q[element].replace(
+            /<COLLECTION>/g,
+            tableName.toLowerCase()
+          );
+      });
+      return q;
+    });
+    recipe.queries = recipe.queries.concat(newQ);
   });
   return recipe;
 };
