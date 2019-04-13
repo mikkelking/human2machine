@@ -10,9 +10,9 @@ Menu:Top
   About
 
 Collections
-  Schemas: name
-  Tables: schema_id, schema, table name, baa.
-  Rows: table_id, table name, column name, data type, key, anon level, anon type, hash
+  Schemas: _id, name, description
+  Tables: _id, schema_id, table name, baa
+  Rows: _id,table_id, table name, column name, data type, key, anon level, anon type, hash
 
 Joins
   Schemas(_id): Tables(schema_id)

@@ -19,12 +19,15 @@
   },
   "author": "Petar Korponaić <petar.korponaic@gmail.com> (http://perak.github.io/)",
   "contributors": [
-  "Petar Korponaić <petar.korponaic@gmail.com> (http://perak.github.io/)",
-  "Mike King <mikkelking@hotmail.com> (https://github.com/mikkelking/)"
+    "Petar Korponaić <petar.korponaic@gmail.com> (http://perak.github.io/)",
+    "Mike King <mikkelking@hotmail.com> (https://github.com/mikkelking/)"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/perak/human2machine/issues"
   },
-  "homepage": "https://github.com/perak/human2machine"
+  "homepage": "https://github.com/perak/human2machine",
+  "dependencies": {
+    "title-case": "^2.1.1"
+  }
 }

@@ -1,28 +1,182 @@
 {
-  "packages": {
-    "meteor": [],
-    "npm": []
-  },
-  "public_zone": {
-    "pages": [],
-    "components": [
+  "application": {
+    "packages": {
+      "meteor": [],
+      "npm": []
+    },
+    "collections": [
       {
-        "name": "main_menu",
-        "type": "menu",
-        "class": "nav navbar-nav",
-        "items": []
-      }
-    ]
-  },
-  "private_zone": {
-    "pages": [],
-    "components": [
+        "fields": [
+          {
+            "name": "_id",
+            "title": "Id",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "name",
+            "title": "Name",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "description",
+            "title": "Description",
+            "required": true,
+            "exportable": true
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "Schemas"
+      },
       {
-        "name": "main_menu",
-        "type": "menu",
-        "class": "nav navbar-nav",
-        "items": []
+        "fields": [
+          {
+            "name": "_id",
+            "title": "Id",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "schema_id",
+            "title": "Schema Id",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "table_name",
+            "title": "Table Name",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "baa",
+            "title": "Baa",
+            "required": true,
+            "exportable": true
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "Tables"
+      },
+      {
+        "fields": [
+          {
+            "name": "_id",
+            "title": "Id",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "table_id",
+            "title": "Table Id",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "table_name",
+            "title": "Table Name",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "column_name",
+            "title": "Column Name",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "data_type",
+            "title": "Data Type",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "key",
+            "title": "Key",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "anon_level",
+            "title": "Anon Level",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "anon_type",
+            "title": "Anon Type",
+            "required": true,
+            "exportable": true
+          },
+          {
+            "name": "hash",
+            "title": "Hash",
+            "required": true,
+            "exportable": true
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "Rows"
       }
-    ]
+    ],
+    "public_zone": {
+      "pages": [],
+      "components": [
+        {
+          "name": "main_menu",
+          "type": "menu",
+          "class": "nav navbar-nav",
+          "items": []
+        }
+      ]
+    },
+    "private_zone": {
+      "pages": [],
+      "components": [
+        {
+          "name": "main_menu",
+          "type": "menu",
+          "class": "nav navbar-nav",
+          "items": []
+        }
+      ]
+    }
   }
 }
