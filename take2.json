@@ -1,0 +1,552 @@
+{
+	"application": {
+		"title": "RACV EDW Dictionary",
+
+		"theme": "bootswatch-paper",
+    "roles": ["admin","editor","viewer"],
+    "templating": "react",
+    "packages": {
+      "npm": ["xlsx","debug"],
+    },
+    "use_collection2": false,
+    "default_role": "admin",
+		"collections": [
+			{
+				"name": "schemas",
+				"fields": [
+					{ "name": "name", "title": "Name", "required": true, "exportable": true },
+					{ "name": "description", "title": "Description", "required": false, "exportable": true },
+				],
+				"owner_field": "ownerId",
+
+				"roles_allowed_to_read": ["admin","viewer","editor"],
+				"roles_allowed_to_update": ["admin","editor"],
+				"roles_allowed_to_delete": ["admin"],
+
+			},
+
+			{
+				"name": "tables",
+				"fields": [
+          { "name": "name", "title": "Table Name", "required": true, "exportable": true },
+          { "name": "entity", "title": "Entity Name", "required": false, "exportable": true },
+					{
+						"name": "schemaId",
+						"title": "Schema",
+						"required": true,
+						"input": "select",
+						"lookup_query_name": "schema_list",
+						"lookup_field": "name",
+						"lookup_key": "_id",
+						"show_in_dataview": false,
+						"show_in_read_only_form": false,
+						"exportable": false,
+
+						"join_collection": "schemas",
+						"join_fields": ["name"],
+						"join_container": "schema"
+					},
+
+					{
+						"name": "schema.name",
+						"title": "Schema",
+						"show_in_insert_form": false,
+						"show_in_update_form": false,
+						"exportable": true
+          },
+          { "name": "description", "title": "Description" },
+          { "name": "usage", "title": "Usage" },
+          { "name": "pkey", "title": "Primary Key", "show_in_dataview": false },
+          { "name": "indexes", "title": "Indexes", "show_in_dataview": false },
+          { "name": "baaCode", "title": "BAA Code", "show_in_dataview": false },
+          { "name": "values", "title": "Values", "show_in_dataview": false },
+          { "name": "cidCode", "title": "CID Code", "show_in_dataview": false },
+          { "title": "Table Abbrev", "name": "tableAbbrev", "show_in_dataview": false },
+          { "title": "Table Schema", "name": "tableSchema", "show_in_dataview": false },
+          { "title": "Table Space Name", "name": "tblSpaceName", "show_in_dataview": false },
+          { "title": "Init Extent", "name": "initExtent", "show_in_dataview": false },
+          { "title": "Next Extent", "name": "nextExtent", "show_in_dataview": false },
+          { "title": "Percent Increase", "name": "pctIncrease", "show_in_dataview": false },
+          { "title": "Percent Free", "name": "pctFree", "show_in_dataview": false },
+          { "title": "Oracle Role", "name": "oracleRole", "show_in_dataview": false },
+          { "title": "Inserted By Analyst Code", "name": "insertedByAnalystCode", "show_in_dataview": false },
+          { "title": "Inserted Date", "name": "insertedDate", "show_in_dataview": false },
+          { "title": "Updated By Analyst Code", "name": "updatedByAnalystCode", "show_in_dataview": false },
+          { "title": "Updated Date", "name": "updatedDate", "show_in_dataview": false },
+        ],
+
+				"owner_field": "ownerId",
+				"roles_allowed_to_read": ["admin"],
+				"roles_allowed_to_update": ["admin","editor"],
+				"roles_allowed_to_delete": ["admin"],
+
+			},
+
+			{
+				"name": "columns",
+				"fields": [
+          { "title" : "Table", "name": "table", "exportable": true },
+          { "title" : "Field", "name": "field", "exportable": true },
+          { "title" : "Relationship Key", "name": "relationshipKey", "exportable": true },
+          { "title" : "Relationship", "name": "relationship", "exportable": true },
+          { "title" : "Anon Level", "name": "anonLevel", "exportable": true },
+          { "title" : "Anon Type", "name": "anonType", "exportable": true },
+          { "title" : "High Tide Column", "name": "highTideColumn", "exportable": true, "show_in_dataview": false },
+          { "title" : "Hash", "name": "hash", "exportable": true, "show_in_dataview": false },
+          { "title" : "Calc Expression", "name": "calcExpression", "exportable": true, "show_in_dataview": false },
+          { "title" : "Output Format", "name": "outputFormat", "exportable": true, "show_in_dataview": false },
+          { "title" : "Description", "name": "description", "exportable": true },
+          { "title" : "Notes", "name": "notes", "exportable": true, "show_in_dataview": false },
+          { "title": "Entity Name", "name":"entityName",  "show_in_dataview": false },
+          { "title": "Data Item Name", "name": "dataItemName",  "show_in_dataview": false },
+          { "title": "Sequence Number", "name": "sequenceNumber",  "show_in_dataview": false },
+          { "title": "Column Name", "name": "column",  "show_in_dataview": false },
+          { "title": "Column Sequence", "name": "columnSequence",  "show_in_dataview": false },
+          { "title": "Cluster Name", "name": "clusterName",  "show_in_dataview": false },
+          { "title": "Data Item Type Code", "name": "dataItemTypeCode",  "show_in_dataview": false },
+          { "title": "User Data Item Name", "name": "userDataItemName",  "show_in_dataview": false },
+          { "title": "CID Code", "name": "cidCode",  "show_in_dataview": false },
+          { "title": "Other Entity Name", "name": "otherEntityName",  "show_in_dataview": false },
+          { "title": "Primary Key Code", "name": "primaryKeyCode",  "show_in_dataview": false },
+          { "title": "Redundancy Code", "name": "redundancyCode",  "show_in_dataview": false },
+          { "title": "OtherEntity Requirement Code", "name": "otherEntityRequirementCode",  "show_in_dataview": false },
+          { "title": "ThisEntity Cardinality Code", "name": "cardinalityCode",  "show_in_dataview": false },
+          { "title": "ThisEntity Requirement Code", "name": "requirementCode",  "show_in_dataview": false },
+          { "title": "Implementation Specification", "name": "implementationSpecification",  "show_in_dataview": false },
+          { "title": "Datatype Specification", "name": "datatypeSpecification",  "show_in_dataview": false },
+          { "title": "Description", "name": "description",  "show_in_dataview": false },
+          { "title": "Values", "name": "values",  "show_in_dataview": false },
+          { "title": "Comments", "name": "comments",  "show_in_dataview": false },
+          { "title": "Technical_Comment", "name": "technicalComment",  "show_in_dataview": false },
+          { "title": "Subtype_Code", "name": "subtypeCode",  "show_in_dataview": false },
+          { "title": "DW_Code", "name": "dwCode",  "show_in_dataview": false },
+          { "title": "InsertedBy Analyst Code", "name": "insertedByAnalystCode",  "show_in_dataview": false },
+          { "title": "Inserted Date", "name": "insertedDate",  "show_in_dataview": false },
+          { "title": "UpdatedBy Analyst Code", "name": "updatedByAnalystCode",  "show_in_dataview": false },
+          { "title": "Updated Date", "name": "updatedDate",  "show_in_dataview": false },
+          { "title": "BO Flag", "name": "boFlag",  "show_in_dataview": false },
+        ],
+				"owner_field": "ownerId",
+
+				"roles_allowed_to_read": ["admin"],
+				"roles_allowed_to_update": ["admin","editor"],
+				"roles_allowed_to_delete": ["admin"],
+
+			}
+		],
+
+		"queries": [
+			{
+				"name": "schema_list",
+				"collection": "schemas",
+				"filter": "{}",
+				"options": "{  \"sort\": { \"name\": 1 } }"
+			},
+			{
+				"name": "schemas_empty",
+				"collection": "schemas",
+				"filter": "{\"_id\": null}",
+				"find_one": true
+			},
+			{
+				"name": "schema_details",
+				"collection": "schemas",
+				"find_one": true,
+				"filter": "{ \"_id\": \":schemaId\" }",
+				"options": "{}"
+			},
+			{
+				"name": "table_list",
+				"collection": "tables",
+				"filter": {},
+				"options": "{ \"sort\": { \"name\": 1 } }"
+			},
+			{
+				"name": "tables_empty",
+				"collection": "tables",
+				"filter": "{ \"_id\": null }",
+				"options": "{}",
+				"find_one": true
+			},
+			{
+				"name": "table_details",
+				"collection": "tables",
+				"filter": "{ \"_id\": \":tableId\" }",
+				"find_one": true
+			},
+			{
+				"name": "columns",
+				"collection": "columns",
+				"filter": "{ \"tableId\": \":tableId\" }"
+			},
+			{
+				"name": "columns_empty",
+				"collection": "columns",
+				"filter": "{ \"_id\": null }",
+				"find_one": true
+			},
+			{
+				"name": "column",
+				"collection": "columns",
+				"filter": "{ \"_id\": \":columnId\" }",
+				"find_one": true
+			},
+			{
+				"name": "current_user_data",
+				"collection": "users",
+				"filter": "{ \"_id\": \"Meteor.userId()\" }",
+				"find_one": true
+			}
+		],
+
+		"public_zone": {
+			"pages": [
+				{ 
+					"name": "home_public", 
+					"title": "", 
+					"components": [
+						{
+							"name": "home_jumbotron",
+							"title": "RACV EDW Data Dictionary",
+							"type": "jumbotron",
+							"text": "This tool allows viewing and editing of the EDW Data Dictionary",
+							"button_title": "Continue &raquo;",
+							"button_route": "login"
+						}
+					]
+				},
+				{ "name": "login", "template": "login" },
+				{ "name": "register", "template": "register" },
+				{ "name": "forgot_password", "template": "forgot_password" },
+				{ "name": "reset_password", "template": "reset_password", "route_params": ["resetPasswordToken"] }
+			],
+
+			"components": [
+				{
+					"name": "left_menu",
+					"type": "menu",
+					"class": "nav navbar-nav",
+					"dest_selector": "#menu",
+					"items": [
+						{ "title": "Home", "route": "home_public" }
+					]
+				},
+
+				{
+					"name": "right_menu",
+					"type": "menu",
+					"class": "nav navbar-nav navbar-right",
+					"dest_selector": "#menu",
+					"items": [
+						{ "title": "Register", "route": "register" },
+						{ "title": "Login", "route": "login" }
+					]
+				}
+			]
+		},
+
+		"private_zone": {
+			"pages": [
+				{
+					"name": "home_private",
+					"title": "Welcome {{userFullName}}!",
+					"text": "Place for dashboard here..."
+				},
+
+				{
+					"name": "schemas",
+					"components": [
+						{
+							"name": "view",
+							"type": "data_view",
+							"title": "Schemas",
+							"text_if_empty": "No schemas :(",
+							"query_name": "schema_list",
+							"page_size": 20,
+							"insert_route": "schemas.insert",
+							"edit_route": "schemas.edit",
+							"edit_route_params": [
+								{ "name": "schemaId", "value": "this._id" }
+							],
+							"details_route": "schemas.details",
+							"details_route_params": [
+								{ "name": "schemaId", "value": "this._id" }
+							]
+						}
+					],
+
+					"pages": [
+						{
+							"name": "insert",
+							"components": [
+								{
+									"name": "insert_form",
+									"type": "form",
+									"mode": "insert",
+									"title": "New schema",
+									"query_name": "schemas_empty",
+									"submit_route": "schemas",
+									"cancel_route": "schemas"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"route_params": ["schemaId"],
+							"components": [
+								{
+									"name": "details_form",
+									"type": "form",
+									"mode": "read_only",
+									"title": "Details",
+									"query_name": "schema_details",
+									"close_route": "schemas",
+									"back_route": "schemas"
+								}
+							]
+						},
+
+						{
+							"name": "edit",
+							"route_params": ["schemaId"],
+							"components": [
+								{
+									"name": "edit_form",
+									"type": "form",
+									"mode": "update",
+									"title": "Edit schema",
+									"submit_route": "schemas",
+									"cancel_route": "schemas",
+									"query_name": "schema_details"
+								}
+							]
+						}
+					]
+				},
+
+				{
+					"name": "tables",
+					"components": [
+						{
+							"name": "view",
+							"type": "data_view",
+							"title": "Tables",
+							"text_if_empty": "No tables :(",
+							"query_name": "table_list",
+							"page_size": 20,
+							"insert_route": "tables.insert",
+							"edit_route": "tables.edit",
+							"edit_route_params": [
+								{ "name": "tableId", "value": "this._id" }
+							],
+							"details_route": "tables.details",
+							"details_route_params": [
+								{ "name": "tableId", "value": "this._id" }
+							]
+						}
+					],
+
+					"pages": [
+						{
+							"name": "insert",
+							"components": [
+								{
+									"name": "insert_form",
+									"type": "form",
+									"mode": "insert",
+									"title": "New table",
+
+									"query_name": "tables_empty",
+
+									"submit_route": "tables.details",
+									"submit_route_params": [
+										{ "name": "tableId", "value": "result"}
+									],
+									"cancel_route": "tables"
+								}
+							]
+						},
+						{
+							"name": "details",
+							"template": "page_subcontent_tabnav",
+							"route_params": ["tableId"],
+							"components": [
+								{
+									"name": "details_form",
+									"type": "form",
+									"mode": "read_only",
+									"title": "Table details",
+									"layout": "horizontal",
+									"query_name": "table_details",
+									"back_route": "tables"
+								}
+
+							],
+
+							"render_subpages": "always",
+							"pages": [
+								{
+									"name": "items",
+									"components": [
+										{
+											"name": "view",
+											"type": "data_view",
+											"text_if_empty": "No items",
+											"query_name": "columns",
+											"page_size": 20,
+											"insert_button_title": "Add column",
+											"insert_route": "tables.details.insert",
+											"insert_route_params": [
+												{ "name": "tableId", "value": "this.params.tableId" }
+											],
+											"edit_route": "tables.details.edit",
+											"edit_route_params": [
+												{ "name": "tableId", "value": "UI._parentData(1).params.tableId" },
+												{ "name": "columnId", "value": "this._id" }
+											]
+										}
+									]
+								},
+
+								{
+									"name": "insert",
+									"components": [										
+										{
+											"name": "insert_form",
+											"type": "form",
+											"mode": "insert",
+											"title": "Add column",
+											"query_name": "columns_empty",
+
+											"hidden_fields": [
+												{ "name": "tableId", "value": "this.params.tableId" }
+											],
+
+											"submit_route": "tables.details",
+											"submit_route_params": [
+												{ "name": "tableId", "value": "this.params.tableId"}
+											],
+											"cancel_route": "tables.details",
+											"cancel_route_params": [
+												{ "name": "tableId", "value": "this.params.tableId"}
+											]
+										}
+									]
+								},
+
+								{
+									"name": "edit",
+									"route_params": ["columnId"],
+									"components": [
+										{
+											"name": "edit_form",
+											"type": "form",
+											"mode": "update",
+											"title": "Edit column",
+											"query_name": "column",
+											"submit_route": "tables.details",
+											"submit_route_params": [
+												{ "name": "tableId", "value": "this.params.tableId"}
+											],
+											"cancel_route": "tables.details",
+											"cancel_route_params": [
+												{ "name": "tableId", "value": "this.params.tableId"}
+											]
+										}
+									]
+								}
+							]
+						},
+
+						{
+							"name": "edit",
+							"route_params": ["tableId"],
+							"components": [
+								{
+									"name": "edit_form",
+									"type": "form",
+									"mode": "update",
+									"title": "Edit table",
+									"submit_route": "tables",
+									"cancel_route": "tables",
+									"query_name": "table_details"
+								}
+							]
+						}
+					]
+				},
+
+				{
+					"name": "user_settings",
+					"pages": [
+						{
+							"name": "profile",
+							"components": [
+								{
+									"name": "edit_form",
+									"type": "form",
+									"mode": "update",
+									"title": "Edit your profile",
+									"submit_route": "user_settings.profile",
+									"query_name": "current_user_data",
+									"fields": [
+										{ "name": "profile.name", "title": "Name", "required": true },
+										{ "name": "profile.facebook", "title": "Facebook URL" },
+										{ "name": "profile.google", "title": "Google+ URL" },
+										{ "name": "profile.twitter", "title": "Twitter ID" },
+										{ "name": "profile.website", "title": "Website URL" }
+									]
+								}
+							]
+						},
+
+						{ "name": "change_pass", "template": "change_pass" }
+					],
+
+					"components": [
+						{
+							"name": "side_menu",
+							"type": "menu",
+							"class": "nav nav-stacked nav-pills",
+							"items": [
+								{ "title": "Profile", "route": "user_settings.profile" },
+								{ "title": "Change password", "route": "user_settings.change_pass" }
+							]
+						}
+					]
+				},
+
+				{ "name": "logout", "template": "logout" }
+			],
+
+			"components": [
+				{
+					"name": "left_menu",
+					"type": "menu",
+					"class": "nav navbar-nav",
+					"dest_selector": "#menu",
+					"items": [
+						{ "title": "Home", "route": "home_private" },
+						{ "title": "Schemas", "route": "schemas" },
+						{ "title": "Tables", "route": "tables" }
+					]
+				},
+				{
+					"name": "right_menu",
+					"type": "menu",
+					"class": "nav navbar-nav navbar-right",
+					"dest_selector": "#menu",
+					"items": [
+						{ 
+							"title": "{{userEmail}}",
+							"items": [
+								{ "title": "Settings", "route": "user_settings" },
+								{ "title": "Logout", "route": "logout" }
+							]
+						}
+					]
+				}
+			]
+		}
+	}
+}
