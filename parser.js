@@ -123,7 +123,7 @@ const makeRecipe = (appData, t) => {
   collections.items.forEach(c => {
     const newC = _.cloneDeep(t.collection);
     const [original, tableName, flist] = c.match(/^(\w+):(.*)$/i);
-    const extraFields = []
+    const extraFields = [];
     newC.fields = flist
       .split(",")
       .map(f => f.trim())
@@ -138,28 +138,31 @@ const makeRecipe = (appData, t) => {
         if (fkeys[tableName])
           fkeys[tableName].forEach(item => {
             if (item.fkey === f) {
-              const extras = t.fkeys;
+              const extras = _.clone(t.fkeys);
               Object.keys(t.fkeys).forEach(element => {
                 if (typeof t.fkeys[element] === "string")
-                  t.fkeys[element] = t.fkeys[element].replace(
+                  extras[element] = t.fkeys[element].replace(
                     /<COLLECTION>/g,
                     tableName.toLowerCase()
                   );
               });
               field = Object.assign(field, extras);
-              extraFields.push(
-                Object.keys(t.fkeyDisplay).forEach(element => {
-                  if (typeof t.fkeyDisplay[element] === "string")
-                    t.fkeyDisplay[element] = t.fkeyDisplay[element].replace(
-                      /<FOREIGNTABLE>/g,
-                      item.target
-                    );
-                });
-              )
+              // Do we need a display field to match the foreign key?
+              const extraField = _.clone(t.fkeyDisplay);
+              Object.keys(t.fkeyDisplay).forEach(element => {
+                if (typeof t.fkeyDisplay[element] === "string") {
+                  extraField[element] = t.fkeyDisplay[element].replace(
+                    /<FOREIGNTABLE>/g,
+                    item.target
+                  );
+                }
+              });
+              extraFields.push(extraField);
             }
           });
         return field;
       });
+    newC.fields = newC.fields.concat(extraFields);
     newC.name = tableName;
     recipe.collections.push(newC);
     const newQ = _.cloneDeep(t.queries).map(q => {

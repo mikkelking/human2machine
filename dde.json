@@ -65,6 +65,13 @@
             "title": "Baa",
             "required": true,
             "exportable": true
+          },
+          {
+            "name": "Schemas.name",
+            "title": "Schemas",
+            "show_in_insert_form": false,
+            "show_in_update_form": false,
+            "exportable": true
           }
         ],
         "owner_field": "ownerId",
@@ -90,16 +97,16 @@
             "required": true,
             "exportable": false,
             "input": "select",
-            "lookup_query_name": "tables_list",
+            "lookup_query_name": "rows_list",
             "lookup_field": "name",
             "lookup_key": "_id",
             "show_in_dataview": false,
             "show_in_read_only_form": false,
-            "join_collection": "tables",
+            "join_collection": "rows",
             "join_fields": [
               "name"
             ],
-            "join_container": "tables"
+            "join_container": "rows"
           },
           {
             "name": "table_name",
@@ -141,6 +148,13 @@
             "name": "hash",
             "title": "Hash",
             "required": true,
+            "exportable": true
+          },
+          {
+            "name": "Tables.name",
+            "title": "Tables",
+            "show_in_insert_form": false,
+            "show_in_update_form": false,
             "exportable": true
           }
         ],
