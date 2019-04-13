@@ -42,6 +42,13 @@ const kitchenTemplates = {
     join_fields: ["name"],
     join_container: "<COLLECTION>"
   },
+  fkeyDisplay: {
+    name: "<FOREIGNTABLE>.name",
+    title: "<FOREIGNTABLE>",
+    show_in_insert_form: false,
+    show_in_update_form: false,
+    exportable: true
+  },
   // The main structure
   application: {
     packages: {

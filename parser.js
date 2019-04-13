@@ -123,6 +123,7 @@ const makeRecipe = (appData, t) => {
   collections.items.forEach(c => {
     const newC = _.cloneDeep(t.collection);
     const [original, tableName, flist] = c.match(/^(\w+):(.*)$/i);
+    const extraFields = []
     newC.fields = flist
       .split(",")
       .map(f => f.trim())
@@ -136,7 +137,7 @@ const makeRecipe = (appData, t) => {
         };
         if (fkeys[tableName])
           fkeys[tableName].forEach(item => {
-            if (item.fkey) {
+            if (item.fkey === f) {
               const extras = t.fkeys;
               Object.keys(t.fkeys).forEach(element => {
                 if (typeof t.fkeys[element] === "string")
@@ -146,6 +147,15 @@ const makeRecipe = (appData, t) => {
                   );
               });
               field = Object.assign(field, extras);
+              extraFields.push(
+                Object.keys(t.fkeyDisplay).forEach(element => {
+                  if (typeof t.fkeyDisplay[element] === "string")
+                    t.fkeyDisplay[element] = t.fkeyDisplay[element].replace(
+                      /<FOREIGNTABLE>/g,
+                      item.target
+                    );
+                });
+              )
             }
           });
         return field;
