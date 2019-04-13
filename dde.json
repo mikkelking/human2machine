@@ -259,9 +259,9 @@
           "components": [
             {
               "name": "home_jumbotron",
-              "title": "<APPTITLE>",
+              "title": "Home",
               "type": "jumbotron",
-              "text": "<APPDESCRIPTION>",
+              "text": "Data Dictionary Editor (DDE)",
               "button_title": "Continue &raquo;",
               "button_route": "login"
             }
@@ -319,7 +319,247 @@
       ]
     },
     "private_zone": {
-      "pages": [],
+      "pages": [
+        {
+          "name": "home_private",
+          "title": "Welcome {{userFullName}}!",
+          "text": "Place for dashboard here..."
+        },
+        {
+          "name": "Schemas",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Schemas",
+              "text_if_empty": "No Schemas :(",
+              "query_name": "Schemas_list",
+              "page_size": 20,
+              "insert_route": "Schemas.insert",
+              "edit_route": "Schemas.edit",
+              "edit_route_params": [
+                {
+                  "name": "SchemasId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "Schemas.details",
+              "details_route_params": [
+                {
+                  "name": "SchemasId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Schemas",
+                  "query_name": "Schemas_empty",
+                  "submit_route": "Schemas",
+                  "cancel_route": "Schemas"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "SchemasId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "Schemas_details",
+                  "close_route": "Schemas",
+                  "back_route": "Schemas"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "SchemasId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Schemas",
+                  "submit_route": "Schemas",
+                  "cancel_route": "Schemas",
+                  "query_name": "Schemas_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Tables",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Tables",
+              "text_if_empty": "No Tables :(",
+              "query_name": "Tables_list",
+              "page_size": 20,
+              "insert_route": "Tables.insert",
+              "edit_route": "Tables.edit",
+              "edit_route_params": [
+                {
+                  "name": "TablesId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "Tables.details",
+              "details_route_params": [
+                {
+                  "name": "TablesId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Tables",
+                  "query_name": "Tables_empty",
+                  "submit_route": "Tables",
+                  "cancel_route": "Tables"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "TablesId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "Tables_details",
+                  "close_route": "Tables",
+                  "back_route": "Tables"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "TablesId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Tables",
+                  "submit_route": "Tables",
+                  "cancel_route": "Tables",
+                  "query_name": "Tables_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Rows",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Rows",
+              "text_if_empty": "No Rows :(",
+              "query_name": "Rows_list",
+              "page_size": 20,
+              "insert_route": "Rows.insert",
+              "edit_route": "Rows.edit",
+              "edit_route_params": [
+                {
+                  "name": "RowsId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "Rows.details",
+              "details_route_params": [
+                {
+                  "name": "RowsId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Rows",
+                  "query_name": "Rows_empty",
+                  "submit_route": "Rows",
+                  "cancel_route": "Rows"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "RowsId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "Rows_details",
+                  "close_route": "Rows",
+                  "back_route": "Rows"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "RowsId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Rows",
+                  "submit_route": "Rows",
+                  "cancel_route": "Rows",
+                  "query_name": "Rows_details"
+                }
+              ]
+            }
+          ]
+        }
+      ],
       "components": [
         {
           "name": "main_menu",

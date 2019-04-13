@@ -49,6 +49,73 @@ const kitchenTemplates = {
     show_in_update_form: false,
     exportable: true
   },
+  // CRUD pages
+  crud: {
+    name: "<PAGE>",
+    components: [
+      {
+        name: "view",
+        type: "data_view",
+        title: "<COLLECTION>",
+        text_if_empty: "No <COLLECTION> :(",
+        query_name: "<COLLECTION>_list",
+        page_size: 20,
+        insert_route: "<COLLECTION>.insert",
+        edit_route: "<COLLECTION>.edit",
+        edit_route_params: [{ name: "<COLLECTION>Id", value: "this._id" }],
+        details_route: "<COLLECTION>.details",
+        details_route_params: [{ name: "<COLLECTION>Id", value: "this._id" }]
+      }
+    ],
+
+    pages: [
+      {
+        name: "insert",
+        components: [
+          {
+            name: "insert_form",
+            type: "form",
+            mode: "insert",
+            title: "New <COLLECTION>",
+            query_name: "<COLLECTION>_empty",
+            submit_route: "<COLLECTION>",
+            cancel_route: "<COLLECTION>"
+          }
+        ]
+      },
+      {
+        name: "details",
+        route_params: ["<COLLECTION>Id"],
+        components: [
+          {
+            name: "details_form",
+            type: "form",
+            mode: "read_only",
+            title: "Details",
+            query_name: "<COLLECTION>_details",
+            close_route: "<COLLECTION>",
+            back_route: "<COLLECTION>"
+          }
+        ]
+      },
+
+      {
+        name: "edit",
+        route_params: ["<COLLECTION>Id"],
+        components: [
+          {
+            name: "edit_form",
+            type: "form",
+            mode: "update",
+            title: "Edit <COLLECTION>",
+            submit_route: "<COLLECTION>",
+            cancel_route: "<COLLECTION>",
+            query_name: "<COLLECTION>_details"
+          }
+        ]
+      }
+    ]
+  },
   // The main structure
   application: {
     packages: {
@@ -105,7 +172,13 @@ const kitchenTemplates = {
       ]
     },
     private_zone: {
-      pages: [],
+      pages: [
+        {
+          name: "home_private",
+          title: "Welcome {{userFullName}}!",
+          text: "Place for dashboard here..."
+        }
+      ],
       // Menu items
       components: [
         {

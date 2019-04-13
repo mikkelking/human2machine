@@ -1,5 +1,4 @@
 #New syntax for what was human2ide
-
 Menu:Top
   Home
   Schemas
@@ -18,8 +17,10 @@ Joins
   Tables.schemaId: Schemas
   Rows.tableId: Tables
 
-Pages
-  Home: Jumbotron: Welcome to my brave new world!
+Public
+  Home: Jumbotron: Data Dictionary Editor (DDE)
+
+Private
   Schemas: CRUD: Schemas
   Tables: CRUD: Tables
   Rows: CRUD: Rows

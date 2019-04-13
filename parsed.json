@@ -57,9 +57,13 @@
           "Rows.tableId: Tables"
         ]
       },
-      "pages": {
+      "public": {
         "items": [
-          "Home: Jumbotron: Welcome to my brave new world!",
+          "Home: Jumbotron: Data Dictionary Editor (DDE)"
+        ]
+      },
+      "private": {
+        "items": [
           "Schemas: CRUD: Schemas",
           "Tables: CRUD: Tables",
           "Rows: CRUD: Rows"
@@ -89,6 +93,6 @@
         "react": true
       }
     },
-    "when": "2019-04-13T06:08:57.879Z"
+    "when": "2019-04-13T10:25:45.360Z"
   }
 }

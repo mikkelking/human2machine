@@ -38,13 +38,29 @@ const app = {
 };
 
 const objectReplace = (regex, incoming, newValue) => {
-  const newObject = _.clone(incoming);
-  Object.keys(incoming).forEach(element => {
-    if (typeof incoming[element] === "string") {
-      newObject[element] = incoming[element].replace(regex, newValue);
+  if (incoming) {
+    if (typeof incoming === "string") {
+      return incoming.replace(regex, newValue);
     }
-  });
-  return newObject;
+    if (typeof incoming === "object") {
+      const newObject = _.clone(incoming);
+      if (newObject.isArray) {
+        return newObject[element].map(e => {
+          return objectReplace(regex, e, newValue);
+        });
+      } else {
+        Object.keys(incoming).forEach(element => {
+          newObject[element] = objectReplace(
+            regex,
+            newObject[element],
+            newValue
+          );
+        });
+        return newObject;
+      }
+    }
+  }
+  return incoming; // No change for other object types (bool, number etc)
 };
 
 const parseMenu = menuItem => {
@@ -120,10 +136,38 @@ const makeRecipe = (appData, t) => {
     accounts,
     menu,
     packages,
-    pages,
+    public,
+    private,
     popups,
     templates
   } = appData.parts;
+  // Public pages
+  public.items.forEach(page => {
+    recipe.public_zone.pages.forEach(p => {
+      if (p.name === "home_public") {
+        const [original, title, description] = page.match(
+          /\s*(\w+):\s*Jumbotron:\s*(.*)$/
+        );
+        p.components[0].title = title;
+        p.components[0].text = description;
+      }
+    });
+  });
+  // Private pages
+  private.items.forEach(page => {
+    // Example:   Schemas: CRUD: Schemas
+    const [original, pageName, collectionName] = page.match(
+      /(\w+):\s*CRUD:\s*(.*)$/
+    );
+    recipe.private_zone.pages.push(
+      objectReplace(
+        /<PAGE>/g,
+        objectReplace(/<COLLECTION>/g, t.crud, collectionName),
+        pageName
+      )
+    );
+  });
+
   const fkeys = {};
   debug("Joins", joins);
   joins.items.forEach(j => {
