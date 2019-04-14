@@ -10,41 +10,41 @@ const kitchenTemplates = {
   },
   queries: [
     {
-      name: "<COLLECTION>_list",
-      collection: "<COLLECTION>",
+      name: "<LC1_COLLECTION>_list",
+      collection: "<LC_COLLECTION>",
       filter: "{}",
       options: '{  "sort": { "name": 1 } }'
     },
     {
-      name: "<COLLECTION>_empty",
-      collection: "<COLLECTION>",
+      name: "<LC1_COLLECTION>_empty",
+      collection: "<LC_COLLECTION>",
       filter: '{ "_id": null }',
       find_one: true
     },
     {
-      name: "<COLLECTION>_details",
-      collection: "<COLLECTION>",
+      name: "<LC1_COLLECTION>_details",
+      collection: "<LC_COLLECTION>",
       find_one: true,
-      filter: '{ "_id": ":<COLLECTION>Id" }',
+      filter: '{ "_id": ":<LC1_COLLECTION>Id" }',
       options: "{}"
     }
   ],
   fkeys: {
     input: "select",
-    lookup_query_name: "<COLLECTION>_list",
+    lookup_query_name: "<LC1_JOINCOLLECTION>_list",
     lookup_field: "name",
     lookup_key: "_id",
     show_in_dataview: false,
     show_in_read_only_form: false,
     exportable: false,
 
-    join_collection: "<JOINCOLLECTION>",
+    join_collection: "<LC_JOINCOLLECTION>",
     join_fields: ["name"],
-    join_container: "<JOINCOLLECTION>"
+    join_container: "<LC1_JOINCOLLECTION>"
   },
   fkeyDisplay: {
-    name: "<FOREIGNTABLE>.name",
-    title: "<FOREIGNTABLE>",
+    name: "<LC1_FOREIGNTABLE>.name",
+    title: "<1_FOREIGNTABLE>",
     show_in_insert_form: false,
     show_in_update_form: false,
     exportable: true
@@ -57,14 +57,16 @@ const kitchenTemplates = {
         name: "view",
         type: "data_view",
         title: "<COLLECTION>",
-        text_if_empty: "No <COLLECTION> :(",
-        query_name: "<COLLECTION>_list",
+        text_if_empty: "I'm sorry, there are no <LC_COLLECTION> :(",
+        query_name: "<LC1_COLLECTION>_list",
         page_size: 20,
-        insert_route: "<COLLECTION>.insert",
-        edit_route: "<COLLECTION>.edit",
-        edit_route_params: [{ name: "<COLLECTION>Id", value: "this._id" }],
-        details_route: "<COLLECTION>.details",
-        details_route_params: [{ name: "<COLLECTION>Id", value: "this._id" }]
+        insert_route: "<LC_COLLECTION>.insert",
+        edit_route: "<LC_COLLECTION>.edit",
+        edit_route_params: [{ name: "<LC1_COLLECTION>Id", value: "this._id" }],
+        details_route: "<LC_COLLECTION>.details",
+        details_route_params: [
+          { name: "<LC1_COLLECTION>Id", value: "this._id" }
+        ]
       }
     ],
 
@@ -77,7 +79,7 @@ const kitchenTemplates = {
             type: "form",
             mode: "insert",
             title: "New <COLLECTION>",
-            query_name: "<COLLECTION>_empty",
+            query_name: "<LC1_COLLECTION>_empty",
             submit_route: "<COLLECTION>",
             cancel_route: "<COLLECTION>"
           }
@@ -85,14 +87,14 @@ const kitchenTemplates = {
       },
       {
         name: "details",
-        route_params: ["<COLLECTION>Id"],
+        route_params: ["<LC1_COLLECTION>Id"],
         components: [
           {
             name: "details_form",
             type: "form",
             mode: "read_only",
             title: "Details",
-            query_name: "<COLLECTION>_details",
+            query_name: "<LC1_COLLECTION>_details",
             close_route: "<COLLECTION>",
             back_route: "<COLLECTION>"
           }
@@ -101,7 +103,7 @@ const kitchenTemplates = {
 
       {
         name: "edit",
-        route_params: ["<COLLECTION>Id"],
+        route_params: ["<LC1_COLLECTION>Id"],
         components: [
           {
             name: "edit_form",
@@ -110,7 +112,7 @@ const kitchenTemplates = {
             title: "Edit <COLLECTION>",
             submit_route: "<COLLECTION>",
             cancel_route: "<COLLECTION>",
-            query_name: "<COLLECTION>_details"
+            query_name: "<LC1_COLLECTION>_details"
           }
         ]
       }
@@ -125,7 +127,7 @@ const kitchenTemplates = {
     collections: [],
     roles: ["admin", "editor", "viewer"],
     templating: "react",
-    // frontend: "materialize",
+    login_with_github: true,
     queries: [],
     public_zone: {
       pages: [

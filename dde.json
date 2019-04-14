@@ -1,8 +1,13 @@
 {
   "application": {
     "packages": {
-      "meteor": ["fortawesome:fontawesome"],
-      "npm": ["debug", "xlsx"]
+      "meteor": [
+        "fortawesome:fontawesome"
+      ],
+      "npm": [
+        "debug",
+        "xlsx"
+      ]
     },
     "collections": [
       {
@@ -21,80 +26,102 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
-        "name": "Schemas"
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "schemas"
       },
       {
         "fields": [
           {
             "name": "schemaId",
-            "title": "Schema Id",
+            "title": "Schema",
             "required": true,
             "exportable": false,
             "input": "select",
-            "lookup_query_name": "tables_list",
+            "lookup_query_name": "schema_list",
             "lookup_field": "name",
             "lookup_key": "_id",
             "show_in_dataview": false,
             "show_in_read_only_form": false,
-            "join_collection": "Schemas",
-            "join_fields": ["name"],
-            "join_container": "Schemas"
+            "join_collection": "schemas",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "schema"
           },
           {
-            "name": "table_name",
-            "title": "Table Name",
+            "name": "name",
+            "title": "Name",
             "required": true,
             "exportable": true
           },
           {
-            "name": "baa",
-            "title": "Baa",
+            "name": "description",
+            "title": "Description",
             "required": true,
             "exportable": true
           },
           {
-            "name": "Schemas.name",
-            "title": "Schemas",
+            "name": "schema.name",
+            "title": "Schema",
             "show_in_insert_form": false,
             "show_in_update_form": false,
             "exportable": true
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
-        "name": "Tables"
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "tables"
       },
       {
         "fields": [
           {
             "name": "tableId",
-            "title": "Table Id",
+            "title": "Table",
             "required": true,
             "exportable": false,
             "input": "select",
-            "lookup_query_name": "rows_list",
+            "lookup_query_name": "table_list",
             "lookup_field": "name",
             "lookup_key": "_id",
             "show_in_dataview": false,
             "show_in_read_only_form": false,
-            "join_collection": "Tables",
-            "join_fields": ["name"],
-            "join_container": "Tables"
+            "join_collection": "tables",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "table"
           },
           {
-            "name": "table_name",
-            "title": "Table Name",
+            "name": "name",
+            "title": "Name",
             "required": true,
             "exportable": true
           },
           {
-            "name": "column_name",
-            "title": "Column Name",
+            "name": "column",
+            "title": "Column",
             "required": true,
             "exportable": true
           },
@@ -129,75 +156,89 @@
             "exportable": true
           },
           {
-            "name": "Tables.name",
-            "title": "Tables",
+            "name": "table.name",
+            "title": "Table",
             "show_in_insert_form": false,
             "show_in_update_form": false,
             "exportable": true
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
-        "name": "Rows"
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "rows"
       }
     ],
-    "roles": ["admin", "editor", "viewer"],
+    "roles": [
+      "admin",
+      "editor",
+      "viewer"
+    ],
     "templating": "react",
+    "login_with_github": true,
     "queries": [
       {
-        "name": "schemas_list",
+        "name": "schema_list",
         "collection": "schemas",
         "filter": "{}",
         "options": "{  \"sort\": { \"name\": 1 } }"
       },
       {
-        "name": "schemas_empty",
+        "name": "schema_empty",
         "collection": "schemas",
         "filter": "{ \"_id\": null }",
         "find_one": true
       },
       {
-        "name": "schemas_details",
+        "name": "schema_details",
         "collection": "schemas",
         "find_one": true,
         "filter": "{ \"_id\": \":schemaId\" }",
         "options": "{}"
       },
       {
-        "name": "tables_list",
+        "name": "table_list",
         "collection": "tables",
         "filter": "{}",
         "options": "{  \"sort\": { \"name\": 1 } }"
       },
       {
-        "name": "tables_empty",
+        "name": "table_empty",
         "collection": "tables",
         "filter": "{ \"_id\": null }",
         "find_one": true
       },
       {
-        "name": "tables_details",
+        "name": "table_details",
         "collection": "tables",
         "find_one": true,
         "filter": "{ \"_id\": \":tableId\" }",
         "options": "{}"
       },
       {
-        "name": "rows_list",
+        "name": "row_list",
         "collection": "rows",
         "filter": "{}",
         "options": "{  \"sort\": { \"name\": 1 } }"
       },
       {
-        "name": "rows_empty",
+        "name": "row_empty",
         "collection": "rows",
         "filter": "{ \"_id\": null }",
         "find_one": true
       },
       {
-        "name": "rows_details",
+        "name": "row_details",
         "collection": "rows",
         "find_one": true,
         "filter": "{ \"_id\": \":rowId\" }",
@@ -235,7 +276,9 @@
         {
           "name": "reset_password",
           "template": "reset_password",
-          "route_params": ["resetPasswordToken"]
+          "route_params": [
+            "resetPasswordToken"
+          ]
         }
       ],
       "components": [
@@ -283,21 +326,21 @@
               "name": "view",
               "type": "data_view",
               "title": "Schemas",
-              "text_if_empty": "No Schemas :(",
-              "query_name": "Schemas_list",
+              "text_if_empty": "I'm sorry, there are no schemas :(",
+              "query_name": "schema_list",
               "page_size": 20,
-              "insert_route": "Schemas.insert",
-              "edit_route": "Schemas.edit",
+              "insert_route": "schemas.insert",
+              "edit_route": "schemas.edit",
               "edit_route_params": [
                 {
-                  "name": "SchemaId",
+                  "name": "schemaId",
                   "value": "this._id"
                 }
               ],
-              "details_route": "Schemas.details",
+              "details_route": "schemas.details",
               "details_route_params": [
                 {
-                  "name": "SchemaId",
+                  "name": "schemaId",
                   "value": "this._id"
                 }
               ]
@@ -312,7 +355,7 @@
                   "type": "form",
                   "mode": "insert",
                   "title": "New Schemas",
-                  "query_name": "Schemas_empty",
+                  "query_name": "schema_empty",
                   "submit_route": "Schemas",
                   "cancel_route": "Schemas"
                 }
@@ -320,14 +363,16 @@
             },
             {
               "name": "details",
-              "route_params": ["SchemaId"],
+              "route_params": [
+                "schemaId"
+              ],
               "components": [
                 {
                   "name": "details_form",
                   "type": "form",
                   "mode": "read_only",
                   "title": "Details",
-                  "query_name": "Schemas_details",
+                  "query_name": "schema_details",
                   "close_route": "Schemas",
                   "back_route": "Schemas"
                 }
@@ -335,7 +380,9 @@
             },
             {
               "name": "edit",
-              "route_params": ["SchemaId"],
+              "route_params": [
+                "schemaId"
+              ],
               "components": [
                 {
                   "name": "edit_form",
@@ -344,7 +391,7 @@
                   "title": "Edit Schemas",
                   "submit_route": "Schemas",
                   "cancel_route": "Schemas",
-                  "query_name": "Schemas_details"
+                  "query_name": "schema_details"
                 }
               ]
             }
@@ -357,21 +404,21 @@
               "name": "view",
               "type": "data_view",
               "title": "Tables",
-              "text_if_empty": "No Tables :(",
-              "query_name": "Tables_list",
+              "text_if_empty": "I'm sorry, there are no tables :(",
+              "query_name": "table_list",
               "page_size": 20,
-              "insert_route": "Tables.insert",
-              "edit_route": "Tables.edit",
+              "insert_route": "tables.insert",
+              "edit_route": "tables.edit",
               "edit_route_params": [
                 {
-                  "name": "TableId",
+                  "name": "tableId",
                   "value": "this._id"
                 }
               ],
-              "details_route": "Tables.details",
+              "details_route": "tables.details",
               "details_route_params": [
                 {
-                  "name": "TableId",
+                  "name": "tableId",
                   "value": "this._id"
                 }
               ]
@@ -386,7 +433,7 @@
                   "type": "form",
                   "mode": "insert",
                   "title": "New Tables",
-                  "query_name": "Tables_empty",
+                  "query_name": "table_empty",
                   "submit_route": "Tables",
                   "cancel_route": "Tables"
                 }
@@ -394,14 +441,16 @@
             },
             {
               "name": "details",
-              "route_params": ["TableId"],
+              "route_params": [
+                "tableId"
+              ],
               "components": [
                 {
                   "name": "details_form",
                   "type": "form",
                   "mode": "read_only",
                   "title": "Details",
-                  "query_name": "Tables_details",
+                  "query_name": "table_details",
                   "close_route": "Tables",
                   "back_route": "Tables"
                 }
@@ -409,7 +458,9 @@
             },
             {
               "name": "edit",
-              "route_params": ["TableId"],
+              "route_params": [
+                "tableId"
+              ],
               "components": [
                 {
                   "name": "edit_form",
@@ -418,7 +469,7 @@
                   "title": "Edit Tables",
                   "submit_route": "Tables",
                   "cancel_route": "Tables",
-                  "query_name": "Tables_details"
+                  "query_name": "table_details"
                 }
               ]
             }
@@ -431,21 +482,21 @@
               "name": "view",
               "type": "data_view",
               "title": "Rows",
-              "text_if_empty": "No Rows :(",
-              "query_name": "Rows_list",
+              "text_if_empty": "I'm sorry, there are no rows :(",
+              "query_name": "row_list",
               "page_size": 20,
-              "insert_route": "Rows.insert",
-              "edit_route": "Rows.edit",
+              "insert_route": "rows.insert",
+              "edit_route": "rows.edit",
               "edit_route_params": [
                 {
-                  "name": "RowId",
+                  "name": "rowId",
                   "value": "this._id"
                 }
               ],
-              "details_route": "Rows.details",
+              "details_route": "rows.details",
               "details_route_params": [
                 {
-                  "name": "RowId",
+                  "name": "rowId",
                   "value": "this._id"
                 }
               ]
@@ -460,7 +511,7 @@
                   "type": "form",
                   "mode": "insert",
                   "title": "New Rows",
-                  "query_name": "Rows_empty",
+                  "query_name": "row_empty",
                   "submit_route": "Rows",
                   "cancel_route": "Rows"
                 }
@@ -468,14 +519,16 @@
             },
             {
               "name": "details",
-              "route_params": ["RowId"],
+              "route_params": [
+                "rowId"
+              ],
               "components": [
                 {
                   "name": "details_form",
                   "type": "form",
                   "mode": "read_only",
                   "title": "Details",
-                  "query_name": "Rows_details",
+                  "query_name": "row_details",
                   "close_route": "Rows",
                   "back_route": "Rows"
                 }
@@ -483,7 +536,9 @@
             },
             {
               "name": "edit",
-              "route_params": ["RowId"],
+              "route_params": [
+                "rowId"
+              ],
               "components": [
                 {
                   "name": "edit_form",
@@ -492,7 +547,7 @@
                   "title": "Edit Rows",
                   "submit_route": "Rows",
                   "cancel_route": "Rows",
-                  "query_name": "Rows_details"
+                  "query_name": "row_details"
                 }
               ]
             }

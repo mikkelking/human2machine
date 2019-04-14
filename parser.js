@@ -6,6 +6,7 @@ const templates = require("./app-template");
 const fs = require("fs");
 const _ = require("lodash");
 const titleCase = require("title-case");
+const camelCase = require("camel-case");
 
 const PARSER_SUMMARIES = {
   E: "Errors",
@@ -14,6 +15,9 @@ const PARSER_SUMMARIES = {
   F: "Fatal"
 };
 
+const myTitleCase = value => {
+  return titleCase(value).replace(/ Id$/, "");
+};
 const debug = require("debug")("kitchen:parser");
 
 var logUtil = function(severity) {
@@ -36,25 +40,41 @@ const app = {
   parts: {},
   when
 };
-
-const objectReplace = (regex, incoming, newValue) => {
+//
+// add singular/Plural forms of collection name to replacer object
+const addLC = (obj, kvs) => {
+  Object.keys(kvs).forEach(key => {
+    const value = kvs[key];
+    obj[key] = value;
+    obj[`LC_${key}`] = value.toLowerCase();
+    obj[`LC1_${key}`] = value.toLowerCase().replace(/s$/i, "");
+    obj[`1_${key}`] = value.replace(/s$/i, "");
+  });
+  return obj;
+};
+//
+// Recursive method to replace tokens in json object
+// Parameters:
+//             incoming object to scan and replace
+//             newValue: object of values to replace
+//
+const objectReplace = (incoming, newValues) => {
   if (incoming) {
     if (typeof incoming === "string") {
-      return incoming.replace(regex, newValue);
+      const m = incoming.match(/<(\w+)>/);
+      if (m && newValues[m[1]]) {
+        incoming = incoming.replace(`<${m[1]}>`, newValues[m[1]]);
+      }
     }
     if (typeof incoming === "object") {
       const newObject = _.clone(incoming);
       if (newObject.isArray) {
         return newObject[element].map(e => {
-          return objectReplace(regex, e, newValue);
+          return objectReplace(e, newValues);
         });
       } else {
         Object.keys(incoming).forEach(element => {
-          newObject[element] = objectReplace(
-            regex,
-            newObject[element],
-            newValue
-          );
+          newObject[element] = objectReplace(newObject[element], newValues);
         });
         return newObject;
       }
@@ -164,13 +184,9 @@ const makeRecipe = (appData, t) => {
     const [original, pageName, collectionName] = page.match(
       /(\w+):\s*CRUD:\s*(.*)$/
     );
-    recipe.private_zone.pages.push(
-      objectReplace(
-        /<PAGE>/g,
-        objectReplace(/<COLLECTION>/g, t.crud, collectionName),
-        pageName
-      )
-    );
+    const replacers = addLC({ PAGE: pageName }, { COLLECTION: collectionName });
+
+    recipe.private_zone.pages.push(objectReplace(t.crud, replacers));
     recipe.private_zone.components[0].items.push({
       title: collectionName,
       route: collectionName.toLowerCase()
@@ -195,24 +211,26 @@ const makeRecipe = (appData, t) => {
       .map(f => {
         let field = {
           name: f,
-          title: titleCase(f),
+          title: myTitleCase(f),
           required: true,
           exportable: true
         };
         if (fkeys[tableName])
           fkeys[tableName].forEach(item => {
             if (item.fkey === f) {
-              const extras = objectReplace(
-                /<COLLECTION>/g,
-                objectReplace(/<JOINCOLLECTION>/g, t.fkeys, item.target),
-                tableName.toLowerCase()
+              const replacers = addLC(
+                {},
+                {
+                  COLLECTION: tableName,
+                  JOINCOLLECTION: item.target
+                }
               );
+              const extras = objectReplace(t.fkeys, replacers);
               field = Object.assign(field, extras);
               // Do we need a display field to match the foreign key?
               const extraField = objectReplace(
-                /<FOREIGNTABLE>/g,
                 t.fkeyDisplay,
-                item.target
+                addLC({}, { FOREIGNTABLE: item.target })
               );
               extraFields.push(extraField);
             }
@@ -220,10 +238,18 @@ const makeRecipe = (appData, t) => {
         return field;
       });
     newC.fields = newC.fields.concat(extraFields);
-    newC.name = tableName;
+    newC.name = camelCase(tableName);
     recipe.collections.push(newC);
     const newQ = t.queries.map(q => {
-      return objectReplace(/<COLLECTION>/g, q, tableName.toLowerCase());
+      return objectReplace(
+        q,
+        addLC(
+          {},
+          {
+            COLLECTION: tableName
+          }
+        )
+      );
     });
     recipe.queries = recipe.queries.concat(newQ);
   });

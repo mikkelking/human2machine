@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/perak/human2machine",
   "dependencies": {
+    "camel-case": "^3.0.0",
     "title-case": "^2.1.1"
   }
 }

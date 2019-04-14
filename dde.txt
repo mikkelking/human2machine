@@ -10,8 +10,8 @@ Menu:Top
 
 Collections
   Schemas:  name, description
-  Tables:  schemaId, table name, baa
-  Rows: tableId, table name, column name, data type, key, anon level, anon type, hash
+  Tables:  schemaId, name, description
+  Rows: tableId, name, column, data type, key, anon level, anon type, hash
 
 Joins
   Tables.schemaId: Schemas

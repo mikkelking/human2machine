@@ -47,8 +47,8 @@
       "collections": {
         "items": [
           "Schemas:  name, description",
-          "Tables:  schemaId, table name, baa",
-          "Rows: tableId, table name, column name, data type, key, anon level, anon type, hash"
+          "Tables:  schemaId, name, description",
+          "Rows: tableId, name, column, data type, key, anon level, anon type, hash"
         ]
       },
       "joins": {
@@ -93,6 +93,6 @@
         "react": true
       }
     },
-    "when": "2019-04-13T12:56:46.153Z"
+    "when": "2019-04-14T05:27:27.215Z"
   }
 }
