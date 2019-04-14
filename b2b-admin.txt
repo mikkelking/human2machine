@@ -1,0 +1,47 @@
+#New syntax for what was human2ide
+Menu:Top
+  Home
+  Events(Private)
+  Products(Private)
+  ProductTypes(Private)
+  Settings
+  About
+
+Datatypes
+  duration: integer
+  price: integer
+  qty: integer
+  active: bool
+  autoRenew: bool
+  startDate: date
+  endDate: date
+  when: date
+
+Collections
+  Events:  name, description,location,when,active,duration,price
+  Products: productTypeId, name, description, autoRenew, code,type,duration,price,qty,image,active,startDate,endDate
+  ProductTypes: name, description, type, color, image, icon,
+
+Joins
+  Product.typeId: ProductTypes
+
+Public
+  Home: Jumbotron: B2B Shop admin
+
+Private
+  Events: CRUD: Events
+  Products: CRUD: Products
+  ProductTypes: CRUD: ProductTypes
+
+Popups
+  Settings
+
+Accounts
+  UI
+  Password
+
+Packages
+  fortawesome:fontawesome
+  debug
+
+Templating:React

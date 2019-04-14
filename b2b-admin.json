@@ -1,0 +1,690 @@
+{
+  "application": {
+    "packages": {
+      "meteor": [
+        "fortawesome:fontawesome"
+      ],
+      "npm": [
+        "debug"
+      ]
+    },
+    "collections": [
+      {
+        "fields": [
+          {
+            "name": "name",
+            "title": "Name",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "description",
+            "title": "Description",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "location",
+            "title": "Location",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "when",
+            "title": "When",
+            "type": "date",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true,
+            "input": "datepicker"
+          },
+          {
+            "name": "active",
+            "title": "Active",
+            "type": "bool",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true,
+            "input": "checkbox"
+          },
+          {
+            "name": "duration",
+            "title": "Duration",
+            "type": "integer",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "price",
+            "title": "Price",
+            "type": "integer",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": false
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "events"
+      },
+      {
+        "fields": [
+          {
+            "name": "productTypeId",
+            "title": "Product Type",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "name",
+            "title": "Name",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "description",
+            "title": "Description",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "autoRenew",
+            "title": "Auto Renew",
+            "type": "bool",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true,
+            "input": "checkbox"
+          },
+          {
+            "name": "code",
+            "title": "Code",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "type",
+            "title": "Type",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "duration",
+            "title": "Duration",
+            "type": "integer",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": false
+          },
+          {
+            "name": "price",
+            "title": "Price",
+            "type": "integer",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": false
+          },
+          {
+            "name": "qty",
+            "title": "Qty",
+            "type": "integer",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": false
+          },
+          {
+            "name": "image",
+            "title": "Image",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": false
+          },
+          {
+            "name": "active",
+            "title": "Active",
+            "type": "bool",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": false,
+            "input": "checkbox"
+          },
+          {
+            "name": "startDate",
+            "title": "Start Date",
+            "type": "date",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": false,
+            "input": "datepicker"
+          },
+          {
+            "name": "endDate",
+            "title": "End Date",
+            "type": "date",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": false,
+            "input": "datepicker"
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "products"
+      },
+      {
+        "fields": [
+          {
+            "name": "name",
+            "title": "Name",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "description",
+            "title": "Description",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "type",
+            "title": "Type",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "color",
+            "title": "Color",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "image",
+            "title": "Image",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "icon",
+            "title": "Icon",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "productTypes"
+      }
+    ],
+    "roles": [
+      "admin",
+      "editor",
+      "viewer"
+    ],
+    "templating": "react",
+    "login_with_github": true,
+    "queries": [
+      {
+        "name": "event_list",
+        "collection": "events",
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
+      },
+      {
+        "name": "event_empty",
+        "collection": "events",
+        "filter": "{ \"_id\": null }",
+        "find_one": true
+      },
+      {
+        "name": "event_details",
+        "collection": "events",
+        "find_one": true,
+        "filter": "{ \"_id\": \":eventId\" }",
+        "options": "{}"
+      },
+      {
+        "name": "product_list",
+        "collection": "products",
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
+      },
+      {
+        "name": "product_empty",
+        "collection": "products",
+        "filter": "{ \"_id\": null }",
+        "find_one": true
+      },
+      {
+        "name": "product_details",
+        "collection": "products",
+        "find_one": true,
+        "filter": "{ \"_id\": \":productId\" }",
+        "options": "{}"
+      },
+      {
+        "name": "producttype_list",
+        "collection": "productTypes",
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
+      },
+      {
+        "name": "producttype_empty",
+        "collection": "productTypes",
+        "filter": "{ \"_id\": null }",
+        "find_one": true
+      },
+      {
+        "name": "producttype_details",
+        "collection": "productTypes",
+        "find_one": true,
+        "filter": "{ \"_id\": \":producttypeId\" }",
+        "options": "{}"
+      }
+    ],
+    "public_zone": {
+      "pages": [
+        {
+          "name": "home_public",
+          "title": "",
+          "components": [
+            {
+              "name": "home_jumbotron",
+              "title": "Home",
+              "type": "jumbotron",
+              "text": "B2B Shop admin",
+              "button_title": "Continue &raquo;",
+              "button_route": "login"
+            }
+          ]
+        },
+        {
+          "name": "login",
+          "template": "login"
+        },
+        {
+          "name": "register",
+          "template": "register"
+        },
+        {
+          "name": "forgot_password",
+          "template": "forgot_password"
+        },
+        {
+          "name": "reset_password",
+          "template": "reset_password",
+          "route_params": [
+            "resetPasswordToken"
+          ]
+        }
+      ],
+      "components": [
+        {
+          "name": "left_menu",
+          "type": "menu",
+          "class": "nav navbar-nav",
+          "dest_selector": "#menu",
+          "items": [
+            {
+              "title": "Home",
+              "route": "home_public"
+            }
+          ]
+        },
+        {
+          "name": "right_menu",
+          "type": "menu",
+          "class": "nav navbar-nav navbar-right",
+          "dest_selector": "#menu",
+          "items": [
+            {
+              "title": "Register",
+              "route": "register"
+            },
+            {
+              "title": "Login",
+              "route": "login"
+            }
+          ]
+        }
+      ]
+    },
+    "private_zone": {
+      "pages": [
+        {
+          "name": "home_private",
+          "title": "Welcome {{userFullName}}!",
+          "text": "Place for dashboard here..."
+        },
+        {
+          "name": "Events",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Events",
+              "text_if_empty": "I'm sorry, there are no events :(",
+              "query_name": "event_list",
+              "page_size": 20,
+              "insert_route": "events.insert",
+              "edit_route": "events.edit",
+              "edit_route_params": [
+                {
+                  "name": "eventId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "events.details",
+              "details_route_params": [
+                {
+                  "name": "eventId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Events",
+                  "query_name": "event_empty",
+                  "submit_route": "Events",
+                  "cancel_route": "Events"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "eventId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "event_details",
+                  "close_route": "Events",
+                  "back_route": "Events"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "eventId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Events",
+                  "submit_route": "Events",
+                  "cancel_route": "Events",
+                  "query_name": "event_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Products",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Products",
+              "text_if_empty": "I'm sorry, there are no products :(",
+              "query_name": "product_list",
+              "page_size": 20,
+              "insert_route": "products.insert",
+              "edit_route": "products.edit",
+              "edit_route_params": [
+                {
+                  "name": "productId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "products.details",
+              "details_route_params": [
+                {
+                  "name": "productId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Products",
+                  "query_name": "product_empty",
+                  "submit_route": "Products",
+                  "cancel_route": "Products"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "productId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "product_details",
+                  "close_route": "Products",
+                  "back_route": "Products"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "productId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Products",
+                  "submit_route": "Products",
+                  "cancel_route": "Products",
+                  "query_name": "product_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "ProductTypes",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "ProductTypes",
+              "text_if_empty": "I'm sorry, there are no producttypes :(",
+              "query_name": "producttype_list",
+              "page_size": 20,
+              "insert_route": "producttypes.insert",
+              "edit_route": "producttypes.edit",
+              "edit_route_params": [
+                {
+                  "name": "producttypeId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "producttypes.details",
+              "details_route_params": [
+                {
+                  "name": "producttypeId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New ProductTypes",
+                  "query_name": "producttype_empty",
+                  "submit_route": "ProductTypes",
+                  "cancel_route": "ProductTypes"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "producttypeId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "producttype_details",
+                  "close_route": "ProductTypes",
+                  "back_route": "ProductTypes"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "producttypeId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit ProductTypes",
+                  "submit_route": "ProductTypes",
+                  "cancel_route": "ProductTypes",
+                  "query_name": "producttype_details"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "name": "left_menu",
+          "type": "menu",
+          "class": "nav navbar-nav",
+          "dest_selector": "#menu",
+          "items": [
+            {
+              "title": "Home",
+              "route": "home_private"
+            },
+            {
+              "title": "Events",
+              "route": "events"
+            },
+            {
+              "title": "Products",
+              "route": "products"
+            },
+            {
+              "title": "ProductTypes",
+              "route": "producttypes"
+            }
+          ]
+        },
+        {
+          "name": "right_menu",
+          "type": "menu",
+          "class": "nav navbar-nav navbar-right",
+          "dest_selector": "#menu",
+          "items": [
+            {
+              "title": "{{userEmail}}",
+              "items": [
+                {
+                  "title": "Settings",
+                  "route": "user_settings"
+                },
+                {
+                  "title": "Logout",
+                  "route": "logout"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

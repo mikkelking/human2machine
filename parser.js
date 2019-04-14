@@ -15,6 +15,14 @@ const PARSER_SUMMARIES = {
   F: "Fatal"
 };
 
+const inputControls = {
+  bool: "checkbox",
+  date: "datepicker",
+  textarea: "textarea"
+};
+
+const displayHelpers = {};
+
 const myTitleCase = value => {
   return titleCase(value).replace(/ Id$/, "");
 };
@@ -47,6 +55,7 @@ const addLC = (obj, kvs) => {
     const value = kvs[key];
     obj[key] = value;
     obj[`LC_${key}`] = value.toLowerCase();
+    obj[`CC_${key}`] = camelCase(value);
     obj[`LC1_${key}`] = value.toLowerCase().replace(/s$/i, "");
     obj[`1_${key}`] = value.replace(/s$/i, "");
   });
@@ -153,7 +162,7 @@ const makeRecipe = (appData, t) => {
   const {
     collections,
     joins = [],
-    accounts,
+    datatypes,
     menu,
     packages,
     public,
@@ -193,6 +202,14 @@ const makeRecipe = (appData, t) => {
     });
   });
 
+  // Datatypes
+  const types = {};
+  if (datatypes) {
+    datatypes.items.forEach(dt => {
+      const [original, field, type] = dt.match(/(\w+):\s*(\w+)/);
+      if (field) types[field] = type;
+    });
+  }
   const fkeys = {};
   debug("Joins", joins);
   joins.items.forEach(j => {
@@ -207,13 +224,18 @@ const makeRecipe = (appData, t) => {
     newC.fields = flist
       .split(",")
       .map(f => f.trim())
+      .filter(f => f)
       .map(f => f.replace(/\s+/, "_"))
-      .map(f => {
+      .map((f, ix) => {
         let field = {
           name: f,
           title: myTitleCase(f),
+          type: types[f],
           required: true,
-          exportable: true
+          exportable: true,
+          show_in_dataview: ix < 6,
+          display_helper: displayHelpers[types[f]],
+          input: inputControls[types[f]]
         };
         if (fkeys[tableName])
           fkeys[tableName].forEach(item => {

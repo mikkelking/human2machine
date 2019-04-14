@@ -18,23 +18,19 @@
             "private": false
           },
           {
-            "name": "Schemas",
-            "private": false
-          },
-          {
-            "name": "Tables",
+            "name": "Events",
             "private": true
           },
           {
-            "name": "Rows",
+            "name": "Products",
+            "private": true
+          },
+          {
+            "name": "ProductTypes",
             "private": true
           },
           {
             "name": "Settings",
-            "private": false
-          },
-          {
-            "name": "Chat",
             "private": false
           },
           {
@@ -44,34 +40,44 @@
         ],
         "top": true
       },
+      "datatypes": {
+        "items": [
+          "duration: integer",
+          "price: integer",
+          "qty: integer",
+          "active: bool",
+          "autoRenew: bool",
+          "startDate: date",
+          "endDate: date",
+          "when: date"
+        ]
+      },
       "collections": {
         "items": [
-          "Schemas:  name, description",
-          "Tables:  schemaId, name, description",
-          "Rows: tableId, name, column, data type, key, anon level, anon type, hash"
+          "Events:  name, description,location,when,active,duration,price",
+          "Products: productTypeId, name, description, autoRenew, code,type,duration,price,qty,image,active,startDate,endDate",
+          "ProductTypes: name, description, type, color, image, icon,"
         ]
       },
       "joins": {
         "items": [
-          "Tables.schemaId: Schemas",
-          "Rows.tableId: Tables"
+          "Product.typeId: ProductTypes"
         ]
       },
       "public": {
         "items": [
-          "Home: Jumbotron: Data Dictionary Editor (DDE)"
+          "Home: Jumbotron: B2B Shop admin"
         ]
       },
       "private": {
         "items": [
-          "Schemas: CRUD: Schemas",
-          "Tables: CRUD: Tables",
-          "Rows: CRUD: Rows"
+          "Events: CRUD: Events",
+          "Products: CRUD: Products",
+          "ProductTypes: CRUD: ProductTypes"
         ]
       },
       "popups": {
         "items": [
-          "Chat",
           "Settings"
         ]
       },
@@ -84,8 +90,7 @@
       "packages": {
         "items": [
           "fortawesome:fontawesome",
-          "debug",
-          "xlsx"
+          "debug"
         ]
       },
       "templating": {
@@ -93,6 +98,6 @@
         "react": true
       }
     },
-    "when": "2019-04-14T05:27:27.215Z"
+    "when": "2019-04-14T08:33:15.694Z"
   }
 }

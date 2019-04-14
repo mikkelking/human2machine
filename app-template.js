@@ -11,19 +11,19 @@ const kitchenTemplates = {
   queries: [
     {
       name: "<LC1_COLLECTION>_list",
-      collection: "<LC_COLLECTION>",
+      collection: "<CC_COLLECTION>",
       filter: "{}",
       options: '{  "sort": { "name": 1 } }'
     },
     {
       name: "<LC1_COLLECTION>_empty",
-      collection: "<LC_COLLECTION>",
+      collection: "<CC_COLLECTION>",
       filter: '{ "_id": null }',
       find_one: true
     },
     {
       name: "<LC1_COLLECTION>_details",
-      collection: "<LC_COLLECTION>",
+      collection: "<CC_COLLECTION>",
       find_one: true,
       filter: '{ "_id": ":<LC1_COLLECTION>Id" }',
       options: "{}"
