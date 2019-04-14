@@ -1,0 +1,887 @@
+{
+  "application": {
+    "packages": {
+      "meteor": [
+        "fortawesome:fontawesome"
+      ],
+      "npm": [
+        "debug"
+      ]
+    },
+    "collections": [
+      {
+        "fields": [
+          {
+            "name": "name",
+            "title": "Name",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "description",
+            "title": "Description",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "status",
+            "title": "Status",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "apps"
+      },
+      {
+        "fields": [
+          {
+            "name": "name",
+            "title": "Name",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "description",
+            "title": "Description",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "path",
+            "title": "Path",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "status",
+            "title": "Status",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "markdown",
+            "title": "Markdown",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "doctype",
+            "title": "Doctype",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "docs"
+      },
+      {
+        "fields": [
+          {
+            "name": "name",
+            "title": "Name",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "description",
+            "title": "Description",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "platforms"
+      },
+      {
+        "fields": [
+          {
+            "name": "who",
+            "title": "Who",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "userId",
+            "title": "User",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "when",
+            "title": "When",
+            "type": "date",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true,
+            "input": "datepicker"
+          },
+          {
+            "name": "objecttype",
+            "title": "Objecttype",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "objectId",
+            "title": "Object",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "stars"
+      },
+      {
+        "fields": [
+          {
+            "name": "who",
+            "title": "Who",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "userId",
+            "title": "User",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "when",
+            "title": "When",
+            "type": "date",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true,
+            "input": "datepicker"
+          },
+          {
+            "name": "comment",
+            "title": "Comment",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "objecttype",
+            "title": "Objecttype",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          },
+          {
+            "name": "objectId",
+            "title": "Object",
+            "required": true,
+            "exportable": true,
+            "show_in_dataview": true
+          }
+        ],
+        "owner_field": "ownerId",
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
+        "name": "comments"
+      }
+    ],
+    "roles": [
+      "admin",
+      "editor",
+      "viewer"
+    ],
+    "templating": "react",
+    "login_with_github": true,
+    "queries": [
+      {
+        "name": "app_list",
+        "collection": "apps",
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
+      },
+      {
+        "name": "app_empty",
+        "collection": "apps",
+        "filter": "{ \"_id\": null }",
+        "find_one": true
+      },
+      {
+        "name": "app_details",
+        "collection": "apps",
+        "find_one": true,
+        "filter": "{ \"_id\": \":appId\" }",
+        "options": "{}"
+      },
+      {
+        "name": "doc_list",
+        "collection": "docs",
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
+      },
+      {
+        "name": "doc_empty",
+        "collection": "docs",
+        "filter": "{ \"_id\": null }",
+        "find_one": true
+      },
+      {
+        "name": "doc_details",
+        "collection": "docs",
+        "find_one": true,
+        "filter": "{ \"_id\": \":docId\" }",
+        "options": "{}"
+      },
+      {
+        "name": "platform_list",
+        "collection": "platforms",
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
+      },
+      {
+        "name": "platform_empty",
+        "collection": "platforms",
+        "filter": "{ \"_id\": null }",
+        "find_one": true
+      },
+      {
+        "name": "platform_details",
+        "collection": "platforms",
+        "find_one": true,
+        "filter": "{ \"_id\": \":platformId\" }",
+        "options": "{}"
+      },
+      {
+        "name": "star_list",
+        "collection": "stars",
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
+      },
+      {
+        "name": "star_empty",
+        "collection": "stars",
+        "filter": "{ \"_id\": null }",
+        "find_one": true
+      },
+      {
+        "name": "star_details",
+        "collection": "stars",
+        "find_one": true,
+        "filter": "{ \"_id\": \":starId\" }",
+        "options": "{}"
+      },
+      {
+        "name": "comment_list",
+        "collection": "comments",
+        "filter": "{}",
+        "options": "{  \"sort\": { \"name\": 1 } }"
+      },
+      {
+        "name": "comment_empty",
+        "collection": "comments",
+        "filter": "{ \"_id\": null }",
+        "find_one": true
+      },
+      {
+        "name": "comment_details",
+        "collection": "comments",
+        "find_one": true,
+        "filter": "{ \"_id\": \":commentId\" }",
+        "options": "{}"
+      }
+    ],
+    "public_zone": {
+      "pages": [
+        {
+          "name": "home_public",
+          "title": "",
+          "components": [
+            {
+              "name": "home_jumbotron",
+              "title": "Home",
+              "type": "jumbotron",
+              "text": "App store admin",
+              "button_title": "Continue &raquo;",
+              "button_route": "login"
+            }
+          ]
+        },
+        {
+          "name": "login",
+          "template": "login"
+        },
+        {
+          "name": "register",
+          "template": "register"
+        },
+        {
+          "name": "forgot_password",
+          "template": "forgot_password"
+        },
+        {
+          "name": "reset_password",
+          "template": "reset_password",
+          "route_params": [
+            "resetPasswordToken"
+          ]
+        }
+      ],
+      "components": [
+        {
+          "name": "left_menu",
+          "type": "menu",
+          "class": "nav navbar-nav",
+          "dest_selector": "#menu",
+          "items": [
+            {
+              "title": "Home",
+              "route": "home_public"
+            }
+          ]
+        },
+        {
+          "name": "right_menu",
+          "type": "menu",
+          "class": "nav navbar-nav navbar-right",
+          "dest_selector": "#menu",
+          "items": [
+            {
+              "title": "Register",
+              "route": "register"
+            },
+            {
+              "title": "Login",
+              "route": "login"
+            }
+          ]
+        }
+      ]
+    },
+    "private_zone": {
+      "pages": [
+        {
+          "name": "home_private",
+          "title": "Welcome {{userFullName}}!",
+          "text": "Place for dashboard here..."
+        },
+        {
+          "name": "Apps",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Apps",
+              "text_if_empty": "I'm sorry, there are no apps :(",
+              "query_name": "app_list",
+              "page_size": 20,
+              "insert_route": "apps.insert",
+              "edit_route": "apps.edit",
+              "edit_route_params": [
+                {
+                  "name": "appId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "apps.details",
+              "details_route_params": [
+                {
+                  "name": "appId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Apps",
+                  "query_name": "app_empty",
+                  "submit_route": "Apps",
+                  "cancel_route": "Apps"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "appId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "app_details",
+                  "close_route": "Apps",
+                  "back_route": "Apps"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "appId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Apps",
+                  "submit_route": "Apps",
+                  "cancel_route": "Apps",
+                  "query_name": "app_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Docs",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Docs",
+              "text_if_empty": "I'm sorry, there are no docs :(",
+              "query_name": "doc_list",
+              "page_size": 20,
+              "insert_route": "docs.insert",
+              "edit_route": "docs.edit",
+              "edit_route_params": [
+                {
+                  "name": "docId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "docs.details",
+              "details_route_params": [
+                {
+                  "name": "docId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Docs",
+                  "query_name": "doc_empty",
+                  "submit_route": "Docs",
+                  "cancel_route": "Docs"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "docId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "doc_details",
+                  "close_route": "Docs",
+                  "back_route": "Docs"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "docId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Docs",
+                  "submit_route": "Docs",
+                  "cancel_route": "Docs",
+                  "query_name": "doc_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Platforms",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Platforms",
+              "text_if_empty": "I'm sorry, there are no platforms :(",
+              "query_name": "platform_list",
+              "page_size": 20,
+              "insert_route": "platforms.insert",
+              "edit_route": "platforms.edit",
+              "edit_route_params": [
+                {
+                  "name": "platformId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "platforms.details",
+              "details_route_params": [
+                {
+                  "name": "platformId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Platforms",
+                  "query_name": "platform_empty",
+                  "submit_route": "Platforms",
+                  "cancel_route": "Platforms"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "platformId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "platform_details",
+                  "close_route": "Platforms",
+                  "back_route": "Platforms"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "platformId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Platforms",
+                  "submit_route": "Platforms",
+                  "cancel_route": "Platforms",
+                  "query_name": "platform_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Stars",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Stars",
+              "text_if_empty": "I'm sorry, there are no stars :(",
+              "query_name": "star_list",
+              "page_size": 20,
+              "insert_route": "stars.insert",
+              "edit_route": "stars.edit",
+              "edit_route_params": [
+                {
+                  "name": "starId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "stars.details",
+              "details_route_params": [
+                {
+                  "name": "starId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Stars",
+                  "query_name": "star_empty",
+                  "submit_route": "Stars",
+                  "cancel_route": "Stars"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "starId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "star_details",
+                  "close_route": "Stars",
+                  "back_route": "Stars"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "starId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Stars",
+                  "submit_route": "Stars",
+                  "cancel_route": "Stars",
+                  "query_name": "star_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Comments",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Comments",
+              "text_if_empty": "I'm sorry, there are no comments :(",
+              "query_name": "comment_list",
+              "page_size": 20,
+              "insert_route": "comments.insert",
+              "edit_route": "comments.edit",
+              "edit_route_params": [
+                {
+                  "name": "commentId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "comments.details",
+              "details_route_params": [
+                {
+                  "name": "commentId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Comments",
+                  "query_name": "comment_empty",
+                  "submit_route": "Comments",
+                  "cancel_route": "Comments"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "commentId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "comment_details",
+                  "close_route": "Comments",
+                  "back_route": "Comments"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "commentId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Comments",
+                  "submit_route": "Comments",
+                  "cancel_route": "Comments",
+                  "query_name": "comment_details"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "name": "left_menu",
+          "type": "menu",
+          "class": "nav navbar-nav",
+          "dest_selector": "#menu",
+          "items": [
+            {
+              "title": "Home",
+              "route": "home_private"
+            },
+            {
+              "title": "Apps",
+              "route": "apps"
+            },
+            {
+              "title": "Docs",
+              "route": "docs"
+            },
+            {
+              "title": "Platforms",
+              "route": "platforms"
+            },
+            {
+              "title": "Stars",
+              "route": "stars"
+            },
+            {
+              "title": "Comments",
+              "route": "comments"
+            }
+          ]
+        },
+        {
+          "name": "right_menu",
+          "type": "menu",
+          "class": "nav navbar-nav navbar-right",
+          "dest_selector": "#menu",
+          "items": [
+            {
+              "title": "{{userEmail}}",
+              "items": [
+                {
+                  "title": "Settings",
+                  "route": "user_settings"
+                },
+                {
+                  "title": "Logout",
+                  "route": "logout"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

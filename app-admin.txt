@@ -1,0 +1,42 @@
+#New syntax for what was human2ide
+Menu:Top
+  Home
+  Settings
+  About
+
+Datatypes
+  active: bool
+  when: date
+
+Collections
+  Apps: name, description, status
+  Docs: name, description, path, status, markdown, doctype
+  Platforms: name, description
+  Stars: who, userId, when, objecttype, objectId
+  Comments:  who, userId, when, comment, objecttype, objectId
+
+Joins
+  Product.typeId: ProductTypes
+
+Public
+  Home: Jumbotron: App store admin
+
+Private
+  Apps: CRUD: Apps
+  Docs: CRUD: Docs
+  Platforms: CRUD: Platforms
+  Stars: CRUD: Stars
+  Comments: CRUD: Comments
+
+Popups
+  Settings
+
+Accounts
+  UI
+  Password
+
+Packages
+  fortawesome:fontawesome
+  debug
+
+Templating:React

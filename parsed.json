@@ -18,18 +18,6 @@
             "private": false
           },
           {
-            "name": "Events",
-            "private": true
-          },
-          {
-            "name": "Products",
-            "private": true
-          },
-          {
-            "name": "ProductTypes",
-            "private": true
-          },
-          {
             "name": "Settings",
             "private": false
           },
@@ -42,21 +30,17 @@
       },
       "datatypes": {
         "items": [
-          "duration: integer",
-          "price: integer",
-          "qty: integer",
           "active: bool",
-          "autoRenew: bool",
-          "startDate: date",
-          "endDate: date",
           "when: date"
         ]
       },
       "collections": {
         "items": [
-          "Events:  name, description,location,when,active,duration,price",
-          "Products: productTypeId, name, description, autoRenew, code,type,duration,price,qty,image,active,startDate,endDate",
-          "ProductTypes: name, description, type, color, image, icon,"
+          "Apps: name, description, status",
+          "Docs: name, description, path, status, markdown, doctype",
+          "Platforms: name, description",
+          "Stars: who, userId, when, objecttype, objectId",
+          "Comments:  who, userId, when, comment, objecttype, objectId"
         ]
       },
       "joins": {
@@ -66,14 +50,16 @@
       },
       "public": {
         "items": [
-          "Home: Jumbotron: B2B Shop admin"
+          "Home: Jumbotron: App store admin"
         ]
       },
       "private": {
         "items": [
-          "Events: CRUD: Events",
-          "Products: CRUD: Products",
-          "ProductTypes: CRUD: ProductTypes"
+          "Apps: CRUD: Apps",
+          "Docs: CRUD: Docs",
+          "Platforms: CRUD: Platforms",
+          "Stars: CRUD: Stars",
+          "Comments: CRUD: Comments"
         ]
       },
       "popups": {
@@ -98,6 +84,6 @@
         "react": true
       }
     },
-    "when": "2019-04-14T08:33:15.694Z"
+    "when": "2019-04-14T14:00:22.580Z"
   }
 }

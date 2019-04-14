@@ -15,6 +15,14 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Parse App Admin",
+      "program": "${workspaceFolder}/cli.js",
+      "args": ["app-admin.txt", "app-admin.json"],
+      "env": { "DEBUG": "kitchen:parser" }
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Parse B2B",
       "program": "${workspaceFolder}/cli.js",
       "args": ["b2b-admin.txt", "b2b-admin.json"],
