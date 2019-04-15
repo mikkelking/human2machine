@@ -9,14 +9,28 @@ Datatypes
   when: date
 
 Collections
-  Apps: name, description, status
-  Docs: name, description, path, status, markdown, doctype
+  MiniApps: name, description, status, platformId, categoryId, path, tag, manifestUrl 
+  Categorys: name, description,
+  Docs: name, description, path, status, markdown, doctype, platformId
   Platforms: name, description
+  Deployments: name, description
+  Eventlogs: when, userId
+  Reviews: name, description, miniAppId
+  Approvals: name, description, miniAppId
+  Tenancys: name, description, platformId, namespace, dafOrganisation, myIdApproverEmail, remedyQueue
+  Menus: name, description, platformId
+  MenuItems: name, description, menuId
+  Versions: name, description, version, status
+  Roles: name, description
+  Permissions:  name, description
+  Profiles: name, description, userId
   Stars: who, userId, when, objecttype, objectId
   Comments:  who, userId, when, comment, objecttype, objectId
 
 Joins
-  Product.typeId: ProductTypes
+  Apps.platformId: Platforms
+  Docs.platformId: Platforms
+  Profiles.
 
 Public
   Home: Jumbotron: App store admin
