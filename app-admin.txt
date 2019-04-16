@@ -30,8 +30,9 @@ Collections
 Joins
   MiniApps.platformId: Platforms
   Docs.platformId: Platforms
-  MenuItems.menuId: Menus
-  Menus.platformId: Platforms
+  MenuItems.userId: Menus
+  Reviews.miniAppId: MiniApps
+  Approvals.miniAppId: MiniApps
 
 Public
   Home: Jumbotron: App store admin
