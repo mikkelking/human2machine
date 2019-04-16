@@ -36,16 +36,31 @@
       },
       "collections": {
         "items": [
-          "Apps: name, description, status",
-          "Docs: name, description, path, status, markdown, doctype",
+          "MiniApps: name, description, status, platformId, categoryId, path, tag, manifestUrl",
+          "Categorys: name, description,",
+          "Docs: name, description, path, status, markdown, doctype, platformId",
           "Platforms: name, description",
+          "Deployments: name, description",
+          "Eventlogs: when, userId",
+          "Reviews: name, description, miniAppId",
+          "Approvals: name, description, miniAppId",
+          "Tenancys: name, description, platformId, namespace, dafOrganisation, myIdApproverEmail, remedyQueue",
+          "Menus: name, description, platformId",
+          "MenuItems: name, description, menuId",
+          "Versions: name, description, version, status",
+          "Roles: name, description",
+          "Permissions:  name, description",
+          "Profiles: name, description, userId",
           "Stars: who, userId, when, objecttype, objectId",
           "Comments:  who, userId, when, comment, objecttype, objectId"
         ]
       },
       "joins": {
         "items": [
-          "Product.typeId: ProductTypes"
+          "MiniApps.platformId: Platforms",
+          "Docs.platformId: Platforms",
+          "MenuItems.menuId: Menus",
+          "Menu.platformId: Platforms"
         ]
       },
       "public": {
@@ -55,11 +70,10 @@
       },
       "private": {
         "items": [
-          "Apps: CRUD: Apps",
+          "MiniApps: CRUD: MiniApps",
           "Docs: CRUD: Docs",
           "Platforms: CRUD: Platforms",
-          "Stars: CRUD: Stars",
-          "Comments: CRUD: Comments"
+          "Menus: CRUD: Menus"
         ]
       },
       "popups": {
@@ -84,6 +98,6 @@
         "react": true
       }
     },
-    "when": "2019-04-14T22:58:53.193Z"
+    "when": "2019-04-16T21:07:52.192Z"
   }
 }

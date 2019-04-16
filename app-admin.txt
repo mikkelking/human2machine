@@ -28,19 +28,21 @@ Collections
   Comments:  who, userId, when, comment, objecttype, objectId
 
 Joins
-  Apps.platformId: Platforms
+  MiniApps.platformId: Platforms
   Docs.platformId: Platforms
-  Profiles.
+  MenuItems.menuId: Menus
+  Menu.platformId: Platforms
 
 Public
   Home: Jumbotron: App store admin
 
 Private
-  Apps: CRUD: Apps
+  MiniApps: CRUD: MiniApps
   Docs: CRUD: Docs
   Platforms: CRUD: Platforms
-  Stars: CRUD: Stars
-  Comments: CRUD: Comments
+  Menus: CRUD: Menus
+#  Stars: CRUD: Stars
+#  Comments: CRUD: Comments
 
 Popups
   Settings
