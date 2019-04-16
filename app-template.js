@@ -25,7 +25,7 @@ const kitchenTemplates = {
       name: "<LC1_COLLECTION>_details",
       collection: "<CC_COLLECTION>",
       find_one: true,
-      filter: '{ "_id": ":<LC1_COLLECTION>Id" }',
+      filter: '{ "_id": ":<CC1_COLLECTION>Id" }',
       options: "{}"
     }
   ],
@@ -51,7 +51,7 @@ const kitchenTemplates = {
   },
   // CRUD pages
   crud: {
-    name: "<PAGE>",
+    name: "<LC_COLLECTION>",
     components: [
       {
         name: "view",
@@ -62,10 +62,10 @@ const kitchenTemplates = {
         page_size: 20,
         insert_route: "<LC_COLLECTION>.insert",
         edit_route: "<LC_COLLECTION>.edit",
-        edit_route_params: [{ name: "<LC1_COLLECTION>Id", value: "this._id" }],
+        edit_route_params: [{ name: "<CC1_COLLECTION>Id", value: "this._id" }],
         details_route: "<LC_COLLECTION>.details",
         details_route_params: [
-          { name: "<LC1_COLLECTION>Id", value: "this._id" }
+          { name: "<CC1_COLLECTION>Id", value: "this._id" }
         ]
       }
     ],
@@ -80,14 +80,14 @@ const kitchenTemplates = {
             mode: "insert",
             title: "New <COLLECTION>",
             query_name: "<LC1_COLLECTION>_empty",
-            submit_route: "<COLLECTION>",
-            cancel_route: "<COLLECTION>"
+            submit_route: "<LC_COLLECTION>",
+            cancel_route: "<LC_COLLECTION>"
           }
         ]
       },
       {
         name: "details",
-        route_params: ["<LC1_COLLECTION>Id"],
+        route_params: ["<CC1_COLLECTION>Id"],
         components: [
           {
             name: "details_form",
@@ -95,23 +95,23 @@ const kitchenTemplates = {
             mode: "read_only",
             title: "Details",
             query_name: "<LC1_COLLECTION>_details",
-            close_route: "<COLLECTION>",
-            back_route: "<COLLECTION>"
+            close_route: "<LC_COLLECTION>",
+            back_route: "<LC_COLLECTION>"
           }
         ]
       },
 
       {
         name: "edit",
-        route_params: ["<LC1_COLLECTION>Id"],
+        route_params: ["<CC1_COLLECTION>Id"],
         components: [
           {
             name: "edit_form",
             type: "form",
             mode: "update",
             title: "Edit <COLLECTION>",
-            submit_route: "<COLLECTION>",
-            cancel_route: "<COLLECTION>",
+            submit_route: "<LC_COLLECTION>",
+            cancel_route: "<LC_COLLECTION>",
             query_name: "<LC1_COLLECTION>_details"
           }
         ]

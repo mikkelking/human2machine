@@ -56,6 +56,7 @@ const addLC = (obj, kvs) => {
     obj[key] = value;
     obj[`LC_${key}`] = value.toLowerCase();
     obj[`CC_${key}`] = camelCase(value);
+    obj[`CC1_${key}`] = camelCase(value).replace(/s$/i, "");
     obj[`LC1_${key}`] = value.toLowerCase().replace(/s$/i, "");
     obj[`1_${key}`] = value.replace(/s$/i, "");
   });

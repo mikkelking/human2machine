@@ -479,8 +479,25 @@
             "name": "platformId",
             "title": "Platform",
             "required": true,
-            "exportable": true,
-            "show_in_dataview": true
+            "exportable": false,
+            "show_in_dataview": false,
+            "input": "select",
+            "lookup_query_name": "platform_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_read_only_form": false,
+            "join_collection": "platforms",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "platform"
+          },
+          {
+            "name": "platform.name",
+            "title": "Platform",
+            "show_in_insert_form": false,
+            "show_in_update_form": false,
+            "exportable": true
           }
         ],
         "owner_field": "ownerId",
@@ -845,7 +862,7 @@
         "name": "miniapp_details",
         "collection": "miniApps",
         "find_one": true,
-        "filter": "{ \"_id\": \":miniappId\" }",
+        "filter": "{ \"_id\": \":miniAppId\" }",
         "options": "{}"
       },
       {
@@ -1035,7 +1052,7 @@
         "name": "menuitem_details",
         "collection": "menuItems",
         "find_one": true,
-        "filter": "{ \"_id\": \":menuitemId\" }",
+        "filter": "{ \"_id\": \":menuItemId\" }",
         "options": "{}"
       },
       {
@@ -1228,7 +1245,7 @@
           "text": "Place for dashboard here..."
         },
         {
-          "name": "MiniApps",
+          "name": "miniapps",
           "components": [
             {
               "name": "view",
@@ -1241,14 +1258,14 @@
               "edit_route": "miniapps.edit",
               "edit_route_params": [
                 {
-                  "name": "miniappId",
+                  "name": "miniAppId",
                   "value": "this._id"
                 }
               ],
               "details_route": "miniapps.details",
               "details_route_params": [
                 {
-                  "name": "miniappId",
+                  "name": "miniAppId",
                   "value": "this._id"
                 }
               ]
@@ -1264,15 +1281,15 @@
                   "mode": "insert",
                   "title": "New MiniApps",
                   "query_name": "miniapp_empty",
-                  "submit_route": "MiniApps",
-                  "cancel_route": "MiniApps"
+                  "submit_route": "miniapps",
+                  "cancel_route": "miniapps"
                 }
               ]
             },
             {
               "name": "details",
               "route_params": [
-                "miniappId"
+                "miniAppId"
               ],
               "components": [
                 {
@@ -1281,15 +1298,15 @@
                   "mode": "read_only",
                   "title": "Details",
                   "query_name": "miniapp_details",
-                  "close_route": "MiniApps",
-                  "back_route": "MiniApps"
+                  "close_route": "miniapps",
+                  "back_route": "miniapps"
                 }
               ]
             },
             {
               "name": "edit",
               "route_params": [
-                "miniappId"
+                "miniAppId"
               ],
               "components": [
                 {
@@ -1297,8 +1314,8 @@
                   "type": "form",
                   "mode": "update",
                   "title": "Edit MiniApps",
-                  "submit_route": "MiniApps",
-                  "cancel_route": "MiniApps",
+                  "submit_route": "miniapps",
+                  "cancel_route": "miniapps",
                   "query_name": "miniapp_details"
                 }
               ]
@@ -1306,7 +1323,7 @@
           ]
         },
         {
-          "name": "Docs",
+          "name": "docs",
           "components": [
             {
               "name": "view",
@@ -1342,8 +1359,8 @@
                   "mode": "insert",
                   "title": "New Docs",
                   "query_name": "doc_empty",
-                  "submit_route": "Docs",
-                  "cancel_route": "Docs"
+                  "submit_route": "docs",
+                  "cancel_route": "docs"
                 }
               ]
             },
@@ -1359,8 +1376,8 @@
                   "mode": "read_only",
                   "title": "Details",
                   "query_name": "doc_details",
-                  "close_route": "Docs",
-                  "back_route": "Docs"
+                  "close_route": "docs",
+                  "back_route": "docs"
                 }
               ]
             },
@@ -1375,8 +1392,8 @@
                   "type": "form",
                   "mode": "update",
                   "title": "Edit Docs",
-                  "submit_route": "Docs",
-                  "cancel_route": "Docs",
+                  "submit_route": "docs",
+                  "cancel_route": "docs",
                   "query_name": "doc_details"
                 }
               ]
@@ -1384,7 +1401,7 @@
           ]
         },
         {
-          "name": "Platforms",
+          "name": "platforms",
           "components": [
             {
               "name": "view",
@@ -1420,8 +1437,8 @@
                   "mode": "insert",
                   "title": "New Platforms",
                   "query_name": "platform_empty",
-                  "submit_route": "Platforms",
-                  "cancel_route": "Platforms"
+                  "submit_route": "platforms",
+                  "cancel_route": "platforms"
                 }
               ]
             },
@@ -1437,8 +1454,8 @@
                   "mode": "read_only",
                   "title": "Details",
                   "query_name": "platform_details",
-                  "close_route": "Platforms",
-                  "back_route": "Platforms"
+                  "close_route": "platforms",
+                  "back_route": "platforms"
                 }
               ]
             },
@@ -1453,8 +1470,8 @@
                   "type": "form",
                   "mode": "update",
                   "title": "Edit Platforms",
-                  "submit_route": "Platforms",
-                  "cancel_route": "Platforms",
+                  "submit_route": "platforms",
+                  "cancel_route": "platforms",
                   "query_name": "platform_details"
                 }
               ]
@@ -1462,7 +1479,85 @@
           ]
         },
         {
-          "name": "Menus",
+          "name": "menuitems",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "MenuItems",
+              "text_if_empty": "I'm sorry, there are no menuitems :(",
+              "query_name": "menuitem_list",
+              "page_size": 20,
+              "insert_route": "menuitems.insert",
+              "edit_route": "menuitems.edit",
+              "edit_route_params": [
+                {
+                  "name": "menuItemId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "menuitems.details",
+              "details_route_params": [
+                {
+                  "name": "menuItemId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New MenuItems",
+                  "query_name": "menuitem_empty",
+                  "submit_route": "menuitems",
+                  "cancel_route": "menuitems"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "menuItemId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "menuitem_details",
+                  "close_route": "menuitems",
+                  "back_route": "menuitems"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "menuItemId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit MenuItems",
+                  "submit_route": "menuitems",
+                  "cancel_route": "menuitems",
+                  "query_name": "menuitem_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "menus",
           "components": [
             {
               "name": "view",
@@ -1498,8 +1593,8 @@
                   "mode": "insert",
                   "title": "New Menus",
                   "query_name": "menu_empty",
-                  "submit_route": "Menus",
-                  "cancel_route": "Menus"
+                  "submit_route": "menus",
+                  "cancel_route": "menus"
                 }
               ]
             },
@@ -1515,8 +1610,8 @@
                   "mode": "read_only",
                   "title": "Details",
                   "query_name": "menu_details",
-                  "close_route": "Menus",
-                  "back_route": "Menus"
+                  "close_route": "menus",
+                  "back_route": "menus"
                 }
               ]
             },
@@ -1531,8 +1626,8 @@
                   "type": "form",
                   "mode": "update",
                   "title": "Edit Menus",
-                  "submit_route": "Menus",
-                  "cancel_route": "Menus",
+                  "submit_route": "menus",
+                  "cancel_route": "menus",
                   "query_name": "menu_details"
                 }
               ]
@@ -1562,6 +1657,10 @@
             {
               "title": "Platforms",
               "route": "platforms"
+            },
+            {
+              "title": "MenuItems",
+              "route": "menuitems"
             },
             {
               "title": "Menus",

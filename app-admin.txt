@@ -31,7 +31,7 @@ Joins
   MiniApps.platformId: Platforms
   Docs.platformId: Platforms
   MenuItems.menuId: Menus
-  Menu.platformId: Platforms
+  Menus.platformId: Platforms
 
 Public
   Home: Jumbotron: App store admin
@@ -40,6 +40,7 @@ Private
   MiniApps: CRUD: MiniApps
   Docs: CRUD: Docs
   Platforms: CRUD: Platforms
+  MenuItems: CRUD:  MenuItems
   Menus: CRUD: Menus
 #  Stars: CRUD: Stars
 #  Comments: CRUD: Comments

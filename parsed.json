@@ -60,7 +60,7 @@
           "MiniApps.platformId: Platforms",
           "Docs.platformId: Platforms",
           "MenuItems.menuId: Menus",
-          "Menu.platformId: Platforms"
+          "Menus.platformId: Platforms"
         ]
       },
       "public": {
@@ -73,6 +73,7 @@
           "MiniApps: CRUD: MiniApps",
           "Docs: CRUD: Docs",
           "Platforms: CRUD: Platforms",
+          "MenuItems: CRUD:  MenuItems",
           "Menus: CRUD: Menus"
         ]
       },
@@ -98,6 +99,6 @@
         "react": true
       }
     },
-    "when": "2019-04-16T21:07:52.192Z"
+    "when": "2019-04-16T22:19:36.027Z"
   }
 }
