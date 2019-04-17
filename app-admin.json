@@ -1,12 +1,8 @@
 {
   "application": {
     "packages": {
-      "meteor": [
-        "fortawesome:fontawesome"
-      ],
-      "npm": [
-        "debug"
-      ]
+      "meteor": ["fortawesome:fontawesome"],
+      "npm": ["debug"]
     },
     "collections": [
       {
@@ -44,9 +40,7 @@
             "lookup_key": "_id",
             "show_in_read_only_form": false,
             "join_collection": "platforms",
-            "join_fields": [
-              "name"
-            ],
+            "join_fields": ["name"],
             "join_container": "platform"
           },
           {
@@ -86,18 +80,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "miniApps"
       },
       {
@@ -118,18 +103,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "categorys"
       },
       {
@@ -188,9 +164,7 @@
             "lookup_key": "_id",
             "show_in_read_only_form": false,
             "join_collection": "platforms",
-            "join_fields": [
-              "name"
-            ],
+            "join_fields": ["name"],
             "join_container": "platform"
           },
           {
@@ -202,18 +176,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "docs"
       },
       {
@@ -234,18 +199,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "platforms"
       },
       {
@@ -266,18 +222,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "deployments"
       },
       {
@@ -300,18 +247,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "eventlogs"
       },
       {
@@ -337,14 +275,12 @@
             "exportable": false,
             "show_in_dataview": false,
             "input": "select",
-            "lookup_query_name": "miniapp_list",
+            "lookup_query_name": "miniApp_list",
             "lookup_field": "name",
             "lookup_key": "_id",
             "show_in_read_only_form": false,
-            "join_collection": "miniapps",
-            "join_fields": [
-              "name"
-            ],
+            "join_collection": "miniApps",
+            "join_fields": ["name"],
             "join_container": "miniapp"
           },
           {
@@ -356,18 +292,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "reviews"
       },
       {
@@ -393,14 +320,12 @@
             "exportable": false,
             "show_in_dataview": false,
             "input": "select",
-            "lookup_query_name": "miniapp_list",
+            "lookup_query_name": "miniApp_list",
             "lookup_field": "name",
             "lookup_key": "_id",
             "show_in_read_only_form": false,
-            "join_collection": "miniapps",
-            "join_fields": [
-              "name"
-            ],
+            "join_collection": "miniApps",
+            "join_fields": ["name"],
             "join_container": "miniapp"
           },
           {
@@ -412,18 +337,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "approvals"
       },
       {
@@ -479,18 +395,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "tenancys"
       },
       {
@@ -518,18 +425,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "menus"
       },
       {
@@ -557,18 +455,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "menuItems"
       },
       {
@@ -603,18 +492,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "versions"
       },
       {
@@ -635,18 +515,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "roles"
       },
       {
@@ -667,18 +538,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "permissions"
       },
       {
@@ -706,18 +568,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "profiles"
       },
       {
@@ -761,18 +614,9 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "stars"
       },
       {
@@ -823,26 +667,13 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
+        "roles_allowed_to_read": ["admin", "viewer", "editor"],
+        "roles_allowed_to_update": ["admin", "editor"],
+        "roles_allowed_to_delete": ["admin"],
         "name": "comments"
       }
     ],
-    "roles": [
-      "admin",
-      "editor",
-      "viewer"
-    ],
+    "roles": ["admin", "editor", "viewer"],
     "templating": "react",
     "login_with_github": true,
     "queries": [
@@ -862,7 +693,7 @@
         "name": "miniapp_details",
         "collection": "miniApps",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":miniAppId\" }",
         "options": "{}"
       },
       {
@@ -881,7 +712,7 @@
         "name": "category_details",
         "collection": "categorys",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":categoryId\" }",
         "options": "{}"
       },
       {
@@ -900,7 +731,7 @@
         "name": "doc_details",
         "collection": "docs",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":docId\" }",
         "options": "{}"
       },
       {
@@ -919,7 +750,7 @@
         "name": "platform_details",
         "collection": "platforms",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":platformId\" }",
         "options": "{}"
       },
       {
@@ -938,7 +769,7 @@
         "name": "deployment_details",
         "collection": "deployments",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":deploymentId\" }",
         "options": "{}"
       },
       {
@@ -957,7 +788,7 @@
         "name": "eventlog_details",
         "collection": "eventlogs",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":eventlogId\" }",
         "options": "{}"
       },
       {
@@ -976,7 +807,7 @@
         "name": "review_details",
         "collection": "reviews",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":reviewId\" }",
         "options": "{}"
       },
       {
@@ -995,7 +826,7 @@
         "name": "approval_details",
         "collection": "approvals",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":approvalId\" }",
         "options": "{}"
       },
       {
@@ -1014,7 +845,7 @@
         "name": "tenancy_details",
         "collection": "tenancys",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":tenancyId\" }",
         "options": "{}"
       },
       {
@@ -1033,7 +864,7 @@
         "name": "menu_details",
         "collection": "menus",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":menuId\" }",
         "options": "{}"
       },
       {
@@ -1052,7 +883,7 @@
         "name": "menuitem_details",
         "collection": "menuItems",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":menuItemId\" }",
         "options": "{}"
       },
       {
@@ -1071,7 +902,7 @@
         "name": "version_details",
         "collection": "versions",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":versionId\" }",
         "options": "{}"
       },
       {
@@ -1090,7 +921,7 @@
         "name": "role_details",
         "collection": "roles",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":roleId\" }",
         "options": "{}"
       },
       {
@@ -1109,7 +940,7 @@
         "name": "permission_details",
         "collection": "permissions",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":permissionId\" }",
         "options": "{}"
       },
       {
@@ -1128,7 +959,7 @@
         "name": "profile_details",
         "collection": "profiles",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":profileId\" }",
         "options": "{}"
       },
       {
@@ -1147,7 +978,7 @@
         "name": "star_details",
         "collection": "stars",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":starId\" }",
         "options": "{}"
       },
       {
@@ -1166,7 +997,7 @@
         "name": "comment_details",
         "collection": "comments",
         "find_one": true,
-        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
+        "filter": "{ \"_id\": \":commentId\" }",
         "options": "{}"
       }
     ],
@@ -1201,9 +1032,7 @@
         {
           "name": "reset_password",
           "template": "reset_password",
-          "route_params": [
-            "resetPasswordToken"
-          ]
+          "route_params": ["resetPasswordToken"]
         }
       ],
       "components": [
@@ -1258,14 +1087,14 @@
               "edit_route": "miniapps.edit",
               "edit_route_params": [
                 {
-                  "name": "<CC1_COLLECTION>Id",
+                  "name": "miniAppId",
                   "value": "this._id"
                 }
               ],
               "details_route": "miniapps.details",
               "details_route_params": [
                 {
-                  "name": "<CC1_COLLECTION>Id",
+                  "name": "miniAppId",
                   "value": "this._id"
                 }
               ]
@@ -1288,9 +1117,7 @@
             },
             {
               "name": "details",
-              "route_params": [
-                "<CC1_COLLECTION>Id"
-              ],
+              "route_params": ["miniAppId"],
               "components": [
                 {
                   "name": "details_form",
@@ -1305,9 +1132,7 @@
             },
             {
               "name": "edit",
-              "route_params": [
-                "<CC1_COLLECTION>Id"
-              ],
+              "route_params": ["miniAppId"],
               "components": [
                 {
                   "name": "edit_form",
@@ -1336,14 +1161,14 @@
               "edit_route": "docs.edit",
               "edit_route_params": [
                 {
-                  "name": "<CC1_COLLECTION>Id",
+                  "name": "docId",
                   "value": "this._id"
                 }
               ],
               "details_route": "docs.details",
               "details_route_params": [
                 {
-                  "name": "<CC1_COLLECTION>Id",
+                  "name": "docId",
                   "value": "this._id"
                 }
               ]
@@ -1366,9 +1191,7 @@
             },
             {
               "name": "details",
-              "route_params": [
-                "<CC1_COLLECTION>Id"
-              ],
+              "route_params": ["docId"],
               "components": [
                 {
                   "name": "details_form",
@@ -1383,9 +1206,7 @@
             },
             {
               "name": "edit",
-              "route_params": [
-                "<CC1_COLLECTION>Id"
-              ],
+              "route_params": ["docId"],
               "components": [
                 {
                   "name": "edit_form",
@@ -1414,14 +1235,14 @@
               "edit_route": "platforms.edit",
               "edit_route_params": [
                 {
-                  "name": "<CC1_COLLECTION>Id",
+                  "name": "platformId",
                   "value": "this._id"
                 }
               ],
               "details_route": "platforms.details",
               "details_route_params": [
                 {
-                  "name": "<CC1_COLLECTION>Id",
+                  "name": "platformId",
                   "value": "this._id"
                 }
               ]
@@ -1444,9 +1265,7 @@
             },
             {
               "name": "details",
-              "route_params": [
-                "<CC1_COLLECTION>Id"
-              ],
+              "route_params": ["platformId"],
               "components": [
                 {
                   "name": "details_form",
@@ -1461,9 +1280,7 @@
             },
             {
               "name": "edit",
-              "route_params": [
-                "<CC1_COLLECTION>Id"
-              ],
+              "route_params": ["platformId"],
               "components": [
                 {
                   "name": "edit_form",
@@ -1492,14 +1309,14 @@
               "edit_route": "menuitems.edit",
               "edit_route_params": [
                 {
-                  "name": "<CC1_COLLECTION>Id",
+                  "name": "menuItemId",
                   "value": "this._id"
                 }
               ],
               "details_route": "menuitems.details",
               "details_route_params": [
                 {
-                  "name": "<CC1_COLLECTION>Id",
+                  "name": "menuItemId",
                   "value": "this._id"
                 }
               ]
@@ -1522,9 +1339,7 @@
             },
             {
               "name": "details",
-              "route_params": [
-                "<CC1_COLLECTION>Id"
-              ],
+              "route_params": ["menuItemId"],
               "components": [
                 {
                   "name": "details_form",
@@ -1539,9 +1354,7 @@
             },
             {
               "name": "edit",
-              "route_params": [
-                "<CC1_COLLECTION>Id"
-              ],
+              "route_params": ["menuItemId"],
               "components": [
                 {
                   "name": "edit_form",
@@ -1570,14 +1383,14 @@
               "edit_route": "menus.edit",
               "edit_route_params": [
                 {
-                  "name": "<CC1_COLLECTION>Id",
+                  "name": "menuId",
                   "value": "this._id"
                 }
               ],
               "details_route": "menus.details",
               "details_route_params": [
                 {
-                  "name": "<CC1_COLLECTION>Id",
+                  "name": "menuId",
                   "value": "this._id"
                 }
               ]
@@ -1600,9 +1413,7 @@
             },
             {
               "name": "details",
-              "route_params": [
-                "<CC1_COLLECTION>Id"
-              ],
+              "route_params": ["menuId"],
               "components": [
                 {
                   "name": "details_form",
@@ -1617,9 +1428,7 @@
             },
             {
               "name": "edit",
-              "route_params": [
-                "<CC1_COLLECTION>Id"
-              ],
+              "route_params": ["menuId"],
               "components": [
                 {
                   "name": "edit_form",

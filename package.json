@@ -29,6 +29,7 @@
   "homepage": "https://github.com/perak/human2machine",
   "dependencies": {
     "camel-case": "^3.0.0",
+    "debug": "^4.1.1",
     "lodash": "^4.17.11",
     "title-case": "^2.1.1"
   }
