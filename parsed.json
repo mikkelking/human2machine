@@ -92,7 +92,11 @@
       "packages": {
         "items": [
           "fortawesome:fontawesome",
-          "debug"
+          "debug",
+          "react",
+          "react-dom",
+          "react-markdown",
+          "bcryptjs"
         ]
       },
       "templating": {
@@ -100,6 +104,6 @@
         "react": true
       }
     },
-    "when": "2019-04-17T00:28:42.814Z"
+    "when": "2019-04-17T01:10:20.109Z"
   }
 }
