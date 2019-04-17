@@ -36,7 +36,6 @@
             "name": "platformId",
             "title": "Platform",
             "required": true,
-<<<<<<< HEAD
             "exportable": false,
             "show_in_dataview": false,
             "input": "select",
@@ -49,10 +48,6 @@
               "name"
             ],
             "join_container": "platform"
-=======
-            "exportable": true,
-            "show_in_dataview": true
->>>>>>> meteor-kitchen 201904160410354830
           },
           {
             "name": "categoryId",
@@ -81,7 +76,6 @@
             "required": true,
             "exportable": true,
             "show_in_dataview": false
-<<<<<<< HEAD
           },
           {
             "name": "platform.name",
@@ -89,8 +83,6 @@
             "show_in_insert_form": false,
             "show_in_update_form": false,
             "exportable": true
-=======
->>>>>>> meteor-kitchen 201904160410354830
           }
         ],
         "owner_field": "ownerId",
@@ -342,10 +334,6 @@
             "name": "miniAppId",
             "title": "Mini App",
             "required": true,
-<<<<<<< HEAD
-            "exportable": true,
-            "show_in_dataview": true
-=======
             "exportable": false,
             "show_in_dataview": false,
             "input": "select",
@@ -365,7 +353,6 @@
             "show_in_insert_form": false,
             "show_in_update_form": false,
             "exportable": true
->>>>>>> meteor-kitchen 201904160410354830
           }
         ],
         "owner_field": "ownerId",
@@ -403,10 +390,6 @@
             "name": "miniAppId",
             "title": "Mini App",
             "required": true,
-<<<<<<< HEAD
-            "exportable": true,
-            "show_in_dataview": true
-=======
             "exportable": false,
             "show_in_dataview": false,
             "input": "select",
@@ -426,7 +409,6 @@
             "show_in_insert_form": false,
             "show_in_update_form": false,
             "exportable": true
->>>>>>> meteor-kitchen 201904160410354830
           }
         ],
         "owner_field": "ownerId",
@@ -494,7 +476,6 @@
             "required": true,
             "exportable": true,
             "show_in_dataview": false
-<<<<<<< HEAD
           }
         ],
         "owner_field": "ownerId",
@@ -529,92 +510,6 @@
             "show_in_dataview": true
           },
           {
-            "name": "platformId",
-            "title": "Platform",
-            "required": true,
-            "exportable": false,
-            "show_in_dataview": false,
-            "input": "select",
-            "lookup_query_name": "platform_list",
-            "lookup_field": "name",
-            "lookup_key": "_id",
-            "show_in_read_only_form": false,
-            "join_collection": "platforms",
-            "join_fields": [
-              "name"
-            ],
-            "join_container": "platform"
-          },
-          {
-            "name": "platform.name",
-            "title": "Platform",
-            "show_in_insert_form": false,
-            "show_in_update_form": false,
-            "exportable": true
-=======
->>>>>>> meteor-kitchen 201904160410354830
-          }
-        ],
-        "owner_field": "ownerId",
-        "roles_allowed_to_read": [
-          "admin",
-          "viewer",
-          "editor"
-        ],
-        "roles_allowed_to_update": [
-          "admin",
-          "editor"
-        ],
-        "roles_allowed_to_delete": [
-          "admin"
-        ],
-<<<<<<< HEAD
-        "name": "menus"
-=======
-        "name": "tenancys"
->>>>>>> meteor-kitchen 201904160410354830
-      },
-      {
-        "fields": [
-          {
-            "name": "name",
-            "title": "Name",
-            "required": true,
-            "exportable": true,
-            "show_in_dataview": true
-          },
-          {
-            "name": "description",
-            "title": "Description",
-            "required": true,
-            "exportable": true,
-            "show_in_dataview": true
-          },
-          {
-<<<<<<< HEAD
-            "name": "menuId",
-            "title": "Menu",
-            "required": true,
-            "exportable": false,
-            "show_in_dataview": false,
-            "input": "select",
-            "lookup_query_name": "menu_list",
-            "lookup_field": "name",
-            "lookup_key": "_id",
-            "show_in_read_only_form": false,
-            "join_collection": "menus",
-            "join_fields": [
-              "name"
-            ],
-            "join_container": "menu"
-          },
-          {
-            "name": "menu.name",
-            "title": "Menu",
-            "show_in_insert_form": false,
-            "show_in_update_form": false,
-            "exportable": true
-=======
             "name": "platformId",
             "title": "Platform",
             "required": true,
@@ -659,7 +554,6 @@
             "required": true,
             "exportable": true,
             "show_in_dataview": true
->>>>>>> meteor-kitchen 201904160410354830
           }
         ],
         "owner_field": "ownerId",
@@ -955,8 +849,6 @@
       {
         "name": "miniapp_list",
         "collection": "miniApps",
-<<<<<<< HEAD
-=======
         "filter": "{}",
         "options": "{  \"sort\": { \"name\": 1 } }"
       },
@@ -970,7 +862,7 @@
         "name": "miniapp_details",
         "collection": "miniApps",
         "find_one": true,
-        "filter": "{ \"_id\": \":miniappId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -989,7 +881,7 @@
         "name": "category_details",
         "collection": "categorys",
         "find_one": true,
-        "filter": "{ \"_id\": \":categoryId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1008,7 +900,7 @@
         "name": "doc_details",
         "collection": "docs",
         "find_one": true,
-        "filter": "{ \"_id\": \":docId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1027,7 +919,7 @@
         "name": "platform_details",
         "collection": "platforms",
         "find_one": true,
-        "filter": "{ \"_id\": \":platformId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1046,7 +938,7 @@
         "name": "deployment_details",
         "collection": "deployments",
         "find_one": true,
-        "filter": "{ \"_id\": \":deploymentId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1065,7 +957,7 @@
         "name": "eventlog_details",
         "collection": "eventlogs",
         "find_one": true,
-        "filter": "{ \"_id\": \":eventlogId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1084,248 +976,7 @@
         "name": "review_details",
         "collection": "reviews",
         "find_one": true,
-        "filter": "{ \"_id\": \":reviewId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "approval_list",
-        "collection": "approvals",
->>>>>>> meteor-kitchen 201904160410354830
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-<<<<<<< HEAD
-        "name": "miniapp_empty",
-        "collection": "miniApps",
-=======
-        "name": "approval_empty",
-        "collection": "approvals",
->>>>>>> meteor-kitchen 201904160410354830
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-<<<<<<< HEAD
-        "name": "miniapp_details",
-        "collection": "miniApps",
-        "find_one": true,
-        "filter": "{ \"_id\": \":miniAppId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "category_list",
-        "collection": "categorys",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "category_empty",
-        "collection": "categorys",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "category_details",
-        "collection": "categorys",
-        "find_one": true,
-        "filter": "{ \"_id\": \":categoryId\" }",
-=======
-        "name": "approval_details",
-        "collection": "approvals",
-        "find_one": true,
-        "filter": "{ \"_id\": \":approvalId\" }",
->>>>>>> meteor-kitchen 201904160410354830
-        "options": "{}"
-      },
-      {
-        "name": "tenancy_list",
-        "collection": "tenancys",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "tenancy_empty",
-        "collection": "tenancys",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "tenancy_details",
-        "collection": "tenancys",
-        "find_one": true,
-        "filter": "{ \"_id\": \":tenancyId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "menu_list",
-        "collection": "menus",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "menu_empty",
-        "collection": "menus",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "menu_details",
-        "collection": "menus",
-        "find_one": true,
-        "filter": "{ \"_id\": \":menuId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "menuitem_list",
-        "collection": "menuItems",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "menuitem_empty",
-        "collection": "menuItems",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "menuitem_details",
-        "collection": "menuItems",
-        "find_one": true,
-        "filter": "{ \"_id\": \":menuitemId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "version_list",
-        "collection": "versions",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "version_empty",
-        "collection": "versions",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "version_details",
-        "collection": "versions",
-        "find_one": true,
-        "filter": "{ \"_id\": \":versionId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "role_list",
-        "collection": "roles",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "role_empty",
-        "collection": "roles",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "role_details",
-        "collection": "roles",
-        "find_one": true,
-        "filter": "{ \"_id\": \":roleId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "permission_list",
-        "collection": "permissions",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "permission_empty",
-        "collection": "permissions",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "permission_details",
-        "collection": "permissions",
-        "find_one": true,
-        "filter": "{ \"_id\": \":permissionId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "profile_list",
-        "collection": "profiles",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "profile_empty",
-        "collection": "profiles",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "profile_details",
-        "collection": "profiles",
-        "find_one": true,
-        "filter": "{ \"_id\": \":profileId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "deployment_list",
-        "collection": "deployments",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "deployment_empty",
-        "collection": "deployments",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "deployment_details",
-        "collection": "deployments",
-        "find_one": true,
-        "filter": "{ \"_id\": \":deploymentId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "eventlog_list",
-        "collection": "eventlogs",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "eventlog_empty",
-        "collection": "eventlogs",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "eventlog_details",
-        "collection": "eventlogs",
-        "find_one": true,
-        "filter": "{ \"_id\": \":eventlogId\" }",
-        "options": "{}"
-      },
-      {
-        "name": "review_list",
-        "collection": "reviews",
-        "filter": "{}",
-        "options": "{  \"sort\": { \"name\": 1 } }"
-      },
-      {
-        "name": "review_empty",
-        "collection": "reviews",
-        "filter": "{ \"_id\": null }",
-        "find_one": true
-      },
-      {
-        "name": "review_details",
-        "collection": "reviews",
-        "find_one": true,
-        "filter": "{ \"_id\": \":reviewId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1344,7 +995,7 @@
         "name": "approval_details",
         "collection": "approvals",
         "find_one": true,
-        "filter": "{ \"_id\": \":approvalId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1363,7 +1014,7 @@
         "name": "tenancy_details",
         "collection": "tenancys",
         "find_one": true,
-        "filter": "{ \"_id\": \":tenancyId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1382,7 +1033,7 @@
         "name": "menu_details",
         "collection": "menus",
         "find_one": true,
-        "filter": "{ \"_id\": \":menuId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1401,7 +1052,7 @@
         "name": "menuitem_details",
         "collection": "menuItems",
         "find_one": true,
-        "filter": "{ \"_id\": \":menuItemId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1420,7 +1071,7 @@
         "name": "version_details",
         "collection": "versions",
         "find_one": true,
-        "filter": "{ \"_id\": \":versionId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1439,7 +1090,7 @@
         "name": "role_details",
         "collection": "roles",
         "find_one": true,
-        "filter": "{ \"_id\": \":roleId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1458,7 +1109,7 @@
         "name": "permission_details",
         "collection": "permissions",
         "find_one": true,
-        "filter": "{ \"_id\": \":permissionId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1477,7 +1128,7 @@
         "name": "profile_details",
         "collection": "profiles",
         "find_one": true,
-        "filter": "{ \"_id\": \":profileId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1496,7 +1147,7 @@
         "name": "star_details",
         "collection": "stars",
         "find_one": true,
-        "filter": "{ \"_id\": \":starId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       },
       {
@@ -1515,7 +1166,7 @@
         "name": "comment_details",
         "collection": "comments",
         "find_one": true,
-        "filter": "{ \"_id\": \":commentId\" }",
+        "filter": "{ \"_id\": \":<CC1_COLLECTION>Id\" }",
         "options": "{}"
       }
     ],
@@ -1607,14 +1258,14 @@
               "edit_route": "miniapps.edit",
               "edit_route_params": [
                 {
-                  "name": "miniAppId",
+                  "name": "<CC1_COLLECTION>Id",
                   "value": "this._id"
                 }
               ],
               "details_route": "miniapps.details",
               "details_route_params": [
                 {
-                  "name": "miniAppId",
+                  "name": "<CC1_COLLECTION>Id",
                   "value": "this._id"
                 }
               ]
@@ -1638,7 +1289,7 @@
             {
               "name": "details",
               "route_params": [
-                "miniAppId"
+                "<CC1_COLLECTION>Id"
               ],
               "components": [
                 {
@@ -1655,7 +1306,7 @@
             {
               "name": "edit",
               "route_params": [
-                "miniAppId"
+                "<CC1_COLLECTION>Id"
               ],
               "components": [
                 {
@@ -1685,14 +1336,14 @@
               "edit_route": "docs.edit",
               "edit_route_params": [
                 {
-                  "name": "docId",
+                  "name": "<CC1_COLLECTION>Id",
                   "value": "this._id"
                 }
               ],
               "details_route": "docs.details",
               "details_route_params": [
                 {
-                  "name": "docId",
+                  "name": "<CC1_COLLECTION>Id",
                   "value": "this._id"
                 }
               ]
@@ -1716,7 +1367,7 @@
             {
               "name": "details",
               "route_params": [
-                "docId"
+                "<CC1_COLLECTION>Id"
               ],
               "components": [
                 {
@@ -1733,7 +1384,7 @@
             {
               "name": "edit",
               "route_params": [
-                "docId"
+                "<CC1_COLLECTION>Id"
               ],
               "components": [
                 {
@@ -1763,14 +1414,14 @@
               "edit_route": "platforms.edit",
               "edit_route_params": [
                 {
-                  "name": "platformId",
+                  "name": "<CC1_COLLECTION>Id",
                   "value": "this._id"
                 }
               ],
               "details_route": "platforms.details",
               "details_route_params": [
                 {
-                  "name": "platformId",
+                  "name": "<CC1_COLLECTION>Id",
                   "value": "this._id"
                 }
               ]
@@ -1794,7 +1445,7 @@
             {
               "name": "details",
               "route_params": [
-                "platformId"
+                "<CC1_COLLECTION>Id"
               ],
               "components": [
                 {
@@ -1811,7 +1462,7 @@
             {
               "name": "edit",
               "route_params": [
-                "platformId"
+                "<CC1_COLLECTION>Id"
               ],
               "components": [
                 {
@@ -1828,245 +1479,7 @@
           ]
         },
         {
-<<<<<<< HEAD
           "name": "menuitems",
-=======
-          "name": "Menus",
-          "components": [
-            {
-              "name": "view",
-              "type": "data_view",
-              "title": "Menus",
-              "text_if_empty": "I'm sorry, there are no menus :(",
-              "query_name": "menu_list",
-              "page_size": 20,
-              "insert_route": "menus.insert",
-              "edit_route": "menus.edit",
-              "edit_route_params": [
-                {
-                  "name": "menuId",
-                  "value": "this._id"
-                }
-              ],
-              "details_route": "menus.details",
-              "details_route_params": [
-                {
-                  "name": "menuId",
-                  "value": "this._id"
-                }
-              ]
-            }
-          ],
-          "pages": [
-            {
-              "name": "insert",
-              "components": [
-                {
-                  "name": "insert_form",
-                  "type": "form",
-                  "mode": "insert",
-                  "title": "New Menus",
-                  "query_name": "menu_empty",
-                  "submit_route": "Menus",
-                  "cancel_route": "Menus"
-                }
-              ]
-            },
-            {
-              "name": "details",
-              "route_params": [
-                "menuId"
-              ],
-              "components": [
-                {
-                  "name": "details_form",
-                  "type": "form",
-                  "mode": "read_only",
-                  "title": "Details",
-                  "query_name": "menu_details",
-                  "close_route": "Menus",
-                  "back_route": "Menus"
-                }
-              ]
-            },
-            {
-              "name": "edit",
-              "route_params": [
-                "menuId"
-              ],
-              "components": [
-                {
-                  "name": "edit_form",
-                  "type": "form",
-                  "mode": "update",
-                  "title": "Edit Menus",
-                  "submit_route": "Menus",
-                  "cancel_route": "Menus",
-                  "query_name": "menu_details"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Reviews",
-          "components": [
-            {
-              "name": "view",
-              "type": "data_view",
-              "title": "Reviews",
-              "text_if_empty": "I'm sorry, there are no reviews :(",
-              "query_name": "review_list",
-              "page_size": 20,
-              "insert_route": "reviews.insert",
-              "edit_route": "reviews.edit",
-              "edit_route_params": [
-                {
-                  "name": "reviewId",
-                  "value": "this._id"
-                }
-              ],
-              "details_route": "reviews.details",
-              "details_route_params": [
-                {
-                  "name": "reviewId",
-                  "value": "this._id"
-                }
-              ]
-            }
-          ],
-          "pages": [
-            {
-              "name": "insert",
-              "components": [
-                {
-                  "name": "insert_form",
-                  "type": "form",
-                  "mode": "insert",
-                  "title": "New Reviews",
-                  "query_name": "review_empty",
-                  "submit_route": "Reviews",
-                  "cancel_route": "Reviews"
-                }
-              ]
-            },
-            {
-              "name": "details",
-              "route_params": [
-                "reviewId"
-              ],
-              "components": [
-                {
-                  "name": "details_form",
-                  "type": "form",
-                  "mode": "read_only",
-                  "title": "Details",
-                  "query_name": "review_details",
-                  "close_route": "Reviews",
-                  "back_route": "Reviews"
-                }
-              ]
-            },
-            {
-              "name": "edit",
-              "route_params": [
-                "reviewId"
-              ],
-              "components": [
-                {
-                  "name": "edit_form",
-                  "type": "form",
-                  "mode": "update",
-                  "title": "Edit Reviews",
-                  "submit_route": "Reviews",
-                  "cancel_route": "Reviews",
-                  "query_name": "review_details"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Approvals",
-          "components": [
-            {
-              "name": "view",
-              "type": "data_view",
-              "title": "Approvals",
-              "text_if_empty": "I'm sorry, there are no approvals :(",
-              "query_name": "approval_list",
-              "page_size": 20,
-              "insert_route": "approvals.insert",
-              "edit_route": "approvals.edit",
-              "edit_route_params": [
-                {
-                  "name": "approvalId",
-                  "value": "this._id"
-                }
-              ],
-              "details_route": "approvals.details",
-              "details_route_params": [
-                {
-                  "name": "approvalId",
-                  "value": "this._id"
-                }
-              ]
-            }
-          ],
-          "pages": [
-            {
-              "name": "insert",
-              "components": [
-                {
-                  "name": "insert_form",
-                  "type": "form",
-                  "mode": "insert",
-                  "title": "New Approvals",
-                  "query_name": "approval_empty",
-                  "submit_route": "Approvals",
-                  "cancel_route": "Approvals"
-                }
-              ]
-            },
-            {
-              "name": "details",
-              "route_params": [
-                "approvalId"
-              ],
-              "components": [
-                {
-                  "name": "details_form",
-                  "type": "form",
-                  "mode": "read_only",
-                  "title": "Details",
-                  "query_name": "approval_details",
-                  "close_route": "Approvals",
-                  "back_route": "Approvals"
-                }
-              ]
-            },
-            {
-              "name": "edit",
-              "route_params": [
-                "approvalId"
-              ],
-              "components": [
-                {
-                  "name": "edit_form",
-                  "type": "form",
-                  "mode": "update",
-                  "title": "Edit Approvals",
-                  "submit_route": "Approvals",
-                  "cancel_route": "Approvals",
-                  "query_name": "approval_details"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Stars",
->>>>>>> meteor-kitchen 201904160410354830
           "components": [
             {
               "name": "view",
@@ -2079,14 +1492,14 @@
               "edit_route": "menuitems.edit",
               "edit_route_params": [
                 {
-                  "name": "menuItemId",
+                  "name": "<CC1_COLLECTION>Id",
                   "value": "this._id"
                 }
               ],
               "details_route": "menuitems.details",
               "details_route_params": [
                 {
-                  "name": "menuItemId",
+                  "name": "<CC1_COLLECTION>Id",
                   "value": "this._id"
                 }
               ]
@@ -2110,7 +1523,7 @@
             {
               "name": "details",
               "route_params": [
-                "menuItemId"
+                "<CC1_COLLECTION>Id"
               ],
               "components": [
                 {
@@ -2127,7 +1540,7 @@
             {
               "name": "edit",
               "route_params": [
-                "menuItemId"
+                "<CC1_COLLECTION>Id"
               ],
               "components": [
                 {
@@ -2157,14 +1570,14 @@
               "edit_route": "menus.edit",
               "edit_route_params": [
                 {
-                  "name": "menuId",
+                  "name": "<CC1_COLLECTION>Id",
                   "value": "this._id"
                 }
               ],
               "details_route": "menus.details",
               "details_route_params": [
                 {
-                  "name": "menuId",
+                  "name": "<CC1_COLLECTION>Id",
                   "value": "this._id"
                 }
               ]
@@ -2188,7 +1601,7 @@
             {
               "name": "details",
               "route_params": [
-                "menuId"
+                "<CC1_COLLECTION>Id"
               ],
               "components": [
                 {
@@ -2205,7 +1618,7 @@
             {
               "name": "edit",
               "route_params": [
-                "menuId"
+                "<CC1_COLLECTION>Id"
               ],
               "components": [
                 {
@@ -2246,25 +1659,8 @@
               "route": "platforms"
             },
             {
-<<<<<<< HEAD
               "title": "MenuItems",
               "route": "menuitems"
-=======
-              "title": "Menus",
-              "route": "menus"
-            },
-            {
-              "title": "Reviews",
-              "route": "reviews"
-            },
-            {
-              "title": "Approvals",
-              "route": "approvals"
-            },
-            {
-              "title": "Stars",
-              "route": "stars"
->>>>>>> meteor-kitchen 201904160410354830
             },
             {
               "title": "Menus",
