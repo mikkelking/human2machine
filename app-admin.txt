@@ -11,7 +11,7 @@ Datatypes
 Collections
   MiniApps: name, description, status, platformId, categoryId, path, tag, manifestUrl 
   Categorys: name, description,
-  Docs: name, description, path, status, markdown, doctype, platformId
+  Docs: name, description, path, status, markdown, doctype, platformId, miniAppId
   Platforms: name, description
   Deployments: name, description
   Eventlogs: when, userId
@@ -19,20 +19,26 @@ Collections
   Approvals: name, description, miniAppId
   Tenancys: name, description, platformId, namespace, dafOrganisation, myIdApproverEmail, remedyQueue
   Menus: name, description, platformId
-  MenuItems: name, description, menuId
+  MenuItems: name, description, menuId, miniAppId
   Versions: name, description, version, status
   Roles: name, description
   Permissions:  name, description
   Profiles: name, description, userId
-  Stars: who, userId, when, objecttype, objectId
-  Comments:  who, userId, when, comment, objecttype, objectId
+  Stars: who, userId, when, docId
+  Comments:  who, userId, when, comment, docId
 
 Joins
   MiniApps.platformId: Platforms
+  MiniApps.categoryId: Categorys
   Docs.platformId: Platforms
-  MenuItems.userId: Menus
+  Docs.miniAppId: MiniApps
+  MenuItems.menuId: Menus
+  MenuItems.miniAppId: MiniApps
+  Menus.platformId: Platforms
   Reviews.miniAppId: MiniApps
   Approvals.miniAppId: MiniApps
+  Stars.docId: Docs
+  Comments.docId: Docs
 
 Public
   Home: Jumbotron: App store admin
@@ -41,10 +47,13 @@ Private
   MiniApps: CRUD: MiniApps
   Docs: CRUD: Docs
   Platforms: CRUD: Platforms
+  Deployments: CRUD: Deployments
   MenuItems: CRUD:  MenuItems
   Menus: CRUD: Menus
-#  Stars: CRUD: Stars
-#  Comments: CRUD: Comments
+  Stars: CRUD: Stars
+  Comments: CRUD: Comments
+  Approvals: CRUD: Approvals
+  Reviews: CRUD: Reviews
 
 Popups
   Settings

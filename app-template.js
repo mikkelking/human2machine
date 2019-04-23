@@ -31,7 +31,7 @@ const kitchenTemplates = {
   ],
   fkeys: {
     input: "select",
-    lookup_query_name: "<CC1_JOINCOLLECTION>_list",
+    lookup_query_name: "<LC1_JOINCOLLECTION>_list",
     lookup_field: "name",
     lookup_key: "_id",
     show_in_dataview: false,

@@ -1,8 +1,12 @@
 {
   "application": {
     "packages": {
-      "meteor": ["fortawesome:fontawesome"],
-      "npm": ["debug"]
+      "meteor": [
+        "fortawesome:fontawesome"
+      ],
+      "npm": [
+        "debug"
+      ]
     },
     "collections": [
       {
@@ -40,15 +44,27 @@
             "lookup_key": "_id",
             "show_in_read_only_form": false,
             "join_collection": "platforms",
-            "join_fields": ["name"],
+            "join_fields": [
+              "name"
+            ],
             "join_container": "platform"
           },
           {
             "name": "categoryId",
             "title": "Category",
             "required": true,
-            "exportable": true,
-            "show_in_dataview": true
+            "exportable": false,
+            "show_in_dataview": false,
+            "input": "select",
+            "lookup_query_name": "category_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_read_only_form": false,
+            "join_collection": "categorys",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "category"
           },
           {
             "name": "path",
@@ -77,12 +93,28 @@
             "show_in_insert_form": false,
             "show_in_update_form": false,
             "exportable": true
+          },
+          {
+            "name": "category.name",
+            "title": "Category",
+            "show_in_insert_form": false,
+            "show_in_update_form": false,
+            "exportable": true
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "miniApps"
       },
       {
@@ -103,9 +135,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "categorys"
       },
       {
@@ -164,8 +205,27 @@
             "lookup_key": "_id",
             "show_in_read_only_form": false,
             "join_collection": "platforms",
-            "join_fields": ["name"],
+            "join_fields": [
+              "name"
+            ],
             "join_container": "platform"
+          },
+          {
+            "name": "miniAppId",
+            "title": "Mini App",
+            "required": true,
+            "exportable": false,
+            "show_in_dataview": false,
+            "input": "select",
+            "lookup_query_name": "miniapp_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_read_only_form": false,
+            "join_collection": "miniApps",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "miniapp"
           },
           {
             "name": "platform.name",
@@ -173,12 +233,28 @@
             "show_in_insert_form": false,
             "show_in_update_form": false,
             "exportable": true
+          },
+          {
+            "name": "miniapp.name",
+            "title": "MiniApp",
+            "show_in_insert_form": false,
+            "show_in_update_form": false,
+            "exportable": true
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "docs"
       },
       {
@@ -199,9 +275,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "platforms"
       },
       {
@@ -222,9 +307,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "deployments"
       },
       {
@@ -247,9 +341,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "eventlogs"
       },
       {
@@ -275,12 +378,14 @@
             "exportable": false,
             "show_in_dataview": false,
             "input": "select",
-            "lookup_query_name": "miniApp_list",
+            "lookup_query_name": "miniapp_list",
             "lookup_field": "name",
             "lookup_key": "_id",
             "show_in_read_only_form": false,
             "join_collection": "miniApps",
-            "join_fields": ["name"],
+            "join_fields": [
+              "name"
+            ],
             "join_container": "miniapp"
           },
           {
@@ -292,9 +397,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "reviews"
       },
       {
@@ -320,12 +434,14 @@
             "exportable": false,
             "show_in_dataview": false,
             "input": "select",
-            "lookup_query_name": "miniApp_list",
+            "lookup_query_name": "miniapp_list",
             "lookup_field": "name",
             "lookup_key": "_id",
             "show_in_read_only_form": false,
             "join_collection": "miniApps",
-            "join_fields": ["name"],
+            "join_fields": [
+              "name"
+            ],
             "join_container": "miniapp"
           },
           {
@@ -337,9 +453,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "approvals"
       },
       {
@@ -395,9 +520,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "tenancys"
       },
       {
@@ -420,14 +554,40 @@
             "name": "platformId",
             "title": "Platform",
             "required": true,
-            "exportable": true,
-            "show_in_dataview": true
+            "exportable": false,
+            "show_in_dataview": false,
+            "input": "select",
+            "lookup_query_name": "platform_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_read_only_form": false,
+            "join_collection": "platforms",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "platform"
+          },
+          {
+            "name": "platform.name",
+            "title": "Platform",
+            "show_in_insert_form": false,
+            "show_in_update_form": false,
+            "exportable": true
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "menus"
       },
       {
@@ -450,14 +610,64 @@
             "name": "menuId",
             "title": "Menu",
             "required": true,
-            "exportable": true,
-            "show_in_dataview": true
+            "exportable": false,
+            "show_in_dataview": false,
+            "input": "select",
+            "lookup_query_name": "menu_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_read_only_form": false,
+            "join_collection": "menus",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "menu"
+          },
+          {
+            "name": "miniAppId",
+            "title": "Mini App",
+            "required": true,
+            "exportable": false,
+            "show_in_dataview": false,
+            "input": "select",
+            "lookup_query_name": "miniapp_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_read_only_form": false,
+            "join_collection": "miniApps",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "miniapp"
+          },
+          {
+            "name": "menu.name",
+            "title": "Menu",
+            "show_in_insert_form": false,
+            "show_in_update_form": false,
+            "exportable": true
+          },
+          {
+            "name": "miniapp.name",
+            "title": "MiniApp",
+            "show_in_insert_form": false,
+            "show_in_update_form": false,
+            "exportable": true
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "menuItems"
       },
       {
@@ -492,9 +702,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "versions"
       },
       {
@@ -515,9 +734,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "roles"
       },
       {
@@ -538,9 +766,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "permissions"
       },
       {
@@ -568,9 +805,18 @@
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "profiles"
       },
       {
@@ -599,24 +845,43 @@
             "input": "datepicker"
           },
           {
-            "name": "objecttype",
-            "title": "Objecttype",
+            "name": "docId",
+            "title": "Doc",
             "required": true,
-            "exportable": true,
-            "show_in_dataview": true
+            "exportable": false,
+            "show_in_dataview": false,
+            "input": "select",
+            "lookup_query_name": "doc_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_read_only_form": false,
+            "join_collection": "docs",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "doc"
           },
           {
-            "name": "objectId",
-            "title": "Object",
-            "required": true,
-            "exportable": true,
-            "show_in_dataview": true
+            "name": "doc.name",
+            "title": "Doc",
+            "show_in_insert_form": false,
+            "show_in_update_form": false,
+            "exportable": true
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "stars"
       },
       {
@@ -652,28 +917,51 @@
             "show_in_dataview": true
           },
           {
-            "name": "objecttype",
-            "title": "Objecttype",
+            "name": "docId",
+            "title": "Doc",
             "required": true,
-            "exportable": true,
-            "show_in_dataview": true
+            "exportable": false,
+            "show_in_dataview": false,
+            "input": "select",
+            "lookup_query_name": "doc_list",
+            "lookup_field": "name",
+            "lookup_key": "_id",
+            "show_in_read_only_form": false,
+            "join_collection": "docs",
+            "join_fields": [
+              "name"
+            ],
+            "join_container": "doc"
           },
           {
-            "name": "objectId",
-            "title": "Object",
-            "required": true,
-            "exportable": true,
-            "show_in_dataview": true
+            "name": "doc.name",
+            "title": "Doc",
+            "show_in_insert_form": false,
+            "show_in_update_form": false,
+            "exportable": true
           }
         ],
         "owner_field": "ownerId",
-        "roles_allowed_to_read": ["admin", "viewer", "editor"],
-        "roles_allowed_to_update": ["admin", "editor"],
-        "roles_allowed_to_delete": ["admin"],
+        "roles_allowed_to_read": [
+          "admin",
+          "viewer",
+          "editor"
+        ],
+        "roles_allowed_to_update": [
+          "admin",
+          "editor"
+        ],
+        "roles_allowed_to_delete": [
+          "admin"
+        ],
         "name": "comments"
       }
     ],
-    "roles": ["admin", "editor", "viewer"],
+    "roles": [
+      "admin",
+      "editor",
+      "viewer"
+    ],
     "templating": "react",
     "login_with_github": true,
     "queries": [
@@ -1032,7 +1320,9 @@
         {
           "name": "reset_password",
           "template": "reset_password",
-          "route_params": ["resetPasswordToken"]
+          "route_params": [
+            "resetPasswordToken"
+          ]
         }
       ],
       "components": [
@@ -1117,7 +1407,9 @@
             },
             {
               "name": "details",
-              "route_params": ["miniAppId"],
+              "route_params": [
+                "miniAppId"
+              ],
               "components": [
                 {
                   "name": "details_form",
@@ -1132,7 +1424,9 @@
             },
             {
               "name": "edit",
-              "route_params": ["miniAppId"],
+              "route_params": [
+                "miniAppId"
+              ],
               "components": [
                 {
                   "name": "edit_form",
@@ -1191,7 +1485,9 @@
             },
             {
               "name": "details",
-              "route_params": ["docId"],
+              "route_params": [
+                "docId"
+              ],
               "components": [
                 {
                   "name": "details_form",
@@ -1206,7 +1502,9 @@
             },
             {
               "name": "edit",
-              "route_params": ["docId"],
+              "route_params": [
+                "docId"
+              ],
               "components": [
                 {
                   "name": "edit_form",
@@ -1265,7 +1563,9 @@
             },
             {
               "name": "details",
-              "route_params": ["platformId"],
+              "route_params": [
+                "platformId"
+              ],
               "components": [
                 {
                   "name": "details_form",
@@ -1280,7 +1580,9 @@
             },
             {
               "name": "edit",
-              "route_params": ["platformId"],
+              "route_params": [
+                "platformId"
+              ],
               "components": [
                 {
                   "name": "edit_form",
@@ -1290,6 +1592,84 @@
                   "submit_route": "platforms",
                   "cancel_route": "platforms",
                   "query_name": "platform_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "deployments",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Deployments",
+              "text_if_empty": "I'm sorry, there are no deployments :(",
+              "query_name": "deployment_list",
+              "page_size": 20,
+              "insert_route": "deployments.insert",
+              "edit_route": "deployments.edit",
+              "edit_route_params": [
+                {
+                  "name": "deploymentId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "deployments.details",
+              "details_route_params": [
+                {
+                  "name": "deploymentId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Deployments",
+                  "query_name": "deployment_empty",
+                  "submit_route": "deployments",
+                  "cancel_route": "deployments"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "deploymentId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "deployment_details",
+                  "close_route": "deployments",
+                  "back_route": "deployments"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "deploymentId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Deployments",
+                  "submit_route": "deployments",
+                  "cancel_route": "deployments",
+                  "query_name": "deployment_details"
                 }
               ]
             }
@@ -1339,7 +1719,9 @@
             },
             {
               "name": "details",
-              "route_params": ["menuItemId"],
+              "route_params": [
+                "menuItemId"
+              ],
               "components": [
                 {
                   "name": "details_form",
@@ -1354,7 +1736,9 @@
             },
             {
               "name": "edit",
-              "route_params": ["menuItemId"],
+              "route_params": [
+                "menuItemId"
+              ],
               "components": [
                 {
                   "name": "edit_form",
@@ -1413,7 +1797,9 @@
             },
             {
               "name": "details",
-              "route_params": ["menuId"],
+              "route_params": [
+                "menuId"
+              ],
               "components": [
                 {
                   "name": "details_form",
@@ -1428,7 +1814,9 @@
             },
             {
               "name": "edit",
-              "route_params": ["menuId"],
+              "route_params": [
+                "menuId"
+              ],
               "components": [
                 {
                   "name": "edit_form",
@@ -1438,6 +1826,318 @@
                   "submit_route": "menus",
                   "cancel_route": "menus",
                   "query_name": "menu_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "stars",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Stars",
+              "text_if_empty": "I'm sorry, there are no stars :(",
+              "query_name": "star_list",
+              "page_size": 20,
+              "insert_route": "stars.insert",
+              "edit_route": "stars.edit",
+              "edit_route_params": [
+                {
+                  "name": "starId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "stars.details",
+              "details_route_params": [
+                {
+                  "name": "starId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Stars",
+                  "query_name": "star_empty",
+                  "submit_route": "stars",
+                  "cancel_route": "stars"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "starId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "star_details",
+                  "close_route": "stars",
+                  "back_route": "stars"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "starId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Stars",
+                  "submit_route": "stars",
+                  "cancel_route": "stars",
+                  "query_name": "star_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "comments",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Comments",
+              "text_if_empty": "I'm sorry, there are no comments :(",
+              "query_name": "comment_list",
+              "page_size": 20,
+              "insert_route": "comments.insert",
+              "edit_route": "comments.edit",
+              "edit_route_params": [
+                {
+                  "name": "commentId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "comments.details",
+              "details_route_params": [
+                {
+                  "name": "commentId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Comments",
+                  "query_name": "comment_empty",
+                  "submit_route": "comments",
+                  "cancel_route": "comments"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "commentId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "comment_details",
+                  "close_route": "comments",
+                  "back_route": "comments"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "commentId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Comments",
+                  "submit_route": "comments",
+                  "cancel_route": "comments",
+                  "query_name": "comment_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "approvals",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Approvals",
+              "text_if_empty": "I'm sorry, there are no approvals :(",
+              "query_name": "approval_list",
+              "page_size": 20,
+              "insert_route": "approvals.insert",
+              "edit_route": "approvals.edit",
+              "edit_route_params": [
+                {
+                  "name": "approvalId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "approvals.details",
+              "details_route_params": [
+                {
+                  "name": "approvalId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Approvals",
+                  "query_name": "approval_empty",
+                  "submit_route": "approvals",
+                  "cancel_route": "approvals"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "approvalId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "approval_details",
+                  "close_route": "approvals",
+                  "back_route": "approvals"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "approvalId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Approvals",
+                  "submit_route": "approvals",
+                  "cancel_route": "approvals",
+                  "query_name": "approval_details"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "reviews",
+          "components": [
+            {
+              "name": "view",
+              "type": "data_view",
+              "title": "Reviews",
+              "text_if_empty": "I'm sorry, there are no reviews :(",
+              "query_name": "review_list",
+              "page_size": 20,
+              "insert_route": "reviews.insert",
+              "edit_route": "reviews.edit",
+              "edit_route_params": [
+                {
+                  "name": "reviewId",
+                  "value": "this._id"
+                }
+              ],
+              "details_route": "reviews.details",
+              "details_route_params": [
+                {
+                  "name": "reviewId",
+                  "value": "this._id"
+                }
+              ]
+            }
+          ],
+          "pages": [
+            {
+              "name": "insert",
+              "components": [
+                {
+                  "name": "insert_form",
+                  "type": "form",
+                  "mode": "insert",
+                  "title": "New Reviews",
+                  "query_name": "review_empty",
+                  "submit_route": "reviews",
+                  "cancel_route": "reviews"
+                }
+              ]
+            },
+            {
+              "name": "details",
+              "route_params": [
+                "reviewId"
+              ],
+              "components": [
+                {
+                  "name": "details_form",
+                  "type": "form",
+                  "mode": "read_only",
+                  "title": "Details",
+                  "query_name": "review_details",
+                  "close_route": "reviews",
+                  "back_route": "reviews"
+                }
+              ]
+            },
+            {
+              "name": "edit",
+              "route_params": [
+                "reviewId"
+              ],
+              "components": [
+                {
+                  "name": "edit_form",
+                  "type": "form",
+                  "mode": "update",
+                  "title": "Edit Reviews",
+                  "submit_route": "reviews",
+                  "cancel_route": "reviews",
+                  "query_name": "review_details"
                 }
               ]
             }
@@ -1468,12 +2168,32 @@
               "route": "platforms"
             },
             {
+              "title": "Deployments",
+              "route": "deployments"
+            },
+            {
               "title": "MenuItems",
               "route": "menuitems"
             },
             {
               "title": "Menus",
               "route": "menus"
+            },
+            {
+              "title": "Stars",
+              "route": "stars"
+            },
+            {
+              "title": "Comments",
+              "route": "comments"
+            },
+            {
+              "title": "Approvals",
+              "route": "approvals"
+            },
+            {
+              "title": "Reviews",
+              "route": "reviews"
             }
           ]
         },

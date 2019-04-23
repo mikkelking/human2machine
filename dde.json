@@ -16,13 +16,15 @@
             "name": "name",
             "title": "Name",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": true
           },
           {
             "name": "description",
             "title": "Description",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": true
           }
         ],
         "owner_field": "ownerId",
@@ -47,11 +49,11 @@
             "title": "Schema",
             "required": true,
             "exportable": false,
+            "show_in_dataview": false,
             "input": "select",
             "lookup_query_name": "schema_list",
             "lookup_field": "name",
             "lookup_key": "_id",
-            "show_in_dataview": false,
             "show_in_read_only_form": false,
             "join_collection": "schemas",
             "join_fields": [
@@ -63,13 +65,15 @@
             "name": "name",
             "title": "Name",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": true
           },
           {
             "name": "description",
             "title": "Description",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": true
           },
           {
             "name": "schema.name",
@@ -101,11 +105,11 @@
             "title": "Table",
             "required": true,
             "exportable": false,
+            "show_in_dataview": false,
             "input": "select",
             "lookup_query_name": "table_list",
             "lookup_field": "name",
             "lookup_key": "_id",
-            "show_in_dataview": false,
             "show_in_read_only_form": false,
             "join_collection": "tables",
             "join_fields": [
@@ -117,43 +121,50 @@
             "name": "name",
             "title": "Name",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": true
           },
           {
             "name": "column",
             "title": "Column",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": true
           },
           {
             "name": "data_type",
             "title": "Data Type",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": true
           },
           {
             "name": "key",
             "title": "Key",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": true
           },
           {
             "name": "anon_level",
             "title": "Anon Level",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": true
           },
           {
             "name": "anon_type",
             "title": "Anon Type",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": false
           },
           {
             "name": "hash",
             "title": "Hash",
             "required": true,
-            "exportable": true
+            "exportable": true,
+            "show_in_dataview": false
           },
           {
             "name": "table.name",
@@ -320,7 +331,7 @@
           "text": "Place for dashboard here..."
         },
         {
-          "name": "Schemas",
+          "name": "schemas",
           "components": [
             {
               "name": "view",
@@ -356,8 +367,8 @@
                   "mode": "insert",
                   "title": "New Schemas",
                   "query_name": "schema_empty",
-                  "submit_route": "Schemas",
-                  "cancel_route": "Schemas"
+                  "submit_route": "schemas",
+                  "cancel_route": "schemas"
                 }
               ]
             },
@@ -373,8 +384,8 @@
                   "mode": "read_only",
                   "title": "Details",
                   "query_name": "schema_details",
-                  "close_route": "Schemas",
-                  "back_route": "Schemas"
+                  "close_route": "schemas",
+                  "back_route": "schemas"
                 }
               ]
             },
@@ -389,8 +400,8 @@
                   "type": "form",
                   "mode": "update",
                   "title": "Edit Schemas",
-                  "submit_route": "Schemas",
-                  "cancel_route": "Schemas",
+                  "submit_route": "schemas",
+                  "cancel_route": "schemas",
                   "query_name": "schema_details"
                 }
               ]
@@ -398,7 +409,7 @@
           ]
         },
         {
-          "name": "Tables",
+          "name": "tables",
           "components": [
             {
               "name": "view",
@@ -434,8 +445,8 @@
                   "mode": "insert",
                   "title": "New Tables",
                   "query_name": "table_empty",
-                  "submit_route": "Tables",
-                  "cancel_route": "Tables"
+                  "submit_route": "tables",
+                  "cancel_route": "tables"
                 }
               ]
             },
@@ -451,8 +462,8 @@
                   "mode": "read_only",
                   "title": "Details",
                   "query_name": "table_details",
-                  "close_route": "Tables",
-                  "back_route": "Tables"
+                  "close_route": "tables",
+                  "back_route": "tables"
                 }
               ]
             },
@@ -467,8 +478,8 @@
                   "type": "form",
                   "mode": "update",
                   "title": "Edit Tables",
-                  "submit_route": "Tables",
-                  "cancel_route": "Tables",
+                  "submit_route": "tables",
+                  "cancel_route": "tables",
                   "query_name": "table_details"
                 }
               ]
@@ -476,7 +487,7 @@
           ]
         },
         {
-          "name": "Rows",
+          "name": "rows",
           "components": [
             {
               "name": "view",
@@ -512,8 +523,8 @@
                   "mode": "insert",
                   "title": "New Rows",
                   "query_name": "row_empty",
-                  "submit_route": "Rows",
-                  "cancel_route": "Rows"
+                  "submit_route": "rows",
+                  "cancel_route": "rows"
                 }
               ]
             },
@@ -529,8 +540,8 @@
                   "mode": "read_only",
                   "title": "Details",
                   "query_name": "row_details",
-                  "close_route": "Rows",
-                  "back_route": "Rows"
+                  "close_route": "rows",
+                  "back_route": "rows"
                 }
               ]
             },
@@ -545,8 +556,8 @@
                   "type": "form",
                   "mode": "update",
                   "title": "Edit Rows",
-                  "submit_route": "Rows",
-                  "cancel_route": "Rows",
+                  "submit_route": "rows",
+                  "cancel_route": "rows",
                   "query_name": "row_details"
                 }
               ]
