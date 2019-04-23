@@ -1,0 +1,10 @@
+{
+	"public": {
+	},
+	"oauth": {
+		"github": {
+			"clientId": "",
+			"secret": ""
+		}
+	}
+}

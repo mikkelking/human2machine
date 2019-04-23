@@ -1,0 +1,23 @@
+{
+  "name": "app-admin",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.3.4",
+    "bcrypt": "^3.0.6",
+    "bcryptjs": "^2.4.3",
+    "debug": "^4.1.1",
+    "marked": "^0.6.2",
+    "meteor-node-stubs": "^0.4.1",
+    "meteor-user-roles": "^1.1.7",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-addons-pure-render-mixin": "^15.6.2",
+    "react-dom": "^16.8.6",
+    "react-markdown": "^4.0.8",
+    "react-mounter": "^1.2.0"
+  }
+}
