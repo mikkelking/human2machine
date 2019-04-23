@@ -1,4 +1,4 @@
-{
+const data = {
    "components": [
       {
          "id": "app.admin.platform",
@@ -20314,3 +20314,5 @@
       }
    ]
 }
+
+export default data

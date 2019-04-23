@@ -1,32 +1,32 @@
 {
-  // Use IntelliSense to learn about possible attributes.
-  // Hover to view descriptions of existing attributes.
-  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Parse DDE",
-      "program": "${workspaceFolder}/cli.js",
-      "args": ["dde.txt", "dde.json"],
-      "env": { "DEBUG": "kitchen:parser" }
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Parse App Admin",
-      "program": "${workspaceFolder}/cli.js",
-      "args": ["app-admin.txt", "app-admin.json"],
-      "env": { "DEBUG": "kitchen:parser" }
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Parse B2B",
-      "program": "${workspaceFolder}/cli.js",
-      "args": ["b2b-admin.txt", "b2b-admin.json"],
-      "env": { "DEBUG": "kitchen:parser" }
-    }
-  ]
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Parse DDE",
+            "program": "${workspaceFolder}/cli.js",
+            "args": ["dde.txt", "dde.json"],
+            "env": { "DEBUG": "kitchen:parser" }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Parse App Admin",
+            "program": "${workspaceFolder}/cli.js",
+            "args": ["app-admin.txt", "app-admin.json", "app-admin.sql"],
+            "env": { "DEBUG": "kitchen:parser" }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Parse B2B",
+            "program": "${workspaceFolder}/cli.js",
+            "args": ["b2b-admin.txt", "b2b-admin.json"],
+            "env": { "DEBUG": "kitchen:parser" }
+        }
+    ]
 }
