@@ -65,5 +65,9 @@ Accounts
 Packages
   fortawesome:fontawesome
   debug
+  react
+  react-dom
+  react-markdown
+  bcryptjs
 
 Templating:React

@@ -5,7 +5,11 @@
         "fortawesome:fontawesome"
       ],
       "npm": [
-        "debug"
+        "debug",
+        "react",
+        "react-dom",
+        "react-markdown",
+        "bcryptjs"
       ]
     },
     "collections": [
